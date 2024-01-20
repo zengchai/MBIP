@@ -430,3 +430,9 @@
 0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:16:56 +0800] "GET / HTTP/1.1" 200 2245 http-bio-8080-exec-1 841
 0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:16:56 +0800] "GET /favicon.ico HTTP/1.1" 404 949 http-bio-8080-exec-3 4
 0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:16:58 +0800] "GET /certificate HTTP/1.1" 200 4306 http-bio-8080-exec-4 14
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:18:57 +0800] "GET / HTTP/1.1" 200 2245 http-bio-8080-exec-8 7
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:18:57 +0800] "GET /favicon.ico HTTP/1.1" 404 949 http-bio-8080-exec-10 3
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:19:07 +0800] "GET /certificate HTTP/1.1" 200 4306 http-bio-8080-exec-3 5
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:19:09 +0800] "GET /electricitybill HTTP/1.1" 200 4508 http-bio-8080-exec-3 7
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:19:24 +0800] "GET /certificate HTTP/1.1" 200 4306 http-bio-8080-exec-3 5
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:19:32 +0800] "GET /competitionUser HTTP/1.1" 200 7739 http-bio-8080-exec-3 10
