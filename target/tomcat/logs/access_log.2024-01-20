@@ -427,3 +427,6 @@
 0:0:0:0:0:0:0:1 - - [20/Jan/2024:17:07:36 +0800] "GET /static/css/competitionUser.css HTTP/1.1" 200 2782 http-bio-8080-exec-9 1
 0:0:0:0:0:0:0:1 - - [20/Jan/2024:17:07:36 +0800] "GET /static/asset/competitionUserIMG/3rd.png HTTP/1.1" 200 7888 http-bio-8080-exec-9 1
 0:0:0:0:0:0:0:1 - - [20/Jan/2024:17:07:36 +0800] "GET /static/asset/competitionUserIMG/1st.png HTTP/1.1" 200 8345 http-bio-8080-exec-5 1
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:16:56 +0800] "GET / HTTP/1.1" 200 2245 http-bio-8080-exec-1 841
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:16:56 +0800] "GET /favicon.ico HTTP/1.1" 404 949 http-bio-8080-exec-3 4
+0:0:0:0:0:0:0:1 - - [20/Jan/2024:20:16:58 +0800] "GET /certificate HTTP/1.1" 200 4306 http-bio-8080-exec-4 14
