@@ -1,0 +1,51 @@
+.body-container{
+    display: inline-block;
+    padding: 1rem;
+}
+
+.row{
+    display: flex;
+}
+
+.title{
+    margin: 1rem 0;
+}
+
+.row{
+    display: flex;
+    gap: 3rem;
+}
+
+input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #f0faf6;
+    border: 0.1rem solid #9E9E9E;
+}
+
+select{
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #f0faf6;
+    border: 0.1rem solid #9E9E9E;
+}
+
+.submitbutton{
+    background-color: #B7CCC4;
+    border: 0.1rem solid #9E9E9E;
+    padding: 0.4rem 1.4rem;
+    width: 100%;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.main-title{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+}

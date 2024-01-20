@@ -1,0 +1,12 @@
+my\utm\ip\zebb\configs\DatabaseConfig.class
+my\utm\ip\zebb\services\product\ProductService_Memory.class
+my\utm\ip\zebb\controllers\TestController.class
+my\utm\ip\zebb\models\product\Product.class
+my\utm\ip\zebb\configs\AppConfig.class
+my\utm\ip\zebb\models\product\ProductDAO.class
+my\utm\ip\zebb\services\product\ProductService.class
+my\utm\ip\zebb\models\product\ProductRepository_JDBC.class
+my\utm\ip\zebb\services\product\ProductService_Database.class
+my\utm\ip\zebb\controllers\HomeController.class
+my\utm\ip\zebb\controllers\ProductController.class
+my\utm\ip\zebb\models\product\ProductRepository.class

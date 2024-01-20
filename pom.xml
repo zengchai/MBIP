@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>my.utm.ip</groupId>
-  <artifactId>springmvcmaven</artifactId>
+  <artifactId>zebb</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>Demo Spring MVC  Webapp setup with Maven</name>
@@ -67,6 +67,7 @@
             <target>1.8</target>
         </configuration>
     </plugin>
+
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>

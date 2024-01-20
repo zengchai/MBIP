@@ -1,0 +1,22 @@
+/* styles.css */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: azure;
+    padding: 5px;
+}
+
+.logo {
+    margin-right: 5em;
+    border: 2px solid #cccc; 
+    border-radius:50%;
+    overflow: hidden;
+}
+
+.app-title {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: crimson;
+}
