@@ -2,9 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/static/css/home.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+        <style>
+            body{
+                background-image: url("/static/asset/background2.jpg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }  
+        </style>
     </head>
     <body>
         <div class="body-container">

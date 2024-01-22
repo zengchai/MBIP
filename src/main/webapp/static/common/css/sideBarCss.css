@@ -1,0 +1,88 @@
+body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+.sideBar-container {
+    width: 250px;
+    min-height: 100vh; /* Set the height to 100% of the viewport height */
+    background-color: #f7f6f6;
+    box-shadow: 2px 30px 20px grey; /* Add box shadow to the right */
+    overflow: hidden;
+    transition: width 0.5s ease;
+}
+
+.sidebar-content {
+    overflow: hidden;
+    transition: margin-left 0.5s ease;
+}
+
+.sideBar-container.sidebar-hidden {
+    width: 40px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-icon i {
+    font-size: 20px;
+    color: black;
+}
+
+.sidebar-hidden .sidebar-content {
+    margin-left: -200px;
+}
+
+/* Center the main content */
+.main-content-container {
+    margin-left: 100px; /* Adjust as needed */
+    transition: margin-left 0.5s ease;
+}
+
+.main-content-container.sidebar-hidden {
+    margin-left: 180px;
+}
+
+.menu-tab {
+    padding: 20px;
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    background-color: #a3eecbe5;
+    margin-bottom:20px;
+    color: black;
+    cursor: pointer;
+}
+
+.menu-button {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 25px 20px 25px 20px;
+    margin-bottom: 5px; /* Add margin-bottom for spacing between buttons */
+    display: block;
+    
+    box-shadow: inset 0 0 0 0 #a3eecbe5;
+    transition: color .3s ease-in-out, 
+    box-shadow .3s ease-in-out;
+
+}
+
+.menu-button:hover {
+    color: #fff;
+    box-shadow: inset 250px 0 0 0 #a3eecbe5;
+    width: 100%;
+    text-decoration: none;
+}
+
+.menu-button:focus {
+    color: #fff;
+    box-shadow: inset 250px 0 0 0 #a3eecbe5;
+    width: 100%;
+    text-decoration: none;
+}
+
+
+

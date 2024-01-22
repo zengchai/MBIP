@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/recycling.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
 </head>
 <body>
         <jsp:include page="header.jsp" />    
@@ -13,7 +13,7 @@
             <jsp:include page="userSideBar.jsp" />
             <div class="left-container">
                 <div class="logo-container">
-                    <img src="/asset/back.png" alt="Back Logo" class="logo">
+                    <img src="/static/asset/back.png" alt="Back Logo" class="logo">
                 </div>    
             </div>
             <div class="right-container">
