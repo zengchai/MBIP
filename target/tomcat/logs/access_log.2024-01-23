@@ -1,3 +1,12 @@
-0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:17:51 +0800] "GET / HTTP/1.1" 500 13244 http-bio-8080-exec-1 462
-0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:17:51 +0800] "GET /favicon.ico HTTP/1.1" 500 13244 http-bio-8080-exec-2 68
-0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:17:52 +0800] "GET /favicon.ico HTTP/1.1" 500 13244 http-bio-8080-exec-3 56
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:29 +0800] "GET /logout HTTP/1.1" 200 2032 http-bio-8080-exec-1 1117
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /electricity HTTP/1.1" 200 4782 http-bio-8080-exec-3 111
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/css/electricity.css HTTP/1.1" 200 2252 http-bio-8080-exec-4 3
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/css/headerCss.css HTTP/1.1" 200 777 http-bio-8080-exec-2 3
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/asset/headerIMG/image%20MBIP.png HTTP/1.1" 200 66151 http-bio-8080-exec-6 3
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/asset/headerIMG/upper%20bar%20image.png HTTP/1.1" 200 163314 http-bio-8080-exec-5 4
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/css/sideBarCss.css HTTP/1.1" 200 1756 http-bio-8080-exec-9 2
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/asset/headerIMG/userIcon.png HTTP/1.1" 200 2576 http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:35 +0800] "GET /static/asset/back.png HTTP/1.1" 200 64203 http-bio-8080-exec-8 2
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:41 +0800] "GET /electricity HTTP/1.1" 200 4782 http-bio-8080-exec-8 3
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:52 +0800] "GET /water HTTP/1.1" 200 4579 http-bio-8080-exec-8 38
+0:0:0:0:0:0:0:1 - - [23/Jan/2024:00:24:52 +0800] "GET /static/css/water.css HTTP/1.1" 200 2275 http-bio-8080-exec-8 2
