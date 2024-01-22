@@ -7,9 +7,13 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import my.utm.ip.springmvcmaven.models.product.ProductRepository;
 import my.utm.ip.springmvcmaven.models.product.ProductRepository_JDBC;
+import my.utm.ip.springmvcmaven.models.user.repository.UserRepository;
+import my.utm.ip.springmvcmaven.models.user.repository.UserRepository_JDBC;
 import my.utm.ip.springmvcmaven.services.product.ProductService;
 import my.utm.ip.springmvcmaven.services.product.ProductService_Database;
 import my.utm.ip.springmvcmaven.services.product.ProductService_Memory;
+import my.utm.ip.springmvcmaven.services.user.UserService;
+import my.utm.ip.springmvcmaven.services.user.UserService_JDBC;
 
 @Configuration
 public class AppConfig {
@@ -26,5 +30,17 @@ public class AppConfig {
     @Bean
     ProductRepository productRepository() {
         return new ProductRepository_JDBC();
+    }
+
+    
+    @Bean
+    UserService userService() {
+        // return new ProductService_Memory();
+        return new UserService_JDBC();
+    }
+
+    @Bean
+    UserRepository userRepository() {
+        return new UserRepository_JDBC();
     }
 }
