@@ -124,7 +124,6 @@ public class RecyclingController {
             {
                 System.out.println("File Name: " + file.getOriginalFilename());
                 System.out.println("File Size: " + file.getSize());
-                System.out.println("File uploaded successfully");
 
                 RecyclingDAO recycling = new RecyclingDAO();
                 recycling.setWeight(sweight);
@@ -137,6 +136,7 @@ public class RecyclingController {
                 recyclingService.addRecycleData2(recycling);
         
                 session.setAttribute("recycling", recycling);
+                System.out.println("File uploaded successfully");
             }
         } catch (Exception e) {
             // Log the exception
