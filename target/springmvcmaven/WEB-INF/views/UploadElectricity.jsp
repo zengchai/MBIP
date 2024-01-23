@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Electricity Bill Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/electricitybill.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/electricitybill.css">
 </head>
 <body>
         <jsp:include page="header.jsp" />    
@@ -13,7 +13,7 @@
             <jsp:include page="userSideBar.jsp" />
             <div class="left-container">
                 <div class="logo-container">
-                    <img src="/asset/back.png" alt="Back Logo" class="logo">
+                    <img src="/static/asset/back.png" alt="Back Logo" class="logo">
                 </div>    
             </div>
             <div class="right-container">
@@ -22,7 +22,7 @@
                     <p>Please enter your electricity bill as proof</p>
                 </div>
                 <div class="example">
-                    <img src="/asset/electricitybill.png" alt="Example Picture">
+                    <img src="/static/asset/electricitybill.png" alt="Example Picture">
                     <p>Example</p>
                 </div>
                 <div class="upload">
