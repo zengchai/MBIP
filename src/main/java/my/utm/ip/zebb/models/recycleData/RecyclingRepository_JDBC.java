@@ -41,8 +41,6 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
 
     @Override
     public RecyclingDTO addRecycleData2(RecyclingDTO recycle) { //for testing
-        RecyclingDTO added = null;
-
         String sql = "INSERT INTO recycledata (weight, days, month, image_name, image_data) VALUES (?, ?, ?, ?, ?)";
         Object[] arg = { 
                 recycle.getWeight(),
@@ -54,7 +52,7 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
 
         jdbcTemplate.update(sql, arg);
 
-        return added;
+        return recycle;
     }
 
     @Override

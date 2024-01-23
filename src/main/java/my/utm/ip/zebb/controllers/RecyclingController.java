@@ -112,8 +112,7 @@ public class RecyclingController {
     @RequestMapping(value = "/uploadRecyclingImage", method = RequestMethod.POST)
     public String uploadRecyclingImage(
             @RequestParam("file") MultipartFile file,
-            HttpSession session,
-            Model model ) {
+            HttpSession session) {
 
         double sweight = (Double) session.getAttribute("weight");
         int sdays = (Integer) session.getAttribute("days");
@@ -125,20 +124,27 @@ public class RecyclingController {
             {
                 System.out.println("File Name: " + file.getOriginalFilename());
                 System.out.println("File Size: " + file.getSize());
-        
-                RecyclingDAO recycling = new RecyclingDAO(sweight, sdays, month, file.getOriginalFilename(), file.getBytes());
+
+                RecyclingDAO recycling = new RecyclingDAO();
+                recycling.setWeight(sweight);
+                recycling.setDays(sdays);
+                recycling.setMonth(month);
+                recycling.setImageName(file.getOriginalFilename());
+                recycling.setImageData(file.getBytes());
+
+                //RecyclingDAO recycling = new RecyclingDAO(sweight, sdays, month, file.getOriginalFilename(), file.getBytes());
                 recyclingService.addRecycleData2(recycling);
         
-                model.addAttribute("recycling", recycling);
-                model.addAttribute("message", "File uploaded successfully");
+                session.setAttribute("recycling", recycling);
+                System.out.println("File uploaded successfully");
             }
         } catch (Exception e) {
             // Log the exception
             e.printStackTrace();
-            model.addAttribute("message", "Error uploading file: " + e.getMessage());
+            session.setAttribute("message", "Error uploading file: " + e.getMessage());
         }
         // Redirect to the desired page
-        return "redirect:/home"; //need change
+        return "redirect:/BillPage"; //need change
     }
     
 
