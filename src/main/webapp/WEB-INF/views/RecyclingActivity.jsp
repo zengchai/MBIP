@@ -30,10 +30,10 @@
                 <div class="form">
                     <form action="${action}" method="post">
                         <label for="weight">Weight of recycling material (kg):</label>
-                        <input type="text" id="weight" name="weight" value="${recycling.getWeight()}" required>
+                        <input type="text" id="weight" name="weight" value="${sessionScope.recycling.getWeight()}" required>
                 
                         <label for="days">Days:</label>
-                        <input type="text" id="days" name="days" value="${recycling.getDays()}" required>
+                        <input type="text" id="days" name="days" value="${sessionScope.recycling.getDays()}" required>
                 
                         <label for="month">Month:</label>
                         <select id="month" name="month" required>
