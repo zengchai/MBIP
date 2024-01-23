@@ -11,8 +11,8 @@ public interface RecyclingRepository {
     RecyclingDTO addRecycleData1(final RecyclingDTO recycle);
     RecyclingDTO addRecycleData2(final RecyclingDTO recycle);
     RecyclingDTO getRecycleDataByUserName_month(String userName, String month);
-    RecyclingDTO updateRecycleData(final RecyclingDTO recycle);
-    public boolean deleteRecycleData(String userName, String month);
+    //RecyclingDTO updateRecycleData(final RecyclingDTO recycle);
+    //public boolean deleteRecycleData(String userName, String month);
 }    
 
 
