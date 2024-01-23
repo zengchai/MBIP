@@ -13,10 +13,10 @@
     </head>
     <body>
 
-        <jsp:include page="../common/header.jsp" />
+        <%@ include file="/WEB-INF/views/header.jsp" %> 
 
         <div class="main-container">
-            <jsp:include page="../common/sidebar.jsp" />
+            <%@ include file="/WEB-INF/views/userSideBar.jsp" %> 
     
             <!-- Main Content Section -->
             <div class='main-content-container'>
