@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/certificate.css">
+        <link rel="stylesheet" href="/static/css/certificate.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
         <title>Certificate</title>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="image-container">
-                    <img src="/asset/certificateIMG/image certificates.png" alt="Your certificate">
+                    <img src="/static/asset/certificateIMG/image certificates.png" alt="Your certificate">
                     <a href="#" class="download-button" style="text-decoration: none;">Download</a>
                 </div>
             </div>
