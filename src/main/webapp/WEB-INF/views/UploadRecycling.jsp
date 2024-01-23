@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,27 +20,25 @@
             </div>
             <div class="right-container">
                 <div class="title">
-                    <h1>Water bill</h1>
-                    <p>Please enter the water bill data values</p>
+                    <h1>Recycling bill</h1>
+                    <p>Please enter your recycling bill as proof</p>
                 </div>
-                <div class="form">
-                    <form>
-                        <label for="usage">Usage (m³):</label>
-                        <input type="text" id="usage" name="usage" required>
-                        
-                        <label for="days">Days:</label>
-                        <input type="text" id="days" name="days" required>
-                        
-                        <label for="proportion">Proportion Factor (day):</label>
-                        <input type="text" id="proportion" name="proportion" required>
-                        
-                        <label for="amount">Amount (RM):</label>
-                        <input type="text" id="amount" name="amount" required>
+                <div class="example">
+                    <img src="/static/asset/electricitybill.png" alt="Example Picture">
+                    <p>Example</p>
+                </div>
+
+                <c:set var="action" value="/recycling/uploadRecyclingImage" />
+
+                <div class="upload">
+                    <form action="${action}" method="post" enctype="multipart/form-data" id="uploadForm">
+                        <input type="file" style="width: 50em;" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg" required>
+                        <input type="submit" style="width: 50em;" name="submit" value="Upload">
+                        <p class="upload-info"><span class="exclamation-sign">! </span>  Filetype should be pdf. File size should not exceed 2 MB <span class="exclamation-sign">!</span></p>
+
                     </form>
                 </div>
-                <div class="button">
-                    <button class="next-button">Next</button>
-                </div>
+
             </div>
         </div>
     </main>

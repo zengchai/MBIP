@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,20 +24,39 @@
                     <h1>Recycling bill</h1>
                     <p>Please enter the recycling bill data values</p>
                 </div>
-                <div class="form">
-                    <form>
-                        <label for="weight">Weight of recycling material (kg):</label>
-                        <input type="text" id="weight" name="weight" required>
-                        
-                        <label for="days">Days:</label>
-                        <input type="text" id="days" name="days" required>
-                        
 
+                <c:set var="action" value="/recycling/addRecyclingData2" />
+
+                <div class="form">
+                    <form action="${action}" method="post">
+                        <label for="weight">Weight of recycling material (kg):</label>
+                        <input type="text" id="weight" name="weight" value="${recycling.getWeight()}" required>
+                
+                        <label for="days">Days:</label>
+                        <input type="text" id="days" name="days" value="${recycling.getDays()}" required>
+                
+                        <label for="month">Month:</label>
+                        <select id="month" name="month" required>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                
+                        <div class="button">
+                            <button type="submit" class="next-button">Next</button>
+                        </div>
                     </form>
                 </div>
-                <div class="button">
-                    <button class="next-button">Next</button>
-                </div>
+
             </div>
         </div>
     </main>
