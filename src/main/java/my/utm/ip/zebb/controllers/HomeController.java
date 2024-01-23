@@ -31,7 +31,7 @@ public class HomeController {
         return "ElectricityConsumption";
     }
 
-    @RequestMapping("/recycling")
+    @RequestMapping("/recycling") //no used
     public String recycling() {
         return "RecyclingActivity";
     }
@@ -46,7 +46,7 @@ public class HomeController {
         return "UploadElectricity";
     }
 
-    @RequestMapping("/recyclingbill")
+    @RequestMapping("/recyclingbill") // got user in RecyclingController
     public String recyclingbill() {
         return "UploadRecycling";
     }
@@ -54,6 +54,10 @@ public class HomeController {
     @RequestMapping("/waterbill")
     public String waterbill() {
         return "UploadWater";
+    }
+    @RequestMapping("/pertandinganadmin")
+    public String pertandinganadmin(){
+        return "pertandinganadmin";
     }
     @RequestMapping("/pertandinganadmin2")
     public String pertandinganadmiin2(){
@@ -71,12 +75,12 @@ public class HomeController {
     public String timeline(){
         return "timeline";
     }
-        @RequestMapping("/pertandinganadmin")
-    public String pertandinganadmin(){
-        return "pertandinganadmin";
+        @RequestMapping("/timelineAdmin")
+    public String timelineAdmin(){
+        return "timelineAdmin";
     }
 
-    @RequestMapping("/competitionUser")
+    @RequestMapping("/competitionUser") //not used
     public String competitionuser(){
         return "competitionUser";
     }
@@ -84,5 +88,10 @@ public class HomeController {
     @RequestMapping("/certificate")
     public String certificate(){
         return "certificate";
+    }
+
+    @RequestMapping("/BillPage")
+    public String bill(){
+        return "BillPage";
     }
 }
