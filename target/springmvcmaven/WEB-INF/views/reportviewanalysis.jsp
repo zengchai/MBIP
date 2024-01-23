@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Report Analysis Page</title>
-        <link rel="stylesheet" type="text/css" href="/css/reportviewanalysis.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/reportviewanalysis.css">
         <style> </style>
     </head>
     <% ArrayList<String> consumption= new ArrayList<String>();
