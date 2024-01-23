@@ -8,23 +8,9 @@ public class HomeController {
 
     @RequestMapping({"/","/home", "/index"})
     public String home() {
-        return "home";
+        return "main/index";
     }
 
-    @RequestMapping("/register")
-    public String register(){
-        return "registration";
-    }
-    
-    @RequestMapping("/login")
-    public String login(){
-        return "home";
-    }
-
-    @RequestMapping("/editprofile")
-    public String editprofile(){
-        return "editprofile";
-    }
     
     @RequestMapping("/electricity")
     public String electricity() {

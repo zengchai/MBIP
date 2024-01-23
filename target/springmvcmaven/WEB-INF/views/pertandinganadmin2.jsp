@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pertandingan Admin Page</title>
-        <link rel="stylesheet" type="text/css" href="/css/pertandinganadmin2.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/pertandinganadmin2.css">
         <style>
         </style>
     </head>
@@ -52,7 +52,7 @@
                     <div class="container">
                     
                         <div class="search-bar" style="display: flex; align-items: center; margin-top: 1rem;">
-                            <img style="margin-right: 0.5rem;" src="/asset/filter.png" alt="filterimg">
+                            <img style="margin-right: 0.5rem;" src="/static/asset/filter.png" alt="filterimg">
                             <input style="border-radius: 0.4rem;" type="text" placeholder="Search...">
                         </div>
                         

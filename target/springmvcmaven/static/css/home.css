@@ -1,8 +1,8 @@
 body{
-    background-image: url("/asset/background2.jpg");
+    background-image: url("/static/asset/background2.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-}   
+}  
 
 .body-container{
   justify-content: center;
