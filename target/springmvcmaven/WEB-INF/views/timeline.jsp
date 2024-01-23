@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Timeline</title>
-        <link rel="stylesheet" type="text/css" href="/css/timeline.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/timeline.css">
         <style> 
 
         </style>
@@ -37,7 +37,7 @@
                     <h4><%= getCurrentDate() %></h4>
                     <div class="addbutton" onclick="openModal()">  
                         
-                        <img src="/asset/plus 1.png" alt="plusbutton">
+                        <img src="/static/asset/plus 1.png" alt="plusbutton">
 
                     </div>
                 </div>
