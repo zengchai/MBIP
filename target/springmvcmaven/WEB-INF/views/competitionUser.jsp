@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/competitionUser.css">
+        <link rel="stylesheet" href="/static/css/competitionUser.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
         <title>Competition User</title>
@@ -31,18 +31,18 @@
 
                 <div class="winner-container">
                     <div class="second-winner">
-                        <img src="/asset/competitionUserIMG/2nd.png" alt="2nd winner" style="margin-bottom: 10px;">
-                        <img src="/asset/headerIMG/userIcon.png" alt="1st winner">
+                        <img src="/static/asset/competitionUserIMG/2nd.png" alt="2nd winner" style="margin-bottom: 10px;">
+                        <img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">
                         <p>Winner 1's Username</p>
                     </div>
                     <div class="first-winner">
-                        <img src="/asset/competitionUserIMG/1st.png" alt="1st winner" style="margin-bottom: 10px;">
-                        <img src="/asset/headerIMG/userIcon.png" alt="1st winner">
+                        <img src="/static/asset/competitionUserIMG/1st.png" alt="1st winner" style="margin-bottom: 10px;">
+                        <img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">
                         <p>Winner 2's Username</p>
                     </div>
                     <div class="third-winner">
-                        <img src="/asset/competitionUserIMG/3rd.png" alt="3rd winner" style="margin-bottom: 10px;">
-                        <img src="/asset/headerIMG/userIcon.png" alt="1st winner">
+                        <img src="/static/asset/competitionUserIMG/3rd.png" alt="3rd winner" style="margin-bottom: 10px;">
+                        <img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">
                         <p>Winner 3's Username</p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <!-- Add dynamic table rows and data here -->
                         <tbody>
                             <tr>
-                                <td><img src="/asset/headerIMG/userIcon.png" alt="1st winner">John Doe</td>
+                                <td><img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">John Doe</td>
                                 <td>City A</td>
                                 <td>100 gallons</td>
                                 <td>200 kWh</td>
@@ -70,7 +70,7 @@
                                 <td>20%</td>
                             </tr>
                             <tr>
-                                <td><img src="/asset/headerIMG/userIcon.png" alt="2nd winner">John Doe</td>
+                                <td><img src="/static/asset/headerIMG/userIcon.png" alt="2nd winner">John Doe</td>
                                 <td>City A</td>
                                 <td>100 gallons</td>
                                 <td>200 kWh</td>
@@ -78,7 +78,7 @@
                                 <td>20%</td>
                             </tr>
                             <tr>
-                                <td><img src="/asset/headerIMG/userIcon.png" alt="3rd winner">John Doe</td>
+                                <td><img src="/static/asset/headerIMG/userIcon.png" alt="3rd winner">John Doe</td>
                                 <td>City A</td>
                                 <td>100 gallons</td>
                                 <td>200 kWh</td>
