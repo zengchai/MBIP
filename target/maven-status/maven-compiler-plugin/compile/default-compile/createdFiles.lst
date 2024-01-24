@@ -1,4 +1,5 @@
 my\utm\ip\zebb\services\user\UserService.class
+my\utm\ip\zebb\configs\AppConfig.class
 my\utm\ip\zebb\models\product\ProductDAO.class
 my\utm\ip\zebb\services\product\ProductService.class
 my\utm\ip\zebb\services\product\ProductService_Database.class
@@ -6,6 +7,7 @@ my\utm\ip\zebb\services\user\UserService_JDBC.class
 my\utm\ip\zebb\models\user\User.class
 my\utm\ip\zebb\models\winner\WinnerDTO.class
 my\utm\ip\zebb\models\user\repository\UserRepository.class
+my\utm\ip\zebb\services\recycleData\RecyclingService_Database.class
 my\utm\ip\zebb\services\recycleData\RecyclingService.class
 my\utm\ip\zebb\models\winner\WinnerRepository.class
 my\utm\ip\zebb\models\product\Product.class
@@ -14,6 +16,7 @@ my\utm\ip\zebb\models\winner\WinnerRepository_JDBC.class
 my\utm\ip\zebb\services\winner\WinnerService_Database.class
 my\utm\ip\zebb\services\winner\WinnerService.class
 my\utm\ip\zebb\models\winner\WinnerDAO.class
+my\utm\ip\zebb\models\recycleData\RecyclingRepository.class
 my\utm\ip\zebb\controllers\WinnerController.class
 my\utm\ip\zebb\controllers\UserController.class
 my\utm\ip\zebb\controllers\HomeController.class
@@ -23,5 +26,6 @@ my\utm\ip\zebb\models\user\UserDAO.class
 my\utm\ip\zebb\configs\DatabaseConfig.class
 my\utm\ip\zebb\models\recycleData\RecyclingDTO.class
 my\utm\ip\zebb\models\product\ProductRepository_JDBC.class
+my\utm\ip\zebb\models\recycleData\RecyclingRepository_JDBC.class
 my\utm\ip\zebb\models\user\repository\UserRepository_JDBC.class
 my\utm\ip\zebb\models\product\ProductRepository.class
