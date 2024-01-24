@@ -25,7 +25,7 @@
                     <p>Please enter the recycling bill data values</p>
                 </div>
 
-                <c:set var="action" value="/recycling/addRecyclingData2" />
+                <c:set var="action" value="/recycling/addRecyclingData" />
 
                 <div class="form">
                     <form action="${action}" method="post">
@@ -56,6 +56,8 @@
                         </div>
                     </form>
                 </div>
+
+                <a href="/recycling/displayFile?username=${sessionScope.user.getUsername()}&month=${sessionScope.recycling.getMonth()}&image_name=${sessionScope.recycling.getImageName()}" target="_blank">Download File</a>
 
             </div>
         </div>
