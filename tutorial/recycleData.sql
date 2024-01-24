@@ -9,4 +9,5 @@ CREATE TABLE recycleData (
     month VARCHAR(30),
     image_name VARCHAR(255),
     image_data LONGBLOB,
+    recycling_carbon_factor DOUBLE
 );

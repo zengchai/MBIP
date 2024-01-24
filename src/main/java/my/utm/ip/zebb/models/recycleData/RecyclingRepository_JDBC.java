@@ -23,8 +23,8 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
     } 
 
     @Override
-    public RecyclingDTO addRecycleData1(RecyclingDTO recycle) {
-        String sql = "INSERT INTO recycledata (userName, weight, days, month, image_name, image_data) VALUES (?, ?, ?, ?, ?, ?)";
+    public RecyclingDTO addRecycleData(RecyclingDTO recycle) {
+        String sql = "INSERT INTO recycledata (userName, weight, days, month, image_name, image_data, recycling_carbon_factor) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Object[] arg = { 
                 recycle.getUserName(),
                 recycle.getWeight(),
@@ -32,6 +32,7 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
                 recycle.getMonth(),
                 recycle.getImageName(),
                 recycle.getImageData(),
+                recycle.getRecycling_carbon_factor(),
         };
 
         jdbcTemplate.update(sql, arg);
@@ -39,21 +40,6 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
         return recycle;
     }
 
-    @Override
-    public RecyclingDTO addRecycleData2(RecyclingDTO recycle) { //for testing
-        String sql = "INSERT INTO recycledata (weight, days, month, image_name, image_data) VALUES (?, ?, ?, ?, ?)";
-        Object[] arg = { 
-                recycle.getWeight(),
-                recycle.getDays(),
-                recycle.getMonth(),
-                recycle.getImageName(),
-                recycle.getImageData(),
-        };
-
-        jdbcTemplate.update(sql, arg);
-
-        return recycle;
-    }
 
     @Override
     public RecyclingDTO getRecycleDataByUserName_month(String userName, String month) {
