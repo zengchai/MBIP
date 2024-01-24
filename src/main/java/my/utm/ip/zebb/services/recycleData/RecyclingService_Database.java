@@ -25,17 +25,11 @@ public class RecyclingService_Database implements RecyclingService {
     }
 
     @Override
-    public RecyclingDAO addRecycleData1(RecyclingDAO recycle) {
-        RecyclingDTO dto = repo.addRecycleData1(recycle.toDTO()); //setto
+    public RecyclingDAO addRecycleData(RecyclingDAO recycle) {
+        RecyclingDTO dto = repo.addRecycleData(recycle.toDTO()); //setto
         return new RecyclingDAO(dto); //
     }
 
-    @Override
-    public RecyclingDAO addRecycleData2(RecyclingDAO recycle) {
-        RecyclingDTO dto = repo.addRecycleData2(recycle.toDTO2()); //setto
-        return new RecyclingDAO(dto); //
-    }
-    
     @Override
     public RecyclingDAO getRecycleDataByUserName_month(String userName, String month) {
         RecyclingDTO dto =repo.getRecycleDataByUserName_month(userName, month);
