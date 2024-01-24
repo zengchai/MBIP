@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +57,39 @@
                     </form>
                 </div>
 
+
+                <!-- to list all recycling data -->
+                <a href="/recycling/listAllRecyclingData">List all recycle data</a>
                 <a href="/recycling/displayFile?username=${sessionScope.user.getUsername()}&month=${sessionScope.recycling.getMonth()}&image_name=${sessionScope.recycling.getImageName()}" target="_blank">Download File</a>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>UserName</th>
+                            <th>Weight</th>
+                            <th>Days</th>
+                            <th>Month</th>
+                            <th>Recycling Carbon Factor</th>
+                            <th>Image Name</th>
+                            <th>Download bill</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="recycling" items="${allrecycling}">
+                            <tr>
+                                <td class="Username">${recycling.getUserName()}</td>
+                                <td class="weight">${recycling.getWeight()}</td>
+                                <td class="days">${recycling.getDays()}</td>
+                                <td class="days">${recycling.getMonth()}</td>
+                                <td class="recycling_carbon_factor">${recycling.getRecycling_carbon_factor()}</td>
+                                <td class="getImageName">${recycling.getImageName()}</td>
+                                <td>
+                                    <a href="/recycling/displayFile?username=${recycling.getUserName()}&month=${recycling.getMonth()}&image_name=${recycling.getImageName()}" target="_blank">Download File</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
 
             </div>
         </div>

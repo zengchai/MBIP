@@ -38,9 +38,9 @@ public class RecyclingController {
     public String home(Model model) {
 
         List<RecyclingDAO> recycling = recyclingService.getAllRecycleData();
-        model.addAttribute("recycling", recycling);
+        model.addAttribute("allrecycling", recycling);
 
-        return "competitionUser"; //need change
+        return "RecyclingActivity";  //need change
 
     }
 
