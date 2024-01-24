@@ -7,6 +7,7 @@ public class RecyclingDAO {
     String month;
     String imageName;
     byte[] imageData;
+    double recycling_carbon_factor;
 
     public RecyclingDAO() {
         this.userName = "";
@@ -15,23 +16,17 @@ public class RecyclingDAO {
         this.month = "";
         this.imageName = "";
         this.imageData = new byte[0]; 
+        this.recycling_carbon_factor=0.0;
     }
 
-    public RecyclingDAO(String userName, double weight, int days, String month, String imageName, byte[] imageData ) {
+    public RecyclingDAO(String userName, double weight, int days, String month, String imageName, byte[] imageData, double recycling_carbon_factor) {
         this.userName = userName;
         this.weight = weight;
         this.days = days;
         this.month = month;
         this.imageName = imageName;
         this.imageData = imageData;
-    }
-
-    public RecyclingDAO(double weight, int days, String month, String imageName, byte[] imageData ) { //for testing
-        this.weight = weight;
-        this.days = days;
-        this.month = month;
-        this.imageName = imageName;
-        this.imageData = imageData;
+        this.recycling_carbon_factor = recycling_carbon_factor;
     }
 
     public void assign(RecyclingDAO recycling) {
@@ -41,6 +36,7 @@ public class RecyclingDAO {
         this.month = recycling.month;
         this.imageName = recycling.imageName;
         this.imageData = recycling.imageData;
+        this.recycling_carbon_factor = recycling.recycling_carbon_factor;
 
     }
 
@@ -68,6 +64,10 @@ public class RecyclingDAO {
         this.imageData = imageData;
     }
 
+    public void setRecycling_carbon_factor(double recycling_carbon_factor) {
+        this.recycling_carbon_factor = recycling_carbon_factor;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -92,6 +92,10 @@ public class RecyclingDAO {
         return imageData;
     }
 
+    public double getRecycling_carbon_factor() {
+        return recycling_carbon_factor;
+    }
+
     // methods to faciliate DTO
     public void fromDTO(final RecyclingDTO dto) {
 
@@ -101,6 +105,7 @@ public class RecyclingDAO {
         this.month = dto.getMonth();
         this.imageName = dto.getImageName();
         this.imageData = dto.getImageData();
+        this.recycling_carbon_factor=dto.getRecycling_carbon_factor();
 
     }
 
@@ -112,17 +117,7 @@ public class RecyclingDAO {
         dto.setMonth(this.month);
         dto.setImageName(this.imageName);
         dto.setImageData(this.imageData);
-
-        return dto;
-    }
-
-    public RecyclingDTO toDTO2() {
-        RecyclingDTO dto = new RecyclingDTO();
-        dto.setWeight(this.weight);
-        dto.setDays(this.days);
-        dto.setMonth(this.month);
-        dto.setImageName(this.imageName);
-        dto.setImageData(this.imageData);
+        dto.setRecycling_carbon_factor(this.recycling_carbon_factor);
 
         return dto;
     }
@@ -136,8 +131,9 @@ public class RecyclingDAO {
    @Override
    public String toString() {
        return "Recycling data [userName=" + userName + ", weight=" + weight + ", days=" + days +  ", month=" + month + ", imageName=" + imageName
-               + ", imageData=" + imageData + "]";
+               + ", imageData=" + imageData + ", recycling_carbon_factor=" + recycling_carbon_factor +"]";
    }
+
 
 
 }
