@@ -31,7 +31,6 @@ public class AppConfig {
 
     @Bean
     UserService userService() {
-        // return new ProductService_Memory();
         return new UserService_JDBC();
     }
 

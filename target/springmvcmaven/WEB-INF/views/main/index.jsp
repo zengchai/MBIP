@@ -18,10 +18,15 @@
 			<div class="body-container">
                 <div class="login-container">
                     <div class="logintitle">Login</div>
-                    <form action="login" method="post"><hr>
+                    <form action="loginvalidation" method="post"><hr>
                         <div class="input-container">
                       <input type="text" id="username" name="username" placeholder="Username">
                       <input type="password" id="password" name="password" placeholder="Password">
+                      <c:if test="${not empty error}">
+                        <div style="color: red;">
+                            ${error}
+                        </div>
+                      </c:if>
                       <div class="forgotpassword">
                         <a>Forget password?</a>
                       </div>
@@ -31,7 +36,6 @@
                     </form>
                   </div>
             </div>
-            Hello <p>${name}</p>. Welcome to the system!
     
             <!-- Href links -->
             <ul>

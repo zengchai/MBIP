@@ -1,10 +1,10 @@
 package my.utm.ip.zebb.models.user.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import my.utm.ip.zebb.models.product.ProductDAO;
 import my.utm.ip.zebb.models.user.UserDAO;
 
 public class UserRepository_JDBC implements UserRepository{
@@ -27,9 +27,12 @@ public class UserRepository_JDBC implements UserRepository{
 
     public UserDAO login(String username){
         String sql = "SELECT * FROM users WHERE Username=?";
-        UserDAO user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<UserDAO>(UserDAO.class),
-                username);
-        return user;
+        try {
+            UserDAO user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(UserDAO.class), username);
+            return user;
+        } catch (EmptyResultDataAccessException e) {
+            return new UserDAO();
+        }
     }
 
     @Override
