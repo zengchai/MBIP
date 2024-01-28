@@ -11,5 +11,3 @@ public interface ProductService{
     Product updateProduct(final Product product);
     public boolean deleteProduct(String id);
 }
-
-

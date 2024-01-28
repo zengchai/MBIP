@@ -23,9 +23,9 @@
             <div class="menu-tab">
                 <h4>MENU</h4>
             </div>
-            <a href="#" class="menu-button"><i class="fas fa-clipboard-list"  style="font-size: 2rem;"></i>&nbsp;&nbsp;Report</a>
-            <a href="#" class="menu-button"><i class="fas fa-trophy" style="font-size: 2rem;"></i>&nbsp;&nbsp;Competition</a>
-            <a href="#" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
+            <a href="/reportcalculation" class="menu-button"><i class="fas fa-clipboard-list"  style="font-size: 2rem;"></i>&nbsp;&nbsp;Report</a>
+            <a href="/pertandinganadmin" class="menu-button"><i class="fas fa-trophy" style="font-size: 2rem;"></i>&nbsp;&nbsp;Competition</a>
+            <a href="/timelineAdmin" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
         </div>
     </div>
 

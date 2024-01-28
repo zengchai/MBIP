@@ -39,7 +39,7 @@
     <body>
         <jsp:include page="header.jsp"/>
             <div class="main-container">
-                <jsp:include page="userSideBar.jsp"/>
+                <jsp:include page="adminSideBar.jsp"/>
                 
                 <div class="container">
                 <div class="title">
@@ -106,8 +106,8 @@
                               </tr>
                           </table>
                         </div>
-                        <div><button onclick="navigateToPage()">Select Winner</button></div>
-    
+                        <!-- <div><button onclick="navigateToPage()">Select Winner</button></div> -->
+                        <div><button class="calculate-button" onclick="location.href='/pertandinganadmin2'">Calculate</button></div>
                     </div>
 
                 </div>
