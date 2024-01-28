@@ -8,9 +8,17 @@ import my.utm.ip.zebb.models.user.repository.UserRepository_JDBC;
 import my.utm.ip.zebb.services.user.UserService_JDBC;
 import my.utm.ip.zebb.models.product.ProductRepository;
 import my.utm.ip.zebb.models.product.ProductRepository_JDBC;
+import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
+import my.utm.ip.zebb.models.recycleData.RecyclingRepository_JDBC;
 import my.utm.ip.zebb.services.product.ProductService;
 import my.utm.ip.zebb.services.product.ProductService_Database;
 import my.utm.ip.zebb.services.user.UserService;
+import my.utm.ip.zebb.services.recycleData.RecyclingService;
+import my.utm.ip.zebb.services.recycleData.RecyclingService_Database;
+import my.utm.ip.zebb.services.winner.WinnerService;
+import my.utm.ip.zebb.models.winner.WinnerRepository;
+import my.utm.ip.zebb.models.winner.WinnerRepository_JDBC;
+import my.utm.ip.zebb.services.winner.WinnerService_Database;
 
 @Configuration
 public class AppConfig {
@@ -37,5 +45,38 @@ public class AppConfig {
     @Bean
     UserRepository userRepository() {
         return new UserRepository_JDBC();
+
+    }
+
+
+
+
+
+
+
+    
+
+    //========================================================
+    @Bean
+    WinnerService winnerService() {
+        return new WinnerService_Database();
+    }
+
+    // Repositories
+    @Bean
+    WinnerRepository winnerRepository() {
+        return new WinnerRepository_JDBC();
+    }
+
+    //========================================================
+    @Bean
+    RecyclingService recyclingService() {
+        return new RecyclingService_Database();
+    }
+
+    // Repositories
+    @Bean
+    RecyclingRepository recyclingRepository() {
+        return new RecyclingRepository_JDBC();
     }
 }

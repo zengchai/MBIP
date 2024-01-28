@@ -1,5 +1,7 @@
-<html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +22,7 @@
         <img class="user-image" src="/static/asset/headerIMG/userIcon.png" alt="User Icon" onclick="handleImageClick()">
       </div>
       <div style="grid-column: 3/4; grid-row: 1/2;">
-        <h4>Ali</h4>
+        <h4>${sessionScope.user.getUsername()}</h4>
       </div>
     </div>
 

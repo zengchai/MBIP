@@ -18,7 +18,7 @@
 <body>
     <jsp:include page="header.jsp" />
     <div class="main-container">
-        <jsp:include page="userSideBar.jsp" />
+        <jsp:include page="adminSideBar.jsp" />
         <div class="container">
             <div class="title">
                 <h2><u>Carbon Calculation</u></h2>
@@ -74,7 +74,8 @@
             </div>
         
         <div class="button-container">
-            <button class="calculate-button" onclick="location.href='calculate-page.html'">Calculate</button>
+            <!-- <button class="calculate-button" onclick="location.href='calculate-page.html'">Calculate</button> -->
+            <button class="calculate-button" onclick="location.href='/reportviewanalysis'">Calculate</button>
         </div>
         </div>
     </div>
