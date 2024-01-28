@@ -71,4 +71,10 @@ public class HomeController {
     public String certificate(){
         return "certificate";
     }
+
+    
+    @RequestMapping("/dashboard")
+    public String dashbaord(){
+        return "staff/dashboard";
+    }
 }
