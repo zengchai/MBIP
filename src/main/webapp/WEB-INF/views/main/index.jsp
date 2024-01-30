@@ -27,9 +27,6 @@
                             ${error}
                         </div>
                       </c:if>
-                      <div class="forgotpassword">
-                        <a>Forget password?</a>
-                      </div>
                       <button id="loginbutton" type="submit">Login</button>
                       <a href="register" id="registerbut">Register</a>
                     </div>
