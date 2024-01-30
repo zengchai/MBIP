@@ -3,7 +3,11 @@
  * Version: Apache Tomcat/7.0.47
 <<<<<<< HEAD:target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/views/common/sidebar_jsp.java
 <<<<<<< HEAD:target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/views/common/sidebar_jsp.java
+<<<<<<< HEAD:target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/views/common/sidebar_jsp.java
  * Generated at: 2024-01-30 10:43:25 UTC
+=======
+ * Generated at: 2024-01-30 10:41:50 UTC
+>>>>>>> 7dffeec755cf2309fda9cc562db8939b8e4f7edc:target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/views/userSideBar_jsp.java
 =======
  * Generated at: 2024-01-30 10:41:50 UTC
 >>>>>>> 7dffeec755cf2309fda9cc562db8939b8e4f7edc:target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/views/userSideBar_jsp.java
