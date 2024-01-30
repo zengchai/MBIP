@@ -25,7 +25,7 @@
     <body>
         <jsp:include page="header.jsp" />
         <div class="main-container">
-            <jsp:include page="userSideBar.jsp" />
+            <jsp:include page="adminSideBar.jsp" />
             <div class="container">
             
                 <div class="title">

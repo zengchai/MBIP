@@ -23,9 +23,9 @@
             <div class="menu-tab">
                 <h4>MENU</h4>
             </div>
-            <a href="#" class="menu-button"><i class="fas fa-file-invoice" style="font-size: 2rem;"></i>&nbsp;&nbsp;Bills</a>
-            <a href="#" class="menu-button"><i class="fas fa-trophy" style="font-size: 2rem;"></i>&nbsp;&nbsp;Competition</a>
-            <a href="#" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
+            <a href="/BillPage" class="menu-button"><i class="fas fa-file-invoice" style="font-size: 2rem;"></i>&nbsp;&nbsp;Bills</a>
+            <a href="/winner/listAllWinner" class="menu-button"><i class="fas fa-trophy" style="font-size: 2rem;"></i>&nbsp;&nbsp;Competition</a>
+            <a href="/timeline" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
         </div>
     </div>
 

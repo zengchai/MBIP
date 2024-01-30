@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,17 +35,17 @@
                     <div class="second-winner">
                         <img src="/static/asset/competitionUserIMG/2nd.png" alt="2nd winner" style="margin-bottom: 10px;">
                         <img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">
-                        <p>Winner 1's Username</p>
+                        <p><c:out value="${winner.get(1).getUserName()}"></c:out></p>
                     </div>
                     <div class="first-winner">
                         <img src="/static/asset/competitionUserIMG/1st.png" alt="1st winner" style="margin-bottom: 10px;">
                         <img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">
-                        <p>Winner 2's Username</p>
+                        <p><c:out value="${winner.get(0).getUserName()}"></c:out></p>
                     </div>
                     <div class="third-winner">
                         <img src="/static/asset/competitionUserIMG/3rd.png" alt="3rd winner" style="margin-bottom: 10px;">
                         <img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">
-                        <p>Winner 3's Username</p>
+                        <p><c:out value="${winner.get(2).getUserName()}"></c:out></p>
                     </div>
                 </div>
 
@@ -61,15 +63,17 @@
                         </thead>
                         <!-- Add dynamic table rows and data here -->
                         <tbody>
-                            <tr>
-                                <td><img src="/static/asset/headerIMG/userIcon.png" alt="1st winner">John Doe</td>
-                                <td>City A</td>
-                                <td>100 gallons</td>
-                                <td>200 kWh</td>
-                                <td>5 tons</td>
-                                <td>20%</td>
-                            </tr>
-                            <tr>
+                            <c:forEach var="winner" items="${winner}">
+                                <tr>
+                                    <td><img src="/static/asset/headerIMG/userIcon.png" alt="winner">${winner.getUserName()}</td>
+                                    <td>${winner.getLocation()}</td>
+                                    <td>${winner.getWater_consumption()} gallons</td>
+                                    <td>${winner.getElectricity_consumption()} kWh</td>
+                                    <td>${winner.getRecycling_amount()} tons</td>
+                                    <td>${winner.getCarbon_reduction_rate()} %</td>
+                                </tr>
+                            </c:forEach>
+                            <!-- <tr>
                                 <td><img src="/static/asset/headerIMG/userIcon.png" alt="2nd winner">John Doe</td>
                                 <td>City A</td>
                                 <td>100 gallons</td>
@@ -84,7 +88,7 @@
                                 <td>200 kWh</td>
                                 <td>5 tons</td>
                                 <td>20%</td>
-                            </tr>
+                            </tr> -->
                             <!-- Add more rows as needed -->
                         </tbody>
                     </table>
