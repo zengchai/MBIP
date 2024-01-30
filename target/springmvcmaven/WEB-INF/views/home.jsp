@@ -49,6 +49,7 @@
             <li><a href="/winner/listAllWinner">userview pertandingan</a></li>
             <li><a href="/certificate">certificate</a></li>
             <li><a href="/BillPage">BillPage</a></li>
+            <li><a href="/recycling/listAllRecyclingData">List all recycle data</a></ul>
         </ul>
     </body>
 </html>
