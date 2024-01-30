@@ -6,16 +6,21 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
+import my.utm.ip.zebb.models.user.User;
 import my.utm.ip.zebb.services.recycleData.RecyclingService;
 
 @Controller
@@ -24,15 +29,18 @@ import my.utm.ip.zebb.services.recycleData.RecyclingService;
 public class RecyclingController {
 
     @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Autowired
     private RecyclingService recyclingService;
 
     @RequestMapping("/listAllRecyclingData")
     public String home(Model model) {
 
         List<RecyclingDAO> recycling = recyclingService.getAllRecycleData();
-        model.addAttribute("recycling", recycling);
+        model.addAttribute("allrecycling", recycling);
 
-        return "competitionUser"; //need change
+        return "RecyclingActivity";  //need change
 
     }
 
@@ -58,27 +66,8 @@ public class RecyclingController {
 
     }
 
-    // @RequestMapping("/addRecyclingData1")
-    // public String addRecyclingData1(
-    //         @RequestParam("userName") String userName,
-    //         @RequestParam("weight") String sweight,
-    //         @RequestParam("days") String sdays,
-    //         @RequestParam("months") String smonths,
-    //         @RequestParam("image_name") String simage_name,
-    //         @RequestParam("image_data") byte[] simage_data,
-    //         @RequestParam("image_type") String simage_type) {
-    //     double weight = Double.parseDouble(sweight);
-    //     int days = Integer.parseInt(sdays);
-    //     byte[]image_data = simage_data;
-    //     RecyclingDAO recycle = new RecyclingDAO(userName, weight, days, smonths, simage_name, image_data, simage_type);
-    //     recyclingService.addRecycleData1(recycle);
-
-    //     return "RecyclingActivity"; //need change
-    // }
-
-    //for testing
-    @RequestMapping("/addRecyclingData2")
-    public String addRecyclingData2(
+    @RequestMapping("/addRecyclingData")
+    public String addRecyclingData(
             @RequestParam("weight") String weight,
             @RequestParam("days") String days,
             @RequestParam("month") String month,
@@ -114,6 +103,8 @@ public class RecyclingController {
             @RequestParam("file") MultipartFile file,
             HttpSession session) {
 
+        User curuser = (User) session.getAttribute("user");
+        String userName = curuser.getUsername();
         double sweight = (Double) session.getAttribute("weight");
         int sdays = (Integer) session.getAttribute("days");
         String month = (String) session.getAttribute("month");
@@ -126,14 +117,18 @@ public class RecyclingController {
                 System.out.println("File Size: " + file.getSize());
 
                 RecyclingDAO recycling = new RecyclingDAO();
+                recycling.setUserName(userName);
                 recycling.setWeight(sweight);
                 recycling.setDays(sdays);
                 recycling.setMonth(month);
                 recycling.setImageName(file.getOriginalFilename());
                 recycling.setImageData(file.getBytes());
 
-                //RecyclingDAO recycling = new RecyclingDAO(sweight, sdays, month, file.getOriginalFilename(), file.getBytes());
-                recyclingService.addRecycleData2(recycling);
+                double recycling_carbon_factor = recycling.getWeight() * 2.860;
+                recycling.setRecycling_carbon_factor(recycling_carbon_factor);
+
+                //RecyclingDAO recycling = new RecyclingDAO(userName, sweight, sdays, month, file.getOriginalFilename(), file.getBytes(), recycling_carbon_factor);
+                recyclingService.addRecycleData(recycling);
         
                 session.setAttribute("recycling", recycling);
                 System.out.println("File uploaded successfully");
@@ -146,7 +141,39 @@ public class RecyclingController {
         // Redirect to the desired page
         return "redirect:/BillPage"; //need change
     }
-    
+
+    @RequestMapping("/displayFile")
+    public ResponseEntity<byte[]> displayFile(
+            @RequestParam String username,
+            @RequestParam String month,
+            @RequestParam String image_name) {
+
+            try {
+                String sql = "SELECT image_data FROM recycledata WHERE userName=? AND month=? AND image_name = ? LIMIT 1";
+                byte[] image_data = jdbcTemplate.queryForObject(sql, byte[].class, username, month, image_name);
+
+                if (image_data != null) {
+                    // Log incoming parameters
+                    System.out.println("Username: " + username);
+                    System.out.println("Month: " + month);
+                    System.out.println("Image Name: " + image_name);
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+                    headers.setContentDispositionFormData("attachment", image_name);
+                    
+                    System.out.println("File retrieved successfully");
+                    return new ResponseEntity<>(image_data, headers, HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+
+    }
+
 
 
     // @RequestMapping("/editRecyclingData1")
