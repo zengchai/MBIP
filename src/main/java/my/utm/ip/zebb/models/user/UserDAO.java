@@ -15,10 +15,11 @@ private String category;
 private String poscode;
 private String address;
 private int level;
+private int winner;
 
 
 public UserDAO(int id, String username, String fullname, String nickname, String password, String email, String phoneNum,
-        String preferredLanguage, String category, String poscode, String address, int level) {
+        String preferredLanguage, String category, String poscode, String address, int level,int winner) {
     this.id = id;
     this.username = username;
     this.fullname = fullname;
@@ -31,6 +32,15 @@ public UserDAO(int id, String username, String fullname, String nickname, String
     this.poscode = poscode;
     this.address = address;
     this.level = level;
+    this.winner = winner;
+}
+
+public int getWinner() {
+    return winner;
+}
+
+public void setWinner(int winner) {
+    this.winner = winner;
 }
 
 public UserDAO() {
