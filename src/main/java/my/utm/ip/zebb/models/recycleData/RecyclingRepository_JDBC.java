@@ -24,83 +24,80 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
 
     @Override
     public RecyclingDTO addRecycleData(RecyclingDTO recycle) {
-        String sql = "INSERT INTO recycledata (userName, weight, days, month, image_name, image_data, recycling_carbon_factor) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String checkIfExistsSql = "SELECT COUNT(*) FROM recycledata WHERE month = ? ";
+
+        int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, recycle.getMonth());
+            
+            if (existingCount > 0) {
+                // data already exists
+                String sql = "UPDATE recycledata SET userName=?, weight=?, month=?, image_name=?, image_data=?, recycling_carbon_factor=? WHERE month=?";
+                Object[] arg = { 
+                        recycle.getUserName(),
+                        recycle.getWeight(),
+                        recycle.getMonth(),
+                        recycle.getImageName(),
+                        recycle.getImageData(),
+                        recycle.getRecycling_carbon_factor(),
+                        recycle.getMonth()
+                };
+                jdbcTemplate.update(sql, arg);
+
+            } else {
+                // Car does not exist, add a new entry
+                String sql = "INSERT INTO recycledata (userName, weight, month, image_name, image_data, recycling_carbon_factor) VALUES (?, ?, ?, ?, ?, ?)";
+                Object[] arg = { 
+                    recycle.getUserName(),
+                    recycle.getWeight(),
+                    recycle.getMonth(),
+                    recycle.getImageName(),
+                    recycle.getImageData(),
+                    recycle.getRecycling_carbon_factor(),
+                };
+                jdbcTemplate.update(sql, arg);
+            }
+        
+        return recycle;
+
+    }
+
+    @Override
+    public List<RecyclingDTO> getRecycleDataByUserName(String userName) {
+        String sql = "SELECT * FROM recycledata WHERE userName=?";
+        
+        List<RecyclingDTO> recycleList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecyclingDTO>(RecyclingDTO.class), userName);
+
+        return recycleList;
+    }
+
+    @Override
+    public RecyclingDTO updateRecycleData(final RecyclingDTO recycle) {
+        String sql = "UPDATE recycledata SET userName=?, weight=?, month=?, image_name=?, image_data=?, recycling_carbon_factor=? WHERE month=?";
         Object[] arg = { 
                 recycle.getUserName(),
                 recycle.getWeight(),
-                recycle.getDays(),
                 recycle.getMonth(),
                 recycle.getImageName(),
                 recycle.getImageData(),
                 recycle.getRecycling_carbon_factor(),
+                recycle.getMonth()
         };
 
-        jdbcTemplate.update(sql, arg);
+        int count = jdbcTemplate.update(sql, arg);
 
-        return recycle;
+        if (count>0)
+            return recycle;
+
+        return null;
+
     }
-
 
     @Override
-    public RecyclingDTO getRecycleDataByUserName_month(String userName, String month) {
-        String sql = "SELECT * FROM recycledata WHERE userName=? AND month=?";
-        RecyclingDTO recycle = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<RecyclingDTO>(RecyclingDTO.class),
-                userName, month);
-        return recycle;
+    public boolean deleteRecycleData(String month) {
+        String sql = "DELETE FROM recycledata WHERE month=?";
+        int count = jdbcTemplate.update(sql, month);
+
+        return count > 0;
+
     }
-
-    // @Override
-    // public RecyclingDTO updateRecycleData(final RecyclingDTO winner) {
-
-    //     StringBuilder sql = new StringBuilder("UPDATE winners SET ");
-        
-    //     if (winner.getUserName()!= null){
-    //         sql.append("userName'").append(winner.getUserName()).append("', ");
-    //     }
-
-    //     if (winner.getLocation()!= null){
-    //         sql.append("location'").append(winner.getLocation()).append("', ");
-    //     }
-
-    //     Double water_consumption = winner.getWater_consumption();
-    //     if (water_consumption!= null){
-    //         sql.append("water_consumption=").append(winner.getWater_consumption()).append(", ");
-    //     }
-
-    //     Double electricity_consumption = winner.getElectricity_consumption();
-    //     if (electricity_consumption!= null){
-    //         sql.append("electricity_consumption=").append(winner.getElectricity_consumption()).append(", ");
-    //     }
-
-    //     Double recycling_amount = winner.getRecycling_amount();
-    //     if (recycling_amount!= null){
-    //         sql.append("recycling_amount=").append(winner.getRecycling_amount()).append(", ");
-    //     }
-
-    //     Double carbon_reduction_rate = winner.getCarbon_reduction_rate();
-    //     if (carbon_reduction_rate!= null){
-    //         sql.append("carbon_reduction_rate=").append(winner.getCarbon_reduction_rate()).append(", ");
-    //     }
-
-    //     sql.append("WHERE userName=?");
-        
-
-    //     int count = jdbcTemplate.update(sql.toString(), winner.getUserName());
-
-    //     if (count>0)
-    //         return winner;
-
-    //     return null;
-
-    // }
-
-    // @Override
-    // public boolean deleteRecycleData(String userName, String month) {
-    //     String sql = "DELETE FROM winners WHERE userName=?";
-    //     int count = jdbcTemplate.update(sql, userName);
-
-    //     return count > 0;
-
-    // }
 
 }
