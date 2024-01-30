@@ -39,14 +39,16 @@
             <li><a href="/recyclingbill">Recycling Bill</a></li>
             <li><a href="/waterbill">Water Bill</a></li>
             <li><a href="/electricity">Electricity form</a></li>
-            <li><a href="/recycling">Recycling form</a></li>
+            <li><a href="/recycling/viewAddRecyclingDataForm">Recycling form</a></li>
             <li><a href="/water">Water form</a></li>
             <li><a href="/pertandinganadmin">Adminview pertandingan</a></li>
             <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/timelineAdmin">TimelineAdmin</a></li>
             <li><a href="/reportviewanalysis">Adminview report analysis</a></li>
             <li><a href="/reportcalculation">Adminview report calculation</a></li>
-            <li><a href="/competitionUser">userview pertandingan</a></li>
+            <li><a href="/winner/listAllWinner">userview pertandingan</a></li>
             <li><a href="/certificate">certificate</a></li>
+            <li><a href="/BillPage">BillPage</a></li>
         </ul>
     </body>
 </html>
