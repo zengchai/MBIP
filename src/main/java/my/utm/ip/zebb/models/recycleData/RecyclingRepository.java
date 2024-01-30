@@ -9,9 +9,9 @@ public interface RecyclingRepository {
    
     List<RecyclingDTO> getAllRecycleData();
     RecyclingDTO addRecycleData(final RecyclingDTO recycle);
-    RecyclingDTO getRecycleDataByUserName_month(String userName, String month);
-    //RecyclingDTO updateRecycleData(final RecyclingDTO recycle);
-    //public boolean deleteRecycleData(String userName, String month);
+    List<RecyclingDTO> getRecycleDataByUserName(String userName);
+    RecyclingDTO updateRecycleData(final RecyclingDTO recycle);
+    public boolean deleteRecycleData(String month);
 }    
 
 
