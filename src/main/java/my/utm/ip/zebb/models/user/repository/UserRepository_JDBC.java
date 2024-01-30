@@ -1,5 +1,7 @@
 package my.utm.ip.zebb.models.user.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -14,6 +16,7 @@ public class UserRepository_JDBC implements UserRepository{
 
     public UserDAO register(final UserDAO user){
 
+        
         String sql = "INSERT INTO users (Email, Password, Username, Level) VALUES (?,?,?,?);";
         Object[] arg = { user.getEmail(),
             user.getPassword(),
@@ -79,6 +82,14 @@ public class UserRepository_JDBC implements UserRepository{
             return user;
 
         return null;
+
+    }
+
+    public List<UserDAO> getAllEmail(){
+
+        String sql = "Select * from users";
+        List<UserDAO> user = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(UserDAO.class));
+        return user;
 
     }
 }
