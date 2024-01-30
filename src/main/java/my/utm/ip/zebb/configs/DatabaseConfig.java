@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 public class DatabaseConfig {
 
     private DriverManagerDataSource getDataSource() {
-    private DriverManagerDataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
@@ -20,8 +19,6 @@ public class DatabaseConfig {
     }
 
     @Bean
-    JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(getDataSource());
     JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(getDataSource());
     }
