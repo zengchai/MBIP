@@ -7,22 +7,16 @@ public class RecyclingDTO {
     private String month;
     private String imageName;
     private byte[] imageData;
+    private double recycling_carbon_factor;
 
-    public RecyclingDTO(String userName, double weight, int days, String month, String imageName, byte[] imageData ) {
+    public RecyclingDTO(String userName, double weight, int days, String month, String imageName, byte[] imageData, double recycling_carbon_factor ) {
         this.userName = userName;
         this.weight = weight;
         this.days = days;
         this.month = month;
         this.imageName = imageName;
         this.imageData = imageData;
-    }
-
-    public RecyclingDTO(double weight, int days, String month, String imageName, byte[] imageData ) { //for testing
-        this.weight = weight;
-        this.days = days;
-        this.month = month;
-        this.imageName = imageName;
-        this.imageData = imageData;
+        this.recycling_carbon_factor = recycling_carbon_factor;
     }
 
     public RecyclingDTO() {
@@ -32,6 +26,7 @@ public class RecyclingDTO {
         this.month = "";
         this.imageName = "";
         this.imageData = new byte[0]; 
+        this.recycling_carbon_factor=0.0;
     }
 
     public void setUserName(String userName) {
@@ -58,6 +53,10 @@ public class RecyclingDTO {
         this.imageData = imageData;
     }
 
+    public void setRecycling_carbon_factor(double recycling_carbon_factor) {
+        this.recycling_carbon_factor = recycling_carbon_factor;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -82,10 +81,14 @@ public class RecyclingDTO {
         return imageData;
     }
 
+    public double getRecycling_carbon_factor() {
+        return recycling_carbon_factor;
+    }
+
     @Override
    public String toString() {
        return "Recycling data [userName=" + userName + ", weight=" + weight + ", days=" + days +  ", month=" + month + ", imageName=" + imageName
-               + ", imageData=" + imageData + "]";
+               + ", imageData=" + imageData + ", recycling_carbon_factor=" + recycling_carbon_factor +"]";
    }
 
       
