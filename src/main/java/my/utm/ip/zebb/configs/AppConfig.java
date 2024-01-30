@@ -5,11 +5,19 @@ import org.springframework.context.annotation.Configuration;
 
 import my.utm.ip.zebb.models.user.repository.UserRepository;
 import my.utm.ip.zebb.models.user.repository.UserRepository_JDBC;
+import my.utm.ip.zebb.models.waterData.WaterRepository;
+import my.utm.ip.zebb.models.waterData.WaterRepository_JDBC;
 import my.utm.ip.zebb.services.user.UserService_JDBC;
+import my.utm.ip.zebb.services.waterData.WaterService;
+import my.utm.ip.zebb.services.waterData.WaterService_Database;
+import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
+import my.utm.ip.zebb.models.electricalData.ElectricalRepository_JDBC;
 import my.utm.ip.zebb.models.product.ProductRepository;
 import my.utm.ip.zebb.models.product.ProductRepository_JDBC;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository_JDBC;
+import my.utm.ip.zebb.services.electricalData.ElectricalService;
+import my.utm.ip.zebb.services.electricalData.ElectricalService_Database;
 import my.utm.ip.zebb.services.product.ProductService;
 import my.utm.ip.zebb.services.product.ProductService_Database;
 import my.utm.ip.zebb.services.user.UserService;
@@ -79,5 +87,27 @@ public class AppConfig {
     @Bean
     RecyclingRepository recyclingRepository() {
         return new RecyclingRepository_JDBC();
+    }
+
+    @Bean
+    WaterService waterService() {
+        return new WaterService_Database();
+    }
+
+    // Repositories
+    @Bean
+    WaterRepository waterRepository() {
+        return new WaterRepository_JDBC();
+    }
+    
+    @Bean
+    ElectricalService electricalService() {
+        return new ElectricalService_Database();
+    }
+
+    // Repositories
+    @Bean
+    ElectricalRepository electricalRepository() {
+        return new ElectricalRepository_JDBC();
     }
 }
