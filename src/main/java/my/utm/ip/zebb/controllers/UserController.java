@@ -1,5 +1,7 @@
 package my.utm.ip.zebb.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,11 +65,26 @@ public class UserController {
     public String register(@RequestParam("username") String username,
                         @RequestParam("email") String email,
                         @RequestParam("password") String password,
-                        HttpSession session){
+                        HttpSession session,Model model){
+
+        List<User> userList = userService.getAllEmail();
+        Boolean register = true;
+        for(User user:userList){
+            if(user.getEmail().equals(email)){
+                register = false;
+            }
+        }
+        if(register){
+
         User newUser = new User(username,email,password);
         userService.register(newUser);
-
         session.setAttribute("user", newUser);
+        }
+        else{
+            String error = "Email already in use";
+            model.addAttribute("error", error);
+            return "main/registration";
+        }
 
         return "main/index";
 

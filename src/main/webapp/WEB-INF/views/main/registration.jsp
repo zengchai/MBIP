@@ -17,6 +17,11 @@
                         <input type="text" id="username" name="username" placeholder="Username">
                         <input type="text" id="email" name="email" placeholder="Email">
                         <input type="password" id="password" name="password" placeholder="Password">
+                        <c:if test="${not empty error}">
+                        <div style="color: red;">
+                            ${error}
+                        </div>
+                      </c:if>
                   <button id="submitbutton" type="submit">Submit</button>
                   <div class="log-container">Already Have An Account? <a href="editprofile">Log In</a></div>
                 </div>

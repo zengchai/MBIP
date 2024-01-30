@@ -21,9 +21,9 @@
             <!-- Main Content Section -->
             <div class='main-content-container'>
                 <div class="body-container">
-                    <div class="main-title">
-                        Edit Profile
-                    </div>
+                    <h1 class="main-title">
+                        Profile
+                    </h1>
                     <form action="updateprofile" method="post">
                     <div>
                         <div class="title">

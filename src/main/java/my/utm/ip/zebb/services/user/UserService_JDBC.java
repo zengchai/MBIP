@@ -1,5 +1,8 @@
 package my.utm.ip.zebb.services.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import my.utm.ip.zebb.models.user.User;
@@ -31,6 +34,15 @@ public class UserService_JDBC implements UserService {
     public User updateProfile(User user){
         UserDAO dao = repo.updateProfile(user.toDAO());
         return new User(dao);
+    }
+
+    public List<User> getAllEmail(){
+        List<UserDAO> userList = repo.getAllEmail();
+        List<User> userDTOList = new ArrayList<>();
+        for(UserDAO user:userList){
+            userDTOList.add(new User(user));
+        }
+        return userDTOList;
     }
     
 }
