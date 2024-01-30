@@ -16,9 +16,18 @@ private String poscode;
 private String address;
 private int level;
 private boolean authenticated;
+private int winner;
 
 public User(){
  this.authenticated = false;   
+}
+
+public int getWinner() {
+    return winner;
+}
+
+public void setWinner(int winner) {
+    this.winner = winner;
 }
 
 public User(String username,String email,String password){
@@ -43,7 +52,7 @@ public User(String username,String email,String password){
 
 
 public User(int id, String username, String fullname, String nickname, String password, String email, String phoneNum,
-        String preferredLanguage, String category, String poscode, String address, int level) {
+        String preferredLanguage, String category, String poscode, String address, int level, int winner) {
     this.id = id;
     this.username = username;
     this.fullname = fullname;
@@ -57,6 +66,7 @@ public User(int id, String username, String fullname, String nickname, String pa
     this.address = address;
     this.level = level;
     this.authenticated = authenticated;
+    this.winner = winner;
 }
 
 public int getId() {
@@ -152,6 +162,7 @@ public void fromDAO(final UserDAO dao) {
     this.poscode = dao.getPoscode();
     this.address = dao.getAddress();
     this.level = dao.getLevel();
+    this.winner = dao.getWinner();
 }
 
     public UserDAO toDAO() {
@@ -169,6 +180,7 @@ public void fromDAO(final UserDAO dao) {
         dao.setPoscode(this.poscode);
         dao.setAddress(this.address);
         dao.setLevel(this.level);
+        dao.setWinner(this.winner);
         return dao;
     }
 

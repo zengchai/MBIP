@@ -10,5 +10,6 @@ CREATE TABLE users (
     Category VARCHAR(20),
     Poscode VARCHAR(20),
     Address VARCHAR(100),
-    Level INT
+    Level INT,
+    Winner INT
 );
