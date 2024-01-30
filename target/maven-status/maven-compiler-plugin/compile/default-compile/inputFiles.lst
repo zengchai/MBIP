@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\tanze\OneDrive\Desktop\Coding\Java\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\configs\DatabaseConfig.java
 C:\Users\tanze\OneDrive\Desktop\Coding\Java\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\controllers\HomeController.java
 C:\Users\tanze\OneDrive\Desktop\Coding\Java\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\models\recycleData\RecyclingDAO.java
@@ -31,6 +32,8 @@ C:\Users\tanze\OneDrive\Desktop\Coding\Java\zebb_MBIP_springJDBC\src\main\java\m
 C:\Users\tanze\OneDrive\Desktop\Coding\Java\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\controllers\UserController.java
 C:\Users\tanze\OneDrive\Desktop\Coding\Java\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\models\product\ProductRepository_JDBC.java
 =======
+=======
+>>>>>>> 7dffeec755cf2309fda9cc562db8939b8e4f7edc
 C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\services\waterData\WaterService.java
 C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\controllers\HomeController.java
 C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\models\winner\WinnerDTO.java
@@ -76,4 +79,7 @@ C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\
 C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\models\product\ProductDAO.java
 C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\models\winner\WinnerRepository.java
 C:\Users\02zec\Documents\IP Visual Studio\zebb_MBIP_springJDBC\src\main\java\my\utm\ip\zebb\controllers\RecyclingController.java
+<<<<<<< HEAD
+>>>>>>> 7dffeec755cf2309fda9cc562db8939b8e4f7edc
+=======
 >>>>>>> 7dffeec755cf2309fda9cc562db8939b8e4f7edc
