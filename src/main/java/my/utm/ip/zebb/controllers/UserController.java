@@ -40,7 +40,7 @@ public class UserController {
         session.setAttribute("user", currentUser);
 
         }
-        return "main/index";
+        return "redirect:/winner/listAllWinner";  //need change
 
     }
 
@@ -59,7 +59,7 @@ public class UserController {
 
         session.setAttribute("user", newUser);
 
-        return "main/index";
+        return "redirect:/winner/listAllWinner";  //need change
 
     }
 
