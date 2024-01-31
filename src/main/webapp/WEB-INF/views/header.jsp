@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/static/css/headerCss.css">
+ 
   <style>
     .dropdown {
       position: relative;
@@ -59,6 +60,7 @@
         <h4>${sessionScope.user.getUsername()}</h4>
       </div>
     </div>
+
 
     <script>
       var dropdownVisible = false;
