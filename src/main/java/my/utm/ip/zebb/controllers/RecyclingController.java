@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,49 +35,45 @@ public class RecyclingController {
     @Autowired
     private RecyclingService recyclingService;
 
-    @RequestMapping("/listAllRecyclingData")
+    @RequestMapping("/listAllRecyclingData") //for admin
     public String home(Model model) {
 
         List<RecyclingDAO> recycling = recyclingService.getAllRecycleData();
         model.addAttribute("allrecycling", recycling);
 
-        return "RecyclingActivity";  //need change
+        return "recycling/RecyclingActivity";  //need change
+
+    }
+
+    @RequestMapping("/listRecyclingDataByUsername_Month/{userName}")
+    public String userhome(@PathVariable("userName") String userName, Model model) {
+
+        List<RecyclingDAO> recycling = recyclingService.getRecycleDataByUserName(userName);
+        model.addAttribute("userrecycling", recycling);
+
+        return "recycling/RecyclingHome";  //need change
 
     }
 
     @RequestMapping("/viewAddRecyclingDataForm")
 
-    public String addRecyclingDataForm(Model model) {
+    public String addRecyclingDataForm(HttpSession session) {
 
-        model.addAttribute("mode", "add");
-        model.addAttribute("recyling", new RecyclingDAO());
+        session.setAttribute("mode", "add");
+        session.setAttribute("recyling", new RecyclingDAO());
 
-        return "RecyclingActivity"; //need change
-
-    }
-
-    @RequestMapping("/viewEditRecyclingDataForm")
-
-    public String editRecyclingDataForm(@RequestParam String userName, String month, Model model) {
-        RecyclingDAO recycling = recyclingService.getRecycleDataByUserName_month(userName, month);
-        model.addAttribute("recycling", recycling);
-        model.addAttribute("mode", "edit");
-
-        return "RecyclingActivity"; //need change
+        return "recycling/RecyclingActivity"; //need change
 
     }
 
     @RequestMapping("/addRecyclingData")
     public String addRecyclingData(
             @RequestParam("weight") String weight,
-            @RequestParam("days") String days,
             @RequestParam("month") String month,
             HttpSession session) {
         double sweight = Double.parseDouble(weight);
-        int sdays = Integer.parseInt(days);
         
         session.setAttribute("weight", sweight);
-        session.setAttribute("days", sdays);
         session.setAttribute("month", month);
 
         return "redirect:/recycling/viewUploadRecyclingForm"; //in Home Controller Request Mapping //need change
@@ -88,14 +85,13 @@ public class RecyclingController {
             HttpSession session ) {
         // Access the weight and days attributes
         double sweight = (Double) session.getAttribute("weight");
-        int sdays = (Integer) session.getAttribute("days");
         String month = (String) session.getAttribute("month");
 
         session.setAttribute("weight", sweight);
-        session.setAttribute("days", sdays);
         session.setAttribute("month", month);
+        session.setAttribute("mode", "add");
 
-        return "UploadRecycling";
+        return "recycling/UploadRecycling";
     }
 
     @RequestMapping(value = "/uploadRecyclingImage", method = RequestMethod.POST)
@@ -106,7 +102,6 @@ public class RecyclingController {
         User curuser = (User) session.getAttribute("user");
         String userName = curuser.getUsername();
         double sweight = (Double) session.getAttribute("weight");
-        int sdays = (Integer) session.getAttribute("days");
         String month = (String) session.getAttribute("month");
 
         try {
@@ -119,7 +114,6 @@ public class RecyclingController {
                 RecyclingDAO recycling = new RecyclingDAO();
                 recycling.setUserName(userName);
                 recycling.setWeight(sweight);
-                recycling.setDays(sdays);
                 recycling.setMonth(month);
                 recycling.setImageName(file.getOriginalFilename());
                 recycling.setImageData(file.getBytes());
@@ -139,7 +133,7 @@ public class RecyclingController {
             session.setAttribute("message", "Error uploading file: " + e.getMessage());
         }
         // Redirect to the desired page
-        return "redirect:/BillPage"; //need change
+        return "redirect:/recycling/listRecyclingDataByUsername_Month/"+ userName; //need change
     }
 
     @RequestMapping("/displayFile")
@@ -174,54 +168,107 @@ public class RecyclingController {
 
     }
 
+    //==============================================================================================================================
+
+    @RequestMapping("/viewEditRecyclingDataForm")
+    public String editRecyclingDataForm(  
+            @RequestParam("month") String month,
+            HttpSession session) {
+        
+        session.setAttribute("month", month);
+        session.setAttribute("mode", "edit");
+
+        return "recycling/RecyclingActivity";
+
+    }
+
+    @RequestMapping("/editRecyclingData")
+    public String editRecyclingData(
+            @RequestParam("weight") String weight,
+            HttpSession session) {
+        double sweight = Double.parseDouble(weight);
+        String month = (String) session.getAttribute("month");
+
+        session.setAttribute("weight", sweight);
+        session.setAttribute("month", month);
+        
+
+        return "redirect:/recycling/viewEditUploadRecyclingForm"; //in Home Controller Request Mapping //need change
+        
+    }
+
+    @RequestMapping("/viewEditUploadRecyclingForm")
+    public String viewEditUploadRecyclingForm(
+            HttpSession session) {
+        // Access the weight and days attributes
+        double sweight = (Double) session.getAttribute("weight");
+        String month = (String) session.getAttribute("month");
+
+        session.setAttribute("weight", sweight);
+        session.setAttribute("month", month);
+        session.setAttribute("mode", "edit");
+
+        return "recycling/UploadRecycling";
+    }
+
+    @RequestMapping(value = "/editRecyclingImage", method = RequestMethod.POST)
+    public String editRecyclingImage(
+            @RequestParam("file") MultipartFile file,
+            HttpSession session) {
+
+        User curuser = (User) session.getAttribute("user");
+        String userName = curuser.getUsername();
+        double sweight = (Double) session.getAttribute("weight");
+        String month = (String) session.getAttribute("month");
+
+        try {
+            // Add logging statements
+            if(!file.isEmpty())
+            {
+                System.out.println("File Name: " + file.getOriginalFilename());
+                System.out.println("File Size: " + file.getSize());
+
+                RecyclingDAO recycling = new RecyclingDAO();
+                recycling.setUserName(userName);
+                recycling.setWeight(sweight);
+                recycling.setMonth(month);
+                recycling.setImageName(file.getOriginalFilename());
+                recycling.setImageData(file.getBytes());
+
+                double recycling_carbon_factor = recycling.getWeight() * 2.860;
+                recycling.setRecycling_carbon_factor(recycling_carbon_factor);
+
+                //RecyclingDAO recycling = new RecyclingDAO(userName, sweight, sdays, month, file.getOriginalFilename(), file.getBytes(), recycling_carbon_factor);
+                recyclingService.updateRecycleData(recycling);
+        
+                session.setAttribute("recycling", recycling);
+                System.out.println("File edited successfully");
+            }
+        } catch (Exception e) {
+            // Log the exception
+            e.printStackTrace();
+            session.setAttribute("message", "Error uploading file: " + e.getMessage());
+        }
+        // Redirect to the desired page
+        return "redirect:/recycling/listRecyclingDataByUsername_Month/"+ userName; //need change
+    }
 
 
-    // @RequestMapping("/editRecyclingData1")
-    // public String editRecyclingData(
-    //         @RequestParam("userName") String userName,
-    //         @RequestParam("weight") String sweight,
-    //         @RequestParam("days") String sdays,
-    //         @RequestParam("months") String smonths,
-    //         @RequestParam("image_name") String simage_name,
-    //         @RequestParam("image_data") byte[] simage_data,
-    //         @RequestParam("image_type") String simage_type) {
-    //     double weight = Double.parseDouble(sweight);
-    //     int days = Integer.parseInt(sdays);
-    //     byte[]image_data = simage_data;
-    //     RecyclingDAO recycle = new RecyclingDAO(userName, weight, days, smonths, simage_name, image_data, simage_type);
-    //     recyclingService.updateRecycleData(recycle);
+    @RequestMapping("/deleteRecyclingData")
 
-    //     return "redirect:RecyclingActivity"; //need change
+    public String deleteRecyclingData(@RequestParam String month, HttpSession session, Model model) {
+        User curuser = (User) session.getAttribute("user");
+        String userName = curuser.getUsername();
+        boolean success = recyclingService.deleteRecycleData(month);
 
-    // }
+        if (success) {
 
-    // @RequestMapping("/editRecyclingData2") //for testing
+            return "redirect:/recycling/listRecyclingDataByUsername_Month/"+ userName; //need change
+        }
 
-    // public String editRecyclingData2(
-    //         @RequestParam("weight") String sweight,
-    //         @RequestParam("days") String sdays) {
-    //     double weight = Double.parseDouble(sweight);
-    //     int days = Integer.parseInt(sdays);
-    //     RecyclingDAO recycle = new RecyclingDAO(weight, days);
-    //     recyclingService.updateRecycleData(recycle);
+        model.addAttribute("errorMessage", "Deletion Failed!. The product doesn't exist");
+        return "/product/error"; //need change or delete
 
-    //     return "redirect:RecyclingActivity"; //need change
-    // }
-
-    // @RequestMapping("/deleteRecyclingData")
-
-    // public String deleteRecyclingData(@RequestParam String userName, String month, Model model) {
-
-    //     boolean success = recyclingService.deleteRecycleData(userName, month);
-
-    //     if (success) {
-
-    //         return "redirect:RecyclingActivity"; //need change
-    //     }
-
-    //     model.addAttribute("errorMessage", "Deletion Failed!. The product doesn't exist");
-    //     return "/product/error"; //need change or delete
-
-    // }
+    }
 
 }
