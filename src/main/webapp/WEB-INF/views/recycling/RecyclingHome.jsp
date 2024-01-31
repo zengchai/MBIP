@@ -11,6 +11,7 @@
             <link rel="stylesheet" href="/static/common/css/materialize.min.css">
             <link href="/static/common/css/styles.min.css" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         </head>
 
         <body>
@@ -58,11 +59,11 @@
                                                             <td>
                                                                 <a class="btn-floating waves-effect waves-light btn-small"
                                                                     href="/recycling/viewEditRecyclingDataForm?userName=${recycling.getUserName()}&weight=${recycling.getWeight()}&month=${recycling.getMonth()}">
-                                                                    <i class="material-icons">Edit</i>
+                                                                    <i class="material-icons">create</i>
                                                                 </a>
                                                                 <a class="btn-floating waves-effect waves-light btn-small"
                                                                     href="/recycling/deleteRecyclingData?month=${recycling.getMonth()}">
-                                                                    <i class="material-icons">Delete</i>
+                                                                    <i class="material-icons">delete</i>
                                                                 </a>
                                                             </td>
                                                         </tr>
