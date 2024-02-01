@@ -7,17 +7,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Recycling Bill Page</title>
-    <link href="/static/common/css/styles.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
+    <style>
+        .example {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align text to the left */
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .example p {
+            margin-top: -5px;
+            opacity: 0.7;
+            font-size: 0.8em;
+            text-align: left;
+            margin-left: 275px; /* Adjust margin as needed */
+        }
+
+        .example img {
+            max-width: 50%;
+            height: auto;
+            align-self: center; /* Center the image within the container */
+        }
+        
+        .upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload-info {
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0.7; 
+            font-size: 0.8em; 
+        }
+    </style>
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/header.jsp" %> 
+    <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
+    <%@ include file="/WEB-INF/views/common/header.jsp" %> 
    
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
                     data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                     <main>
                         <div class="main-content">
-                            <%@ include file="/WEB-INF/views/userSideBar.jsp" %>
+                            <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
                             <div class="right-container">
                                 <div class="container-fluid">
                                     <div class="card">
@@ -40,8 +77,8 @@
                             
                                             <div class="upload">
                                                 <form action="${action}" method="post" enctype="multipart/form-data" id="uploadForm">
-                                                    <input type="file" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg" value="${recycling.getImageName()}" required>
-                                                    <input type="submit" name="submit" value="Upload">
+                                                    <input type="file" style="width: 50em;" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg" value="${recycling.getImageName()}"required>
+                                                    <input type="submit" style="width: 50em;" name="submit" value="Upload">
                                                     <p class="upload-info"><span class="exclamation-sign">! </span>  Filetype should be pdf. File size should not exceed 2 MB <span class="exclamation-sign">!</span></p>
                             
                                                 </form>
