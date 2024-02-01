@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Page</title>
-    <link href="/static/common/css/styles.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/css/BillPage.css">  <!--no affect dk why-->
 
     <style>
@@ -138,13 +137,14 @@ label {
 
 </head>
 <body>
-        <jsp:include page="header.jsp" />    
+    <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
+    <%@ include file="/WEB-INF/views/common/header.jsp" %> 
 
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
                     data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                     <main>
                         <div class="main-content">
-                            <%@ include file="/WEB-INF/views/userSideBar.jsp" %>
+                            <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
                             <div class="right-container">
                                 <div class="container-fluid">
                                     <div class="card">

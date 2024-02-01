@@ -18,36 +18,36 @@ public class TimeLineController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/timeline")
-    public String timeline(@RequestParam(value = "username",required = false) String username,
-                        @RequestParam(value = "password",required = false) String password,
-                        @RequestParam(value = "error",required = false) String olderror,
-                        HttpSession session,Model model){
-        User currentUser = userService.login(username);
-        String error = "Your username or password is incorrect";
-        if(currentUser.getId()!=0){
+    // @RequestMapping("/timeline")
+    // public String timeline(@RequestParam(value = "username",required = false) String username,
+    //                     @RequestParam(value = "password",required = false) String password,
+    //                     @RequestParam(value = "error",required = false) String olderror,
+    //                     HttpSession session,Model model){
+    //     User currentUser = userService.login(username);
+    //     String error = "Your username or password is incorrect";
+    //     if(currentUser.getId()!=0){
 
-        if(currentUser.getPassword().equals(password)){
+    //     if(currentUser.getPassword().equals(password)){
 
-            currentUser.setAuthenticated(true);
-            session.setAttribute("user", currentUser);
-        }else{
-            if (olderror == null) {
-                model.addAttribute("error", error);
-            }
-            currentUser.setAuthenticated(false);
+    //         currentUser.setAuthenticated(true);
+    //         session.setAttribute("user", currentUser);
+    //     }else{
+    //         if (olderror == null) {
+    //             model.addAttribute("error", error);
+    //         }
+    //         currentUser.setAuthenticated(false);
 
-        }       
+    //     }       
 
-        }
-        else{
-            if (olderror == null) {
-            model.addAttribute("error", error);
-            }
-        }
+    //     }
+    //     else{
+    //         if (olderror == null) {
+    //         model.addAttribute("error", error);
+    //         }
+    //     }
 
-        return "main/index";  //need change
+    //     return "main/index";  //need change
 
-    }
+    // }
 
 }
