@@ -161,7 +161,7 @@ label {
                         <img src="/static/asset/Electricity bill background.png" alt="Electricity Bill">
                         <p>Electricity bill</p>
                     </a>
-                    <a href="/recycling/viewAddRecyclingDataForm" class="bill-card" id="recycling-activity">
+                    <a href="/recycling/listRecyclingDataByUsername_Month/${sessionScope.user.getUsername()}" class="bill-card" id="recycling-activity">
                         <!-- Icon for Recycling Activity -->
                         <img src="/static/asset/Recycling bill background.png" alt="Recycling Activity">
                         <p>Recycling activity</p>

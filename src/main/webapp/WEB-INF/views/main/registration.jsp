@@ -14,11 +14,11 @@
                 <div class="logintitle">Register</div>
                 <form action="registervalidation" method="post"><hr>
                     <div class="input-container">
-                        <input type="text" id="username" name="username" placeholder="Username">
-                        <input type="text" id="email" name="email" placeholder="Email">
-                        <input type="password" id="password" name="password" placeholder="Password">
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <input type="text" id="email" name="email" placeholder="Email" required>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
                         <c:if test="${not empty error}">
-                        <div style="color: red;">
+                        <div class="error">
                             ${error}
                         </div>
                       </c:if>

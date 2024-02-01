@@ -14,7 +14,7 @@ public class UserRepository_JDBC implements UserRepository{
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public UserDAO register(final UserDAO user){
+    public UserDAO setUser(final UserDAO user){
 
         
         String sql = "INSERT INTO users (Email, Password, Username, Level) VALUES (?,?,?,?);";
@@ -28,7 +28,7 @@ public class UserRepository_JDBC implements UserRepository{
         return null;
     }
 
-    public UserDAO login(String username){
+    public UserDAO getUserThruUsername(String username){
         String sql = "SELECT * FROM users WHERE Username=?";
         try {
             UserDAO user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(UserDAO.class), username);
@@ -85,7 +85,7 @@ public class UserRepository_JDBC implements UserRepository{
 
     }
 
-    public List<UserDAO> getAllEmail(){
+    public List<UserDAO> getAllUser(){
 
         String sql = "Select * from users";
         List<UserDAO> user = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(UserDAO.class));

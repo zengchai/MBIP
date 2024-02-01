@@ -28,7 +28,7 @@ public class UserController {
                         @RequestParam(value = "password",required = false) String password,
                         @RequestParam(value = "error",required = false) String olderror,
                         HttpSession session,Model model){
-        User currentUser = userService.login(username);
+        User currentUser = userService.getUserThruUsername(username);
         String error = "Your username or password is incorrect";
         if(currentUser.getId()!=0){
 
@@ -67,21 +67,26 @@ public class UserController {
                         @RequestParam("password") String password,
                         HttpSession session,Model model){
 
-        List<User> userList = userService.getAllEmail();
+        List<User> userList = userService.getAllUser();
         Boolean register = true;
+        String error = "Please Try register again";
         for(User user:userList){
             if(user.getEmail().equals(email)){
+                error = "Email already in use";
+                register = false;
+            }
+            else if(user.getUsername().equals(username)){
+                error = "Username already in use";
                 register = false;
             }
         }
         if(register){
 
         User newUser = new User(username,email,password);
-        userService.register(newUser);
+        userService.setUser(newUser);
         session.setAttribute("user", newUser);
         }
         else{
-            String error = "Email already in use";
             model.addAttribute("error", error);
             return "main/registration";
         }
@@ -100,8 +105,10 @@ public class UserController {
             @RequestParam("category") String category,
             @RequestParam("poscode") String poscode,
             @RequestParam("address") String address,
-            HttpSession session
+            HttpSession session,Model model
     ){
+        
+        int usernum = userService.getAllUserNum();
         User curuser = (User) session.getAttribute("user");
         curuser.setFullname(fullname);
         curuser.setNickname(nickname);
@@ -112,9 +119,10 @@ public class UserController {
         curuser.setPoscode(poscode);
         curuser.setAddress(address);
         userService.updateProfile(curuser);
-        
+        model.addAttribute("usernum", usernum);
         session.removeAttribute("user");
         
+    System.out.println(usernum);
         session.setAttribute("user",curuser);
         return "redirect:editprofile";
     }

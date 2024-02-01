@@ -45,4 +45,14 @@ public class WaterService_Database implements WaterService {
         return water;
     }
 
+    @Override
+    public double getAllConsumption(){
+        List<WaterDAO> waterList = this.getAllWaterData();
+        Double consumption = 0.0;
+        for (int i = 0;i<waterList.size();i++){
+            consumption += waterList.get(i).getAmount();
+        }
+        consumption = consumption/waterList.size();
+        return consumption;
+    }
 }
