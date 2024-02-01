@@ -10,5 +10,5 @@ public interface ElectricalService{
     ElectricalDAO addElectricalData1(final ElectricalDAO electrical);
     ElectricalDAO addElectricalData2(final ElectricalDAO electrical);
     ElectricalDAO getElectricalDataByUserName_month(String userName, String month);
-   
+    double getAllConsumption();
 }

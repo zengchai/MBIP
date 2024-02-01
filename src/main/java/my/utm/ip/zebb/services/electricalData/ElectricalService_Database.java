@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
 import my.utm.ip.zebb.models.electricalData.ElectricalDTO;
 import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
+import my.utm.ip.zebb.models.waterData.WaterDAO;
 
 public class ElectricalService_Database implements ElectricalService {
     
@@ -45,4 +46,14 @@ public class ElectricalService_Database implements ElectricalService {
         return recycle;
     }
 
+    @Override
+    public double getAllConsumption(){
+        List<ElectricalDAO> elecList = this.getAllElectricalData();
+        Double consumption = 0.0;
+        for (int i = 0;i<elecList.size();i++){
+            consumption += elecList.get(i).getAmount();
+        }
+        consumption = consumption/elecList.size();
+        return consumption;
+    }
 }

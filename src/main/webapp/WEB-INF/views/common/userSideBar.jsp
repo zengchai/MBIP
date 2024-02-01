@@ -13,10 +13,7 @@
 <body>
     <div class='sideBar-container'>
 
-        <!-- 3-dot menu icon to toggle the sidebar -->
-        <div class="menu-icon" onclick="toggleSidebarOver()">
-            <i class="fas fa-ellipsis-v"></i>
-        </div>
+        
 
          <!-- Sidebar content -->
         <div class="sidebar-content">
@@ -29,17 +26,7 @@
         </div>
     </div>
 
-    <script>
-        // JavaScript function to toggle the sidebar
-        function toggleSidebarOver() {
-            var sidebarContainer = document.querySelector('.sideBar-container');
-            var mainContentContainer = document.querySelector('.main-content-container');
-
-            sidebarContainer.classList.toggle('sidebar-hidden');
-            mainContentContainer.classList.toggle('sidebar-hidden');
-        }
-
-    </script>
+    
 
 </body>
 

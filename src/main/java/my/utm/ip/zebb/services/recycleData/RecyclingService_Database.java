@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
 import my.utm.ip.zebb.models.recycleData.RecyclingDTO;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
+import my.utm.ip.zebb.models.waterData.WaterDAO;
 
 public class RecyclingService_Database implements RecyclingService {
     
@@ -55,4 +56,14 @@ public class RecyclingService_Database implements RecyclingService {
 
     }
     
+    @Override
+    public double getAllConsumption(){
+        List<RecyclingDAO> recyclingList = this.getAllRecycleData();
+        Double consumption = 0.0;
+        for (int i = 0;i<recyclingList.size();i++){
+            consumption += recyclingList.get(i).getWeight();
+        }
+        consumption = consumption/recyclingList.size();
+        return consumption;
+    }
 }
