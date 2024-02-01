@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,15 +28,14 @@
                     <img src="/static/asset/electricitybill.png" alt="Example Picture">
                     <p>Example</p>
                 </div>
+                <c:set var="action" value="/electrical/uploadElectricalImage" />
                 <div class="upload">
-                    <label for="file-upload" class="upload-label">
-                        Click here to upload document
-                        <input type="file" id="file-upload" accept=".pdf" style="display:none;">
-                    </label>
-                    <p class="upload-info"><span class="exclamation-sign">! </span>  Filetype should be pdf. File size should not exceed 2 MB <span class="exclamation-sign">!</span></p>
-                </div>
-                <div class="button">
-                    <button class="next-button">Submit</button>
+                    <form action="${action}" method="post" enctype="multipart/form-data" id="uploadForm">
+                        <input type="file" style="width: 50em;" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg" required>
+                        <input type="submit" style="width: 50em;" name="submit" value="Upload">
+                        <p class="upload-info"><span class="exclamation-sign">! </span>  Filetype should be pdf. File size should not exceed 2 MB <span class="exclamation-sign">!</span></p>
+
+                    </form>
                 </div>
             </div>
         </div>
