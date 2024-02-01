@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/common/auth.jsp" %>
 <!DOCTYPE html>
@@ -7,23 +7,48 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="static/user/css/editprofile.css">
-        <jsp:include page="../common/include-first.jsp" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+
+        <style>
+            .main-content {
+                display: flex;
+                flex: 1;
+                background-color: #fff;
+                justify-content: space-between;
+                overflow: hidden; /* Prevent content overflow */
+            }
+
+            .right-container {
+                height: 100%;
+                width: 87%;
+                /*border: 1px solid black;*/
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+            }
+        </style>
     </head>
     <body>
 
-        <%@ include file="/WEB-INF/views/header.jsp" %> 
+        <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
+        <%@ include file="/WEB-INF/views/common/header.jsp" %> 
 
-        <div class="main-container">
-            <%@ include file="/WEB-INF/views/userSideBar.jsp" %> 
-    
-            <!-- Main Content Section -->
-            <div class='main-content-container'>
-                <div class="body-container">
-                    <h1 class="main-title">
-                        Profile
-                    </h1>
+
+        <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+        data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+        <main>
+            <div class="main-content">
+                <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
+                <div class="right-container">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Main Content Section -->
+            
+                    <div class="main-title">
+                        Edit Profile
+                    </div>
                     <form action="updateprofile" method="post">
                     <div>
                         <div class="title">
@@ -52,13 +77,13 @@
                         <div>
                             <div class="title">Phone Number</div>
                             <div>
-                                <input type="text" id="phonenum" name="phonenum" value="${sessionScope.user.getPhoneNum()}"/>
+                                <input type="text" size="60" id="phonenum" name="phonenum" value="${sessionScope.user.getPhoneNum()}"/>
                             </div>
                         </div>
                         <div>
                             <div class="title">Category</div>
                             <div>
-                                <select id="category" name="category" value="${sessionScope.user.getCategory()}">
+                                <select id="category" style="min-width:60" name="category" value="${sessionScope.user.getCategory()}">
                                     <option value="B1">B1</option>
                                     <option value="B2">B2</option>
                                     <option value="B3">B3</option>
@@ -70,7 +95,7 @@
                         <div>
                             <div class="title">Language</div>
                             <div>
-                                <select id="language" name="language" value="${sessionScope.user.getPreferredLanguage()}">
+                                <select id="language" style="min-width:60" name="language" value="${sessionScope.user.getPreferredLanguage()}">
                                     <option value="Mandarin">Mandarin</option>
                                     <option value="English">English</option>
                                     <option value="Malay">Malay</option>
@@ -80,7 +105,7 @@
                         <div>
                             <div class="title">Poscode</div>
                             <div>
-                                <input type="text" id="poscode" name="poscode" value="${sessionScope.user.getPoscode()}"/>
+                                <input type="text" size="60" id="poscode" name="poscode" value="${sessionScope.user.getPoscode()}"/>
                             </div>
                         </div>
                     </div>
@@ -95,8 +120,22 @@
                         <button class="submitbutton">submit</button>
                     </div>
                 </form>
+   
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </div>
+            </div>
+        </main>
+    </div>
+
+
+
+
+
+
+        
     </div>
     <a href="logout">logout</a>
     </body>
