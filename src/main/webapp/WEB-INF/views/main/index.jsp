@@ -20,10 +20,10 @@
                     <div class="logintitle">Login</div>
                     <form action="loginvalidation" method="post"><hr>
                         <div class="input-container">
-                      <input type="text" id="username" name="username" placeholder="Username">
-                      <input type="password" id="password" name="password" placeholder="Password">
+                      <input type="text" id="username" name="username" placeholder="Username" required>
+                      <input type="password" id="password" name="password" placeholder="Password" required>
                       <c:if test="${not empty error}">
-                        <div style="color: red;">
+                        <div class="error">
                             ${error}
                         </div>
                       </c:if>

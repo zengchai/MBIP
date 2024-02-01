@@ -1,9 +1,7 @@
 .body-container{
     display: block;
-    padding: 1rem;
-    width: 40rem;
+    padding: 20px;
 }
-
 
 .main-container {
     display: flex;
@@ -11,7 +9,7 @@
 }
 
 .main-content-container{
-    display: flex;
+    margin-right: 100px;
     justify-content: center;
     width: 100%;
 }
@@ -19,6 +17,7 @@
 .rows{
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
 }
 
 .title{
@@ -31,6 +30,12 @@ input{
     padding: 0.5rem;
     background-color: #f0faf6;
     border: 0.1rem solid #9E9E9E;
+    border-radius: 0;
+    transition: border-radius 0.3s; /* Add transition property */
+}
+
+input:focus {
+    border-radius: 7px;
 }
 
 select{
@@ -41,11 +46,20 @@ select{
 }
 
 .submitbutton{
-    background-color: #B7CCC4;
-    border: 0.1rem solid #9E9E9E;
-    padding: 0.4rem 1.4rem;
-    width: 100%;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    border: none;
+    width: 20%;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background-color: rgba(87, 149, 104, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition property */
 }
+
+.submitbutton:hover{
+    background-color: rgba(87, 149, 104, 0.5);
+  }
 
 .center{
     display: flex;
@@ -54,8 +68,10 @@ select{
 }
 
 .main-title{
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
+    margin-bottom: 1.5rem;
 }
 
+.column{
+    width: 100%;
+}

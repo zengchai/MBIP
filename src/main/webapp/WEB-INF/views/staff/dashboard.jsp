@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +16,7 @@
 
       <div class="main-container">
           <jsp:include page="../common/sidebar.jsp" />
-  
+
           <!-- Main Content Section -->
           <div class='main-content-container'>
               <div class="body-container">
@@ -30,22 +33,27 @@
                   <div class="subcontentcontainer">
                     <div class="contentbox">
                       <div>Water Consumption</div>
-                      <div>?</div>
+                      <div>${waternum}</div>
                     </div>
                     <div class="contentbox">
                       <div>Electricity Consumption</div>
-                      <div>?</div>
+                      <div>${elecnum}</div>
                     </div>
                     <div class="contentbox">
                       <div>Recycle Consumption</div>
-                      <div>?</div>
+                      <div>${recyclingnum}</div>
                     </div>
                     <div class="contentbox">
                       <div>People</div>
-                      <div>?</div>
+                      <div>${usernum}</div>
                     </div>
                   </div>
                 </div>
+                <script>
+                  const waterConsump = '${waternum}';
+                  const elecConsump = '${elecnum}';
+                  const recycleConsump = '${recyclingnum}';
+                </script>
                   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                   <script src="static/staff/js/acquisitions.js"></script>
               </div>

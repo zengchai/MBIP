@@ -10,4 +10,5 @@ public interface RecyclingService{
     List<RecyclingDAO> getRecycleDataByUserName(String userName);
     RecyclingDAO updateRecycleData(final RecyclingDAO recycle);
     public boolean deleteRecycleData(String month);
+    double getAllConsumption();
 }

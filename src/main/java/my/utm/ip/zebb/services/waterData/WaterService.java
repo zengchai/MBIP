@@ -10,5 +10,5 @@ public interface WaterService{
     WaterDAO addWaterData1(final WaterDAO water);
     WaterDAO addWaterData2(final WaterDAO water);
     WaterDAO getWaterDataByUserName_month(String userName, String month);
-   
+    double getAllConsumption();
 }
