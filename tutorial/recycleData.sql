@@ -25,7 +25,7 @@ CREATE TABLE users (
     Address VARCHAR(100),
     Level INT
 );
-CREATE TABLE winner (
+CREATE TABLE winners (
     id INT PRIMARY KEY AUTO_INCREMENT,
     userName VARCHAR(30) NOT NULL,
     location VARCHAR(50),

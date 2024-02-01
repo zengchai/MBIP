@@ -49,7 +49,7 @@ public class UserController {
             }
         }
 
-        return "redirect:/winner/listAllWinner";  //need change
+        return "main/index";  //need change
 
     }
 
@@ -69,7 +69,7 @@ public class UserController {
 
         session.setAttribute("user", newUser);
 
-        return "redirect:/winner/listAllWinner";  //need change
+        return "main/index";  //need change
 
     }
 

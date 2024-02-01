@@ -7,7 +7,6 @@ my\utm\ip\zebb\services\product\ProductService.class
 my\utm\ip\zebb\models\electricalData\ElectricalRepository.class
 my\utm\ip\zebb\services\product\ProductService_Database.class
 my\utm\ip\zebb\services\user\UserService_JDBC.class
-my\utm\ip\zebb\controllers\AdminCompetitionController.class
 my\utm\ip\zebb\models\user\User.class
 my\utm\ip\zebb\models\winner\WinnerDTO.class
 my\utm\ip\zebb\models\user\repository\UserRepository.class
