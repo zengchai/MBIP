@@ -9,18 +9,19 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Recycling Page</title>
             <link rel="stylesheet" href="/static/common/css/materialize.min.css">
-            <link href="/static/common/css/styles.min.css" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         </head>
 
         <body>
-            <%@ include file="/WEB-INF/views/header.jsp" %>
+            <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
+            <%@ include file="/WEB-INF/views/common/header.jsp" %> 
+
                 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
                     data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                     <main>
                         <div class="main-content">
-                            <%@ include file="/WEB-INF/views/userSideBar.jsp" %>
+                            <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
                             <div class="right-container">
                                 <div class="container-fluid">
                                     <div class="card">
