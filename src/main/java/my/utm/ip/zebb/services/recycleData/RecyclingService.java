@@ -7,7 +7,8 @@ public interface RecyclingService{
     
     List<RecyclingDAO> getAllRecycleData();
     RecyclingDAO addRecycleData(final RecyclingDAO recycle);
-    RecyclingDAO getRecycleDataByUserName_month(String userName, String month);
-    // RecyclingDAO updateRecycleData(final RecyclingDAO recycle);
-    // public boolean deleteRecycleData(String userName, String month);
+    List<RecyclingDAO> getRecycleDataByUserName(String userName);
+    RecyclingDAO updateRecycleData(final RecyclingDAO recycle);
+    public boolean deleteRecycleData(String month);
+    double getAllConsumption();
 }

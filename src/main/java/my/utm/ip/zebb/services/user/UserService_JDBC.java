@@ -15,15 +15,15 @@ public class UserService_JDBC implements UserService {
     UserRepository repo;
 
     @Override
-    public User register(User user){
+    public User setUser(User user){
         UserDAO newuser = user.toDAO();
-        repo.register(newuser);
+        repo.setUser(newuser);
         return null;
     }
 
     @Override
-    public User login(String username){
-        UserDAO existinguser = repo.login(username);
+    public User getUserThruUsername(String username){
+        UserDAO existinguser = repo.getUserThruUsername(username);
         User user = new User();
         user.fromDAO(existinguser);
 
@@ -36,8 +36,9 @@ public class UserService_JDBC implements UserService {
         return new User(dao);
     }
 
-    public List<User> getAllEmail(){
-        List<UserDAO> userList = repo.getAllEmail();
+    @Override
+    public List<User> getAllUser(){
+        List<UserDAO> userList = repo.getAllUser();
         List<User> userDTOList = new ArrayList<>();
         for(UserDAO user:userList){
             userDTOList.add(new User(user));
@@ -45,4 +46,9 @@ public class UserService_JDBC implements UserService {
         return userDTOList;
     }
     
+    @Override
+    public int getAllUserNum(){
+        List<User> userList = this.getAllUser();
+        return userList.size();
+    }
 }

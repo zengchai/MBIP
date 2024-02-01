@@ -9,8 +9,9 @@ import my.utm.ip.zebb.models.user.UserDAO;
 @Repository
 public interface UserRepository {
 
-    UserDAO register(final UserDAO product);
-    UserDAO login(String id);
+    UserDAO setUser(final UserDAO product);
+    UserDAO getUserThruUsername(String id);
     UserDAO updateProfile(final UserDAO user);
-    List<UserDAO> getAllEmail();
+    List<UserDAO> getAllUser();
+    
 }
