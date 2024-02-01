@@ -80,4 +80,10 @@ public class HomeController {
     public String bill(){
         return "BillPage";
     }
+
+    
+    @RequestMapping("/dashboard")
+    public String dashbaord(){
+        return "staff/dashboard";
+    }
 }
