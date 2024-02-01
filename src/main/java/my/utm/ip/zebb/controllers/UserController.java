@@ -51,7 +51,7 @@ public class UserController {
             }
         }
 
-        return "main/index";
+        return "main/index";  //need change
 
     }
 
@@ -91,7 +91,7 @@ public class UserController {
             return "main/registration";
         }
 
-        return "main/index";
+        return "main/index";  //need change
 
     }
 
