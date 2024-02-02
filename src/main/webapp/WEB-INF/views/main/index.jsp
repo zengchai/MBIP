@@ -11,9 +11,11 @@
   </head>
 
 <body>
-		<c:if test="${sessionScope.user.getAuthenticated()== true}">
-            <c:out value="Authenticated: ${sessionScope.user.getAuthenticated()}" />
-			<c:redirect url="editprofile"/>
+		<c:if test="${sessionScope.user.getAuthenticated() == true && sessionScope.user.getLevel() == 1}">
+			<c:redirect url="BillPage"/>
+		</c:if>
+    <c:if test="${sessionScope.user.getAuthenticated() == true && sessionScope.user.getLevel() == 2}">
+			<c:redirect url="dashboard"/>
 		</c:if>
 			<div class="body-container">
                 <div class="login-container">

@@ -33,16 +33,21 @@ public class DashboardController {
         
     @RequestMapping("/dashboard")
     public String dashbaord(HttpSession session,Model model){
-
+        
         int usernum = userService.getAllUserNum();
         double elecnum = electricalService.getAllConsumption();
         double recyclingnum = recyclingService.getAllConsumption();
         double waternum = waterService.getAllConsumption();
-        session.setAttribute("usernum", usernum);
+        double carbonreduction = (elecnum+recyclingnum+waternum)/3;
+        String formattedElecNum = String.format("%.2f", elecnum);
+        String formattedRecyclingNum = String.format("%.2f", recyclingnum);
+        String formattedWaterNum = String.format("%.2f", waternum);
+        String formattedcarbonreduction = String.format("%.2f", carbonreduction);
         model.addAttribute("usernum", usernum);
-        model.addAttribute("elecnum", elecnum);
-        model.addAttribute("recyclingnum", recyclingnum);
-        model.addAttribute("waternum", waternum);
+        model.addAttribute("elecnum", formattedElecNum);
+        model.addAttribute("recyclingnum", formattedRecyclingNum);
+        model.addAttribute("waternum", formattedWaterNum);
+        model.addAttribute("carbonreduction", formattedcarbonreduction);
         return "staff/dashboard";
     }
 }

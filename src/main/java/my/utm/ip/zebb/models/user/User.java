@@ -15,7 +15,7 @@ private String category;
 private String poscode;
 private String address;
 private int level;
-private int winner;
+private String winner;
 private boolean authenticated;
 
 public User(){
@@ -44,7 +44,7 @@ public User(String username,String email,String password){
 
 
 public User(int id, String username, String fullname, String nickname, String password, String email, String phoneNum,
-        String preferredLanguage, String category, String poscode, String address, int level, int winner) {
+        String preferredLanguage, String category, String poscode, String address, int level, String winner) {
     this.id = id;
     this.username = username;
     this.fullname = fullname;
@@ -139,11 +139,11 @@ public void setAuthenticated(boolean authenticated) {
     this.authenticated = authenticated;
 }
 
-public int getWinner() {
+public String getWinner() {
     return winner;
 }
 
-public void setWinner(int winner) {
+public void setWinner(String winner) {
     this.winner = winner;
 }
 

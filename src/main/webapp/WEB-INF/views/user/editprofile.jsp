@@ -129,14 +129,6 @@
             </div>
         </main>
     </div>
-
-
-
-
-
-
-        
     </div>
-    <a href="logout">logout</a>
     </body>
 </html>

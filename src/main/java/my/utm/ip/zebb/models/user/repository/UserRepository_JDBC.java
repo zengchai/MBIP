@@ -87,7 +87,7 @@ public class UserRepository_JDBC implements UserRepository{
 
     public List<UserDAO> getAllUser(){
 
-        String sql = "Select * from users";
+        String sql = "Select * from users WHERE Level=1";
         List<UserDAO> user = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(UserDAO.class));
         return user;
 
