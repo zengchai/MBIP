@@ -24,40 +24,40 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
 
     @Override
     public RecyclingDTO addRecycleData(RecyclingDTO recycle) {
-        String checkIfExistsSql = "SELECT COUNT(*) FROM recycledata WHERE month = ? ";
+        String checkIfExistsSql = "SELECT COUNT(*) FROM recycledata WHERE month = ? AND userName = ?";
 
-        int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, recycle.getMonth());
-            
-            if (existingCount > 0) {
-                // data already exists
-                String sql = "UPDATE recycledata SET userName=?, weight=?, month=?, image_name=?, image_data=?, recycling_carbon_factor=? WHERE month=?";
-                Object[] arg = { 
-                        recycle.getUserName(),
-                        recycle.getWeight(),
-                        recycle.getMonth(),
-                        recycle.getImageName(),
-                        recycle.getImageData(),
-                        recycle.getRecycling_carbon_factor(),
-                        recycle.getMonth()
-                };
-                jdbcTemplate.update(sql, arg);
+        int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, recycle.getMonth(), recycle.getUserName());
 
-            } else {
-                // Car does not exist, add a new entry
-                String sql = "INSERT INTO recycledata (userName, weight, month, image_name, image_data, recycling_carbon_factor) VALUES (?, ?, ?, ?, ?, ?)";
-                Object[] arg = { 
+        if (existingCount > 0) {
+            // Data already exists, update
+            String sql = "UPDATE recycledata SET userName=?, weight=?, month=?, image_name=?, image_data=?, recycling_carbon_factor=? WHERE month=? AND userName=?";
+            Object[] arg = { 
                     recycle.getUserName(),
                     recycle.getWeight(),
                     recycle.getMonth(),
                     recycle.getImageName(),
                     recycle.getImageData(),
                     recycle.getRecycling_carbon_factor(),
-                };
-                jdbcTemplate.update(sql, arg);
-            }
-        
-        return recycle;
+                    recycle.getMonth(),
+                    recycle.getUserName()
+            };
+            jdbcTemplate.update(sql, arg);
 
+        } else {
+            // Data does not exist, insert
+            String sql = "INSERT INTO recycledata (userName, weight, month, image_name, image_data, recycling_carbon_factor) VALUES (?, ?, ?, ?, ?, ?)";
+            Object[] arg = { 
+                recycle.getUserName(),
+                recycle.getWeight(),
+                recycle.getMonth(),
+                recycle.getImageName(),
+                recycle.getImageData(),
+                recycle.getRecycling_carbon_factor(),
+            };
+            jdbcTemplate.update(sql, arg);
+        }
+
+        return recycle;
     }
 
     @Override

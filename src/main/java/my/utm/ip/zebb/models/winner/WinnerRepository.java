@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WinnerRepository {
    
-    List<WinnerDTO> getAllWinners();
-    WinnerDTO addWinner(final WinnerDTO recycle);
-    WinnerDTO getWinnerByUserName(String userName);
-    WinnerDTO updateWinner(final WinnerDTO winner);
-    public boolean deleteWinner(String winner);
+    List<WinnerDTO> getWinnersByUserAndMonth();
+    WinnerDTO updateWinner(final WinnerDTO recycle);
+    int getWinnerCountForMonth(String month);
+    List<WinnerDTO> getWinners();
+
 }    
 
 
