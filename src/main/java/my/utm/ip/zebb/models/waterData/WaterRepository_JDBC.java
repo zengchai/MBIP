@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import my.utm.ip.zebb.models.waterData.WaterDTO;
-
 
 public class WaterRepository_JDBC implements WaterRepository {
 
@@ -31,7 +29,7 @@ public class WaterRepository_JDBC implements WaterRepository {
             
             if (existingCount > 0) {
                 // data already exists
-                String sql = "UPDATE waterdata SET userName=?, waterusage=?, days=?, month=?, proportion_factor=?, amount=?, image_name=?, image_data=? WHERE month=?";
+                String sql = "UPDATE waterdata SET userName=?, waterusage=?, days=?, month=?, proportion_factor=?, amount=?, image_name=?, image_data=?, water_carbon_factor=? WHERE month=?";
                 Object[] arg = { 
                         water.getUserName(),
                         water.getWaterusage(),
@@ -41,13 +39,14 @@ public class WaterRepository_JDBC implements WaterRepository {
                         water.getAmount(),
                         water.getImageName(),
                         water.getImageData(),
-                        
+                        water.getWater_carbon_factor(),
+                        water.getMonth(),
                 };
                 jdbcTemplate.update(sql, arg);
 
             } else {
                 // Car does not exist, add a new entry
-                String sql = "INSERT INTO waterdata (userName, waterusage, days, month, proportion_factor, amount, image_name, image_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO waterdata (userName, waterusage, days, month, proportion_factor, amount, image_name, image_data, water_carbon_factor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 Object[] arg = { 
                     water.getUserName(),
                     water.getWaterusage(),
@@ -57,6 +56,7 @@ public class WaterRepository_JDBC implements WaterRepository {
                     water.getAmount(),
                     water.getImageName(),
                     water.getImageData(),
+                    water.getWater_carbon_factor(),
                 };
                 jdbcTemplate.update(sql, arg);
             }
@@ -76,7 +76,7 @@ public class WaterRepository_JDBC implements WaterRepository {
 
     @Override
     public WaterDTO updateWaterData(final WaterDTO water) {
-        String sql = "UPDATE waterdata SET userName=?, waterusage=?, days=?, month=?, proportion_factor=?, amount=?, image_name=?, image_data=? WHERE month=?";
+        String sql = "UPDATE waterdata SET userName=?, waterusage=?, days=?, month=?, proportion_factor=?, amount=?, image_name=?, image_data=? ,water_carbon_factor=? WHERE month=?";
         Object[] arg = { 
             water.getUserName(),
             water.getWaterusage(),
@@ -86,6 +86,8 @@ public class WaterRepository_JDBC implements WaterRepository {
             water.getAmount(),
             water.getImageName(),
             water.getImageData(),
+            water.getWater_carbon_factor(),
+            water.getMonth(),
         };
 
         int count = jdbcTemplate.update(sql, arg);

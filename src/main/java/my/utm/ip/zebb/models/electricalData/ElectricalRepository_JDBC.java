@@ -30,7 +30,7 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
 
         if (existingCount > 0) {
             // data already exists
-            String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=? WHERE month=?";
+            String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=? ,electrical_carbon_factor=? WHERE month=?";
             Object[] arg = {
                     electrical.getUserName(),
                     electrical.getElectricityusage(),
@@ -41,14 +41,14 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
                     electrical.getCurrent_charge(),
                     electrical.getImageName(),
                     electrical.getImageData(),
+                    electrical.getElectrical_carbon_factor(),
                     electrical.getMonth(),
 
             };
             jdbcTemplate.update(sql, arg);
 
         } else {
-            // Car does not exist, add a new entry
-            String sql = "INSERT INTO electricaldata (userName, electricityusage, days, month, proportion_factor, amount, current_charge, image_name, image_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO electricaldata (userName, electricityusage, days, month, proportion_factor, amount, current_charge, image_name, image_data,electrical_carbon_factor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             Object[] arg = {
                     electrical.getUserName(),
                     electrical.getElectricityusage(),
@@ -59,6 +59,7 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
                     electrical.getCurrent_charge(),
                     electrical.getImageName(),
                     electrical.getImageData(),
+                    electrical.getElectrical_carbon_factor(),
             };
             jdbcTemplate.update(sql, arg);
         }
@@ -79,7 +80,7 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
 
     @Override
     public ElectricalDTO updateElectricalData(final ElectricalDTO electrical) {
-        String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=? WHERE month=?";
+        String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=?,electrical_carbon_factor=? WHERE month=?";
         Object[] arg = {
                 electrical.getUserName(),
                 electrical.getElectricityusage(),
@@ -90,6 +91,7 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
                 electrical.getCurrent_charge(),
                 electrical.getImageName(),
                 electrical.getImageData(),
+                electrical.getElectrical_carbon_factor(),
                 electrical.getMonth(),
         };
 

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
 import my.utm.ip.zebb.models.recycleData.RecyclingDTO;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
-import my.utm.ip.zebb.models.waterData.WaterDAO;
-
 public class RecyclingService_Database implements RecyclingService {
 
     @Autowired

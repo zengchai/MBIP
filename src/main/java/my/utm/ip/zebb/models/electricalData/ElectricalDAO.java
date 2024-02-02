@@ -12,6 +12,7 @@ public class ElectricalDAO {
     double current_charge;
     String imageName;
     byte[] imageData;
+    double electrical_carbon_factor;
 
     public ElectricalDAO() {
         this.userName = "";
@@ -23,11 +24,12 @@ public class ElectricalDAO {
         this.current_charge = 0.0;
         this.imageName = "";
         this.imageData = new byte[0]; 
+        this.electrical_carbon_factor = 0.0;
     }
 
     
     public ElectricalDAO(String userName, double electricityusage, int days, String month, double proportion_factor, double amount,
-            double current_charge, String imageName, byte[] imageData) {
+            double current_charge, String imageName, byte[] imageData,double electrical_carbon_factor) {
         this.userName = userName;
         this.electricityusage = electricityusage;
         this.days = days;
@@ -37,19 +39,7 @@ public class ElectricalDAO {
         this.current_charge = current_charge;
         this.imageName = imageName;
         this.imageData = imageData;
-    }
-
-
-     public ElectricalDAO(double electricityusage, int days, String month, double proportion_factor, double amount,
-            double current_charge, String imageName, byte[] imageData) {
-        this.electricityusage = electricityusage;
-        this.days = days;
-        this.month = month;
-        this.proportion_factor = proportion_factor;
-        this.amount = amount;
-        this.current_charge = current_charge;
-        this.imageName = imageName;
-        this.imageData = imageData;
+        this.electrical_carbon_factor = electrical_carbon_factor;
     }
 
     public void assign(ElectricalDAO electrical) {
@@ -62,6 +52,8 @@ public class ElectricalDAO {
         this.current_charge = electrical.current_charge;
         this.imageName = electrical.imageName;
         this.imageData = electrical.imageData;
+        this.electrical_carbon_factor = electrical_carbon_factor;
+        
     }
 
     public String getUserName() {
@@ -151,6 +143,16 @@ public class ElectricalDAO {
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
+    
+    
+    public double getElectrical_carbon_factor() {
+        return electrical_carbon_factor;
+    }
+
+
+    public void setElectrical_carbon_factor(double electrical_carbon_factor) {
+        this.electrical_carbon_factor = electrical_carbon_factor;
+    }
 
     // methods to faciliate DTO
     public void fromDTO(final ElectricalDTO dto) {
@@ -163,6 +165,7 @@ public class ElectricalDAO {
         this.current_charge = dto.getCurrent_charge();
         this.imageName = dto.getImageName();
         this.imageData = dto.getImageData();
+        this.electrical_carbon_factor = dto.getElectrical_carbon_factor();
 
     }
 
@@ -177,20 +180,8 @@ public class ElectricalDAO {
         dto.setCurrent_charge(this.current_charge);
         dto.setImageName(this.imageName);
         dto.setImageData(this.imageData);
+        dto.setElectrical_carbon_factor(this.electrical_carbon_factor);
 
-        return dto;
-    }
-
-    public ElectricalDTO toDTO2() {
-        ElectricalDTO dto = new ElectricalDTO();
-        dto.setElectricityusage(this.electricityusage);
-        dto.setDays(this.days);
-        dto.setMonth(this.month);
-        dto.setProportion_factor(this.proportion_factor);
-        dto.setAmount(this.amount);
-        dto.setCurrent_charge(this.current_charge);
-        dto.setImageName(this.imageName);
-        dto.setImageData(this.imageData);
         return dto;
     }
 
@@ -204,9 +195,11 @@ public class ElectricalDAO {
         return "ElectricalDAO [userName=" + userName + ", electricityusage=" + electricityusage + ", days=" + days
                 + ", month=" + month + ", proportion_factor=" + proportion_factor + ", amount=" + amount
                 + ", current_charge=" + current_charge + ", imageName=" + imageName + ", imageData="
-                + Arrays.toString(imageData) + "]";
+                + Arrays.toString(imageData) + ", electrical_carbon_factor=" + electrical_carbon_factor + "]";
     }
 
+
+    
 
 
 }

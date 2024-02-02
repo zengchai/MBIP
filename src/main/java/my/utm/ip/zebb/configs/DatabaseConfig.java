@@ -12,9 +12,9 @@ public class DatabaseConfig {
     private DriverManagerDataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/mbip_db");
         dataSource.setUsername("root");
-        dataSource.setPassword("aeiou12345");
+        dataSource.setPassword("handsome5");
         return dataSource;
     }
 
@@ -70,6 +70,5 @@ public class DatabaseConfig {
     // return new JdbcTemplate(getDataSource());
     // return new JdbcTemplate(getDataSource());
     // }
-
 
 }
