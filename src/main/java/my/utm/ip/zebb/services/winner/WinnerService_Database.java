@@ -25,25 +25,46 @@ public class WinnerService_Database implements WinnerService {
     }
 
     @Override
-    public WinnerDAO addWinner(WinnerDAO winner) {
-        WinnerDTO dto = repo.addWinner(winner.toDTO()); //setto
-        return new WinnerDAO(dto); //
-    }
+    public List<WinnerDAO> getWinnersByUserAndMonth() {
+        List<WinnerDTO> dtos = repo.getWinnersByUserAndMonth();
+        List<WinnerDAO> winners = new ArrayList<>();
 
-    @Override
-    public WinnerDAO getWinnerByUserName(String userName) {
-        WinnerDTO dto =repo.getWinnerByUserName(userName);
-        WinnerDAO winner= new WinnerDAO();
-        winner.fromDTO(dto); //getto
+        for (WinnerDTO dto : dtos) {
+            WinnerDAO winner = new WinnerDAO(dto);
 
-        return winner;
+            // Calculate the carbon_reduction_rate
+            double sumCarbonFactors = winner.getRecycling_carbon_factor() +
+                                    winner.getElectric_carbon_factor() +
+                                    winner.getWater_carbon_factor();
+            double carbonReductionRate = sumCarbonFactors / 3.0;
+
+            // Set the carbon_reduction_rate in the WinnerDAO object
+            winner.setCarbon_reduction_rate(carbonReductionRate);
+
+            winners.add(winner);
+        }
+
+        return winners;
     }
 
     @Override
     public WinnerDAO updateWinner(WinnerDAO winner) {
         WinnerDTO dto = repo.updateWinner(winner.toDTO()); //setto
-        return new WinnerDAO(dto);
+        return new WinnerDAO(dto); //
     }
+
+
+
+
+
+
+
+
+    // @Override
+    // public WinnerDAO updateWinner(WinnerDAO winner) {
+    //     WinnerDTO dto = repo.updateWinner(winner.toDTO()); //setto
+    //     return new WinnerDAO(dto);
+    // }
 
     @Override
     public boolean deleteWinner(String userName) {
