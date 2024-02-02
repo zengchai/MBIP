@@ -22,9 +22,8 @@
     border: 2px solid #ddd; /* Border color */
     border-radius: 10px; /* Border radius */
     padding: 20px; /* Padding inside the box */
-    margin-left: 40px; 
     margin-bottom: 20px; 
-    max-width: 65em;
+   
 }
 
 .overview-container h4 {
@@ -103,4 +102,21 @@
     margin-right: 10px;
     width: 30px;
     height: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    background-color: #fff;
+    justify-content: space-between;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.right-container {
+    height: 100%;
+    width: 87%;
+    /*border: 1px solid black;*/
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }

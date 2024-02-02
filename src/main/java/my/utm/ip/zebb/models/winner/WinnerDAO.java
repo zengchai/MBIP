@@ -13,6 +13,7 @@ public class WinnerDAO {
     double recycling_carbon_factor;
     double electric_carbon_factor;
     double water_carbon_factor;
+    String Winner;
 
     public WinnerDAO() {
         this.userName="";
@@ -27,11 +28,12 @@ public class WinnerDAO {
         this.recycling_carbon_factor=0.0;
         this.electric_carbon_factor=0.0;
         this.water_carbon_factor=0.0;
+        this.Winner="";
     }
 
     public WinnerDAO(String userName, String month, double waterusage, double electricityusage,
             double weight, double carbon_reduction_rate, String recycle_image, String electrical_image, String water_image, double recycling_carbon_factor, 
-            double electric_carbon_factor, double water_carbon_factor) {
+            double electric_carbon_factor, double water_carbon_factor, String Winner) {
         this.userName = userName;
         this.month = month;
         this.waterusage = waterusage;
@@ -44,6 +46,7 @@ public class WinnerDAO {
         this.recycling_carbon_factor=recycling_carbon_factor;
         this.electric_carbon_factor=electric_carbon_factor;
         this.water_carbon_factor=water_carbon_factor;
+        this.Winner=Winner;
     }
 
 
@@ -60,6 +63,7 @@ public class WinnerDAO {
         this.recycling_carbon_factor=winner.recycling_carbon_factor;
         this.electric_carbon_factor=winner.electric_carbon_factor;
         this.water_carbon_factor=winner.water_carbon_factor;
+        this.Winner=winner.Winner;
     }
 
     public void setUserName(String userName) {
@@ -110,6 +114,10 @@ public class WinnerDAO {
         this.water_carbon_factor = water_carbon_factor;
     }
 
+    public void setWinner(String Winner) {
+        this.Winner = Winner;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -158,6 +166,10 @@ public class WinnerDAO {
         return water_carbon_factor;
     }
 
+    public String getWinner() {
+        return Winner;
+    }
+
     // methods to faciliate DTO
     public void fromDTO(final WinnerDTO dto) {
         this.userName = dto.getUserName();
@@ -172,6 +184,7 @@ public class WinnerDAO {
         this.recycling_carbon_factor=dto.getRecycling_carbon_factor();
         this.electric_carbon_factor=dto.getElectric_carbon_factor();
         this.water_carbon_factor=dto.getWater_carbon_factor();
+        this.Winner=dto.getWinner();
 
     }
 
@@ -188,7 +201,8 @@ public class WinnerDAO {
         dto.setwater_image(this.water_image);
         dto.setRecycling_carbon_factor(this.recycling_carbon_factor);
         dto.setElectric_carbon_factor(this.electric_carbon_factor);
-        this.setWater_carbon_factor(this.water_carbon_factor);
+        dto.setWater_carbon_factor(this.water_carbon_factor);
+        dto.setWinner(this.Winner);
 
         return dto;
     }

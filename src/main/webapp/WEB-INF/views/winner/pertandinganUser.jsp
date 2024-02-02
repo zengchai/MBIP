@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/static/css/competitionUser.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <title>Pertandingan Admin Page</title>
+        <title>Competition User</title>
 
         <style>
             .main-content {
@@ -38,18 +38,15 @@
                     data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                     <main>
                         <div class="main-content">
-                            <%@ include file="/WEB-INF/views/common/adminSideBar.jsp" %>
+                            <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
                             <div class="right-container">
                                 <div class="container-fluid">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="title">
-                                                <h3 style="margin-left:0px;"><b>Pertandingan Kalender Rendah Karbon Iskandar Puteri</b></h3>
+                                                <h3 style="margin-left:0px;"><b>Pertandingan Kalendar Rendah Karbon Iskandar Puteri</b></h3>
                                             </div>
-                                            <div class="subhead>">
-                                                <h4><p>Select top winners for Pertandingan Kalendar Rendah Karbon Iskandar Puteri</p></h4>
-                                            </div>
-
+                            
                                             <div class="overview-container">
                                                 <h4>Overview</h4>
                                                 <ul>
@@ -76,7 +73,6 @@
                                                 </select>
                                             </div>
 
-                                            
                                             <div class="winner-container">
                                                 <div class="second-winner">
                                                     <img src="/static/asset/competitionUserIMG/2nd.png" alt="2nd winner" style="margin-bottom: 10px;">
@@ -122,9 +118,8 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <!-- <div><button onclick="navigateToPage()">Select Winner</button></div> -->
-                                            <div style="text-align: center;">
-                                                <button onclick="location.href='/winner/selectFromWinnerList'">Choose Winner</button>
+                            
+                                            
                                             </div>
                                         </div>
                                     </div>
@@ -184,6 +179,5 @@
                         });
                     
                 </script>
-
     </body>
 </html>
