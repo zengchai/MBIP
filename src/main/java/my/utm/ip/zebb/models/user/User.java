@@ -15,6 +15,7 @@ private String category;
 private String poscode;
 private String address;
 private int level;
+private String winner;
 private boolean authenticated;
 
 public User(){
@@ -43,7 +44,7 @@ public User(String username,String email,String password){
 
 
 public User(int id, String username, String fullname, String nickname, String password, String email, String phoneNum,
-        String preferredLanguage, String category, String poscode, String address, int level) {
+        String preferredLanguage, String category, String poscode, String address, int level, String winner) {
     this.id = id;
     this.username = username;
     this.fullname = fullname;
@@ -56,7 +57,7 @@ public User(int id, String username, String fullname, String nickname, String pa
     this.poscode = poscode;
     this.address = address;
     this.level = level;
-    this.authenticated = authenticated;
+    this.winner = winner;
 }
 
 public int getId() {
@@ -136,6 +137,14 @@ public boolean getAuthenticated() {
 }
 public void setAuthenticated(boolean authenticated) {
     this.authenticated = authenticated;
+}
+
+public String getWinner() {
+    return winner;
+}
+
+public void setWinner(String winner) {
+    this.winner = winner;
 }
 
 public void fromDAO(final UserDAO dao) {

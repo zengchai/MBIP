@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
 import my.utm.ip.zebb.models.electricalData.ElectricalDTO;
 import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
+import my.utm.ip.zebb.models.waterData.WaterDAO;
 
 
 public class ElectricalService_Database implements ElectricalService {

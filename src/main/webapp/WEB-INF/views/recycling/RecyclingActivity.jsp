@@ -10,22 +10,21 @@
     <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/header.jsp" %> 
-    <main>
-        <div class="main-content">
-            <%@ include file="/WEB-INF/views/userSideBar.jsp" %> 
-            <div class="left-container">
-                <div class="logo-container">
-                    <img src="/static/asset/back.png" alt="Back Logo" class="logo">
-                </div>    
-            </div>
-            <div class="right-container">
-                <div class="title">
-                    <h1>Recycling bill</h1>
-                    <p>Please enter the recycling bill data values</p>
-                </div>
+    <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
+    <%@ include file="/WEB-INF/views/common/header.jsp" %> 
 
-                <c:choose>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+                    data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+                    <main>
+                        <div class="main-content">
+                            <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
+                            <div class="right-container">
+                                <div class="container-fluid">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h1>Recycling bill</h1>
+                                            <p>Please enter the recycling bill data values</p>
+                                            <c:choose>
                     <c:when test="${mode eq 'add'}">
                         <c:set var="action" value="/recycling/addRecyclingData" />
                         <div class="form">
@@ -103,9 +102,13 @@
                         </c:forEach>
                     </tbody>
                 </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
 
-            </div>
-        </div>
-    </main>
 </body>
 </html>

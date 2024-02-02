@@ -48,7 +48,8 @@
                 </div>
 
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
+
 </body>
 </html>

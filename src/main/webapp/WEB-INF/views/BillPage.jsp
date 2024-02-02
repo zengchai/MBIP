@@ -101,7 +101,7 @@ label {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
-    padding-right: 150px; /* adjust the button container padding */
+    padding-right: 60px; /* adjust the button container padding */
 }
 
 .bill-card {
@@ -137,40 +137,43 @@ label {
 
 </head>
 <body>
-        <jsp:include page="header.jsp" />    
-    <main>
-        <div class="main-content">
-            <jsp:include page="userSideBar.jsp" />
-            <div class="left-container">
-                
-            </div>
-            <div class="right-container">
-                <div class="title">
-                    <h1>Bill</h1>
-                    <p>Please select the bill type that you want to upload</p>
+    <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
+    <%@ include file="/WEB-INF/views/common/header.jsp" %> 
+
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+                    data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+                    <main>
+                        <div class="main-content">
+                            <%@ include file="/WEB-INF/views/common/userSideBar.jsp" %>
+                            <div class="right-container">
+                                <div class="container-fluid">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h1>Bill</h1>
+                                            <p>Please select the bill type that you want to upload</p>
+                                            <div class="bill-container">
+                                                <a href="/water" class="bill-card" id="water-bill"> <!-- the href link need change ltr-->
+                                                    <!-- Icon for Water Bill -->
+                                                    <img src="/static/asset/Water bill background.png" alt="Water Bill">
+                                                    <p>Water bill</p>
+                                                </a>
+                                                <a href="/electricity" class="bill-card" id="electricity-bill">
+                                                    <!-- Icon for Electricity Bill -->
+                                                    <img src="/static/asset/Electricity bill background.png" alt="Electricity Bill">
+                                                    <p>Electricity bill</p>
+                                                </a>
+                                                <a href="/recycling/listRecyclingDataByUsername_Month/${sessionScope.user.getUsername()}" class="bill-card" id="recycling-activity">
+                                                    <!-- Icon for Recycling Activity -->
+                                                    <img src="/static/asset/Recycling bill background.png" alt="Recycling Activity">
+                                                    <p>Recycling activity</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
                 </div>
-
-                <div class="bill-container">
-                    <a href="/water/listWaterDataByUsername_Month/${sessionScope.user.getUsername()}" class="bill-card" id="water-bill"> <!-- the href link need change ltr-->
-                        <!-- Icon for Water Bill -->
-                        <img src="/static/asset/Water bill background.png" alt="Water Bill">
-                        <p>Water bill</p>
-                    </a>
-                    <a href="/electrical/listElectricalDataByUsername_Month/${sessionScope.user.getUsername()}" class="bill-card" id="electricity-bill">
-                        <!-- Icon for Electricity Bill -->
-                        <img src="/static/asset/Electricity bill background.png" alt="Electricity Bill">
-                        <p>Electricity bill</p>
-                    </a>
-                    <a href="/recycling/listRecyclingDataByUsername_Month/${sessionScope.user.getUsername()}" class="bill-card" id="recycling-activity">
-                        <!-- Icon for Recycling Activity -->
-                        <img src="/static/asset/Recycling bill background.png" alt="Recycling Activity">
-                        <p>Recycling activity</p>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </main>
 </body>
 </html>
