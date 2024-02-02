@@ -152,12 +152,12 @@ label {
                                             <h1>Bill</h1>
                                             <p>Please select the bill type that you want to upload</p>
                                             <div class="bill-container">
-                                                <a href="/water" class="bill-card" id="water-bill"> <!-- the href link need change ltr-->
+                                                <a href="/water/listWaterDataByUsername_Month/${sessionScope.user.getUsername()}"class="bill-card" id="water-activity"> <!-- the href link need change ltr-->
                                                     <!-- Icon for Water Bill -->
                                                     <img src="/static/asset/Water bill background.png" alt="Water Bill">
                                                     <p>Water bill</p>
                                                 </a>
-                                                <a href="/electricity" class="bill-card" id="electricity-bill">
+                                                <a href="/electrical/listElectricalDataByUsername_Month/${sessionScope.user.getUsername()}"class="bill-card" id="electrical-activity">
                                                     <!-- Icon for Electricity Bill -->
                                                     <img src="/static/asset/Electricity bill background.png" alt="Electricity Bill">
                                                     <p>Electricity bill</p>

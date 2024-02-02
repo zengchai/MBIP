@@ -1,7 +1,5 @@
 package my.utm.ip.zebb.models.user;
 
-import my.utm.ip.zebb.models.user.UserDAO;
-
 public class User {
 private int id;
 private String username;

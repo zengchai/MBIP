@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 public interface ElectricalRepository {
    
     List<ElectricalDTO> getAllElectricalData();
-    ElectricalDTO addElectricalData1(final ElectricalDTO electrical);
-    ElectricalDTO addElectricalData2(final ElectricalDTO electrical);
-    ElectricalDTO getElectricalDataByUserName_month(String userName, String month);
-    
+    ElectricalDTO addElectricalData(final ElectricalDTO electrical);
+    List<ElectricalDTO> getElectricalDataByUserName(String userName);
+    ElectricalDTO updateElectricalData(final ElectricalDTO electrical);
+    public boolean deleteElectricalData(String month);
 } 

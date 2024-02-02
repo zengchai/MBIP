@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
 import my.utm.ip.zebb.models.electricalData.ElectricalDTO;
 import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
-import my.utm.ip.zebb.models.waterData.WaterDAO;
 
 public class ElectricalService_Database implements ElectricalService {
     
@@ -26,26 +25,35 @@ public class ElectricalService_Database implements ElectricalService {
     }
 
     @Override
-    public ElectricalDAO addElectricalData1(ElectricalDAO electrical) {
-        ElectricalDTO dto = repo.addElectricalData1(electrical.toDTO()); //setto
+    public ElectricalDAO addElectricalData(ElectricalDAO electrical) {
+        ElectricalDTO dto = repo.addElectricalData(electrical.toDTO()); //setto
         return new ElectricalDAO(dto); //
     }
 
     @Override
-    public ElectricalDAO addElectricalData2(ElectricalDAO electrical) {
-        ElectricalDTO dto = repo.addElectricalData2(electrical.toDTO2()); //setto
-        return new ElectricalDAO(dto); //
+    public List<ElectricalDAO> getElectricalDataByUserName(String userName) {
+        List<ElectricalDTO> dtos = repo.getElectricalDataByUserName(userName);
+        List<ElectricalDAO> electrical = new ArrayList<ElectricalDAO>();
+
+        for (ElectricalDTO dto : dtos) {
+            electrical.add(new ElectricalDAO(dto));
+        }
+
+        return electrical;
     }
-    
+
     @Override
-    public ElectricalDAO getElectricalDataByUserName_month(String userName, String month) {
-        ElectricalDTO dto =repo.getElectricalDataByUserName_month(userName, month);
-        ElectricalDAO recycle= new ElectricalDAO();
-        recycle.fromDTO(dto); //getto
-
-        return recycle;
+    public ElectricalDAO updateElectricalData(ElectricalDAO electrical) {
+        ElectricalDTO dto = repo.updateElectricalData(electrical.toDTO()); //setto
+        return new ElectricalDAO(dto);
     }
 
+    @Override
+    public boolean deleteElectricalData(String month) {
+        boolean success=repo.deleteElectricalData(month);
+        return success;
+
+    }
     @Override
     public double getAllConsumption(){
         List<ElectricalDAO> elecList = this.getAllElectricalData();
@@ -56,4 +64,5 @@ public class ElectricalService_Database implements ElectricalService {
         consumption = consumption/elecList.size();
         return consumption;
     }
+    
 }

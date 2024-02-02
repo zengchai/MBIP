@@ -8,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
 import my.utm.ip.zebb.models.recycleData.RecyclingDTO;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
-import my.utm.ip.zebb.models.waterData.WaterDAO;
-
 public class RecyclingService_Database implements RecyclingService {
-    
+
     @Autowired
     RecyclingRepository repo;
 
@@ -19,7 +17,7 @@ public class RecyclingService_Database implements RecyclingService {
     public List<RecyclingDAO> getAllRecycleData() {
         List<RecyclingDTO> dtos = repo.getAllRecycleData();
         List<RecyclingDAO> recycle = new ArrayList<RecyclingDAO>();
-        for (RecyclingDTO dto:dtos){
+        for (RecyclingDTO dto : dtos) {
             recycle.add(new RecyclingDAO(dto));
         }
         return recycle;
@@ -27,7 +25,7 @@ public class RecyclingService_Database implements RecyclingService {
 
     @Override
     public RecyclingDAO addRecycleData(RecyclingDAO recycle) {
-        RecyclingDTO dto = repo.addRecycleData(recycle.toDTO()); //setto
+        RecyclingDTO dto = repo.addRecycleData(recycle.toDTO()); // setto
         return new RecyclingDAO(dto); //
     }
 
@@ -45,25 +43,25 @@ public class RecyclingService_Database implements RecyclingService {
 
     @Override
     public RecyclingDAO updateRecycleData(RecyclingDAO recycle) {
-        RecyclingDTO dto = repo.updateRecycleData(recycle.toDTO()); //setto
+        RecyclingDTO dto = repo.updateRecycleData(recycle.toDTO()); // setto
         return new RecyclingDAO(dto);
     }
 
     @Override
     public boolean deleteRecycleData(String month) {
-        boolean success=repo.deleteRecycleData(month);
+        boolean success = repo.deleteRecycleData(month);
         return success;
 
     }
-    
+
     @Override
-    public double getAllConsumption(){
+    public double getAllConsumption() {
         List<RecyclingDAO> recyclingList = this.getAllRecycleData();
         Double consumption = 0.0;
-        for (int i = 0;i<recyclingList.size();i++){
+        for (int i = 0; i < recyclingList.size(); i++) {
             consumption += recyclingList.get(i).getWeight();
         }
-        consumption = consumption/recyclingList.size();
+        consumption = consumption / recyclingList.size();
         return consumption;
     }
 }
