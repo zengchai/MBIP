@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +8,10 @@
     <title>Upload Water Bill Page</title>
     <link rel="stylesheet" type="text/css" href="/static/css/waterbill.css">
 </head>
-<body>
-    <%@ include file="/WEB-INF/views/header.jsp" %> 
-    <main>
+    <jsp:include page="header.jsp" />    
+<main>
     <div class="main-content">
-        <%@ include file="/WEB-INF/views/userSideBar.jsp" %> 
+        <jsp:include page="userSideBar.jsp" />
             <div class="left-container">
                 <div class="logo-container">
                     <img src="/static/asset/back.png" alt="Back Logo" class="logo">
@@ -28,25 +26,17 @@
                     <img src="/static/asset/waterbill.png" alt="Example Picture">
                     <p>Example</p>
                 </div>
-
-                <c:choose>
-                    <c:when test="${mode eq 'add'}">
-                        <c:set var="action" value="/water/uploadWaterImage" />
-                    </c:when>
-                    <c:otherwise>
-                        <c:set var="action" value="/water/editWaterImage" />
-                    </c:otherwise>
-                </c:choose>
+                
+                <c:set var="action" value="/water/uploadWaterImage" />
 
                 <div class="upload">
                     <form action="${action}" method="post" enctype="multipart/form-data" id="uploadForm">
-                        <input type="file" style="width: 50em;" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg" value="${water.getImageName()}" required>
+                        <input type="file" style="width: 50em;" name="file" id="file" accept=".pdf, .png, .jpg, .jpeg" required>
                         <input type="submit" style="width: 50em;" name="submit" value="Upload">
                         <p class="upload-info"><span class="exclamation-sign">! </span>  Filetype should be pdf. File size should not exceed 2 MB <span class="exclamation-sign">!</span></p>
 
                     </form>
                 </div>
-
             </div>
         </main>
     </div>

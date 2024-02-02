@@ -6,17 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping({ "/", "/home", "/index" })
+    @RequestMapping({"/","/home", "/index"})
     public String home() {
         return "main/index";
     }
 
+    
     @RequestMapping("/electricity")
     public String electricity() {
-        return "electrical/ElectricityConsumption";
+        return "ElectricityConsumption";
     }
 
-    @RequestMapping("/recycling") // no used
+    @RequestMapping("/recycling") //no used
     public String recycling() {
         return "RecyclingActivity";
     }
@@ -40,54 +41,49 @@ public class HomeController {
     public String waterbill() {
         return "UploadWater";
     }
-
     @RequestMapping("/pertandinganadmin")
-    public String pertandinganadmin() {
+    public String pertandinganadmin(){
         return "pertandinganadmin";
     }
-
     @RequestMapping("/pertandinganadmin2")
-    public String pertandinganadmiin2() {
+    public String pertandinganadmiin2(){
         return "pertandinganadmin2";
     }
-
-    @RequestMapping("/reportcalculation")
-    public String reportcalculation() {
+        @RequestMapping("/reportcalculation")
+    public String reportcalculation(){
         return "reportcalculation";
     }
-
-    @RequestMapping("/reportviewanalysis")
-    public String reportviewanalysis() {
+        @RequestMapping("/reportviewanalysis")
+    public String reportviewanalysis(){
         return "reportviewanalysis";
     }
-
-    @RequestMapping("/timeline")
-    public String timeline() {
+        @RequestMapping("/timeline")
+    public String timeline(){
         return "timeline";
     }
-
-    @RequestMapping("/timelineAdmin")
-    public String timelineAdmin() {
+        @RequestMapping("/timelineAdmin")
+    public String timelineAdmin(){
         return "timelineAdmin";
     }
 
-    @RequestMapping("/competitionUser") // not used
-    public String competitionuser() {
+    @RequestMapping("/competitionUser") //not used
+    public String competitionuser(){
         return "competitionUser";
     }
 
     @RequestMapping("/certificate")
-    public String certificate() {
+    public String certificate(){
         return "certificate";
     }
 
     @RequestMapping("/BillPage")
-    public String bill() {
+    public String bill(){
         return "BillPage";
     }
 
+    
     @RequestMapping("/dashboard")
-    public String dashbaord() {
+    public String dashbaord(){
         return "staff/dashboard";
     }
 }

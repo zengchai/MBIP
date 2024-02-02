@@ -41,7 +41,7 @@ public class WaterRepository_JDBC implements WaterRepository {
                         water.getAmount(),
                         water.getImageName(),
                         water.getImageData(),
-                        water.getMonth(),
+                        
                 };
                 jdbcTemplate.update(sql, arg);
 
@@ -86,7 +86,6 @@ public class WaterRepository_JDBC implements WaterRepository {
             water.getAmount(),
             water.getImageName(),
             water.getImageData(),
-            water.getMonth(),
         };
 
         int count = jdbcTemplate.update(sql, arg);

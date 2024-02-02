@@ -12,10 +12,14 @@ import my.utm.ip.zebb.services.waterData.WaterService;
 import my.utm.ip.zebb.services.waterData.WaterService_Database;
 import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
 import my.utm.ip.zebb.models.electricalData.ElectricalRepository_JDBC;
+import my.utm.ip.zebb.models.product.ProductRepository;
+import my.utm.ip.zebb.models.product.ProductRepository_JDBC;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository_JDBC;
 import my.utm.ip.zebb.services.electricalData.ElectricalService;
 import my.utm.ip.zebb.services.electricalData.ElectricalService_Database;
+import my.utm.ip.zebb.services.product.ProductService;
+import my.utm.ip.zebb.services.product.ProductService_Database;
 import my.utm.ip.zebb.services.user.UserService;
 import my.utm.ip.zebb.services.recycleData.RecyclingService;
 import my.utm.ip.zebb.services.recycleData.RecyclingService_Database;
@@ -28,6 +32,18 @@ import my.utm.ip.zebb.services.winner.WinnerService_Database;
 public class AppConfig {
 
     // Load all services required by the app
+
+    @Bean
+    ProductService productService() {
+        // return new ProductService_Memory();
+        return new ProductService_Database();
+    }
+
+    // Repositories
+    @Bean
+    ProductRepository productRepository() {
+        return new ProductRepository_JDBC();
+    }
 
     @Bean
     UserService userService() {

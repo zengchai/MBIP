@@ -56,7 +56,6 @@ public class ElectricalService_Database implements ElectricalService {
         return success;
 
     }
-
     @Override
     public double getAllConsumption(){
         List<ElectricalDAO> elecList = this.getAllElectricalData();
