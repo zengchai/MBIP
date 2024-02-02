@@ -113,7 +113,7 @@
                                                 </table>
                                             </div>
                                             <div style="text-align: center;">
-                                                <button type="submit">Submit</button>
+                                                <button type="submit" onclick="validateForm()">Submit</button>
                                             </div>
                                         </form>
 
@@ -130,7 +130,7 @@
                 <script>
                     // Function to limit the checkbox selections to a maximum of 3
                     function limitCheckbox() {
-                        var checkboxes = document.querySelectorAll('input[name="username"]');
+                        var checkboxes = document.querySelectorAll('input[name="selectedUserAndMonth"]');
                         var checkedCount = 0;
 
                         checkboxes.forEach(function (checkbox) {
@@ -149,6 +149,26 @@
                                 }
                             });
                         }
+                    }
+                    
+                    // Function to validate the form before submission
+                    function validateForm() {
+                        var checkboxes = document.querySelectorAll('input[name="selectedUserAndMonth"]');
+                        var checkedCount = 0;
+
+                        checkboxes.forEach(function (checkbox) {
+                            if (checkbox.checked) {
+                                checkedCount++;
+                            }
+                        });
+
+                        if (checkedCount === 0) {
+                            alert("Please select at least one winner.");
+                            event.preventDefault();
+                        }
+
+                        // Continue with form submission
+                        document.getElementById('winnerForm').submit();
                     }
 
                     // Function to filter the table based on the selected month
