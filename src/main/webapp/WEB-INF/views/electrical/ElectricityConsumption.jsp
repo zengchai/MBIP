@@ -96,44 +96,5 @@
                 </c:choose>
 
 
-
-                <!-- to list all electrical data -->
-                <a href="/electrical/listAllElectricalData">List all electrical data</a>
-                <a href="/electrical/displayFile?username=${sessionScope.user.getUsername()}&month=${sessionScope.electrical.getMonth()}&image_name=${sessionScope.electrical.getImageName()}" target="_blank">Download File</a>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>UserName</th>
-                            <th>Weight</th>
-                            <th>Month</th>
-                            <th>Electrical Carbon Factor</th>
-                            <th>Image Name</th>
-                            <th>Download bill</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="electrical" items="${allelectrical}">
-                            <tr>
-                                <td class="Username">${electrical.getUserName()}</td>
-                                <td class="weight">${electrical.getWeight()}</td>
-                                <td class="days">${electrical.getMonth()}</td>
-                                <td class="electrical_carbon_factor">${electrical.getElectrical_carbon_factor()}</td>
-                                <td class="getImageName">${electrical.getImageName()}</td>
-                                <td>
-                                    <a href="/electrical/displayFile?month=${electrical.getMonth()}&image_name=${electrical.getImageName()}" target="_blank">Download File</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-
 </body>
 </html>

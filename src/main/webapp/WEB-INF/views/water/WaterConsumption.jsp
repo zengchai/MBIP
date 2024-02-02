@@ -91,44 +91,5 @@
                 </c:choose>
 
 
-
-                <!-- to list all water data -->
-                <a href="/water/listAllWaterData">List all water data</a>
-                <a href="/water/displayFile?username=${sessionScope.user.getUsername()}&month=${sessionScope.water.getMonth()}&image_name=${sessionScope.water.getImageName()}" target="_blank">Download File</a>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>UserName</th>
-                            <th>Weight</th>
-                            <th>Month</th>
-                            <th>Water Carbon Factor</th>
-                            <th>Image Name</th>
-                            <th>Download bill</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="water" items="${allwater}">
-                            <tr>
-                                <td class="Username">${water.getUserName()}</td>
-                                <td class="weight">${water.getWeight()}</td>
-                                <td class="days">${water.getMonth()}</td>
-                                <td class="water_carbon_factor">${water.getWater_carbon_factor()}</td>
-                                <td class="getImageName">${water.getImageName()}</td>
-                                <td>
-                                    <a href="/water/displayFile?month=${water.getMonth()}&image_name=${water.getImageName()}" target="_blank">Download File</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-
 </body>
 </html>
