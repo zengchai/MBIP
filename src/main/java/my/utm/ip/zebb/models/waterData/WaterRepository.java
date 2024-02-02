@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WaterRepository {
-   
-    List<WaterDTO> getAllWaterData();
-    WaterDTO addWaterData1(final WaterDTO water);
-    WaterDTO addWaterData2(final WaterDTO water);
-    WaterDTO getWaterDataByUserName_month(String userName, String month);
+   List<WaterDTO> getAllWaterData();
+    WaterDTO addWaterData(final WaterDTO water);
+    List<WaterDTO> getWaterDataByUserName(String userName);
+    WaterDTO updateWaterData(final WaterDTO water);
+    public boolean deleteWaterData(String month);
     
 } 

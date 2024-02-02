@@ -24,25 +24,35 @@ public class WaterService_Database implements WaterService {
         return water;
     }
 
-    @Override
-    public WaterDAO addWaterData1(WaterDAO water) {
-        WaterDTO dto = repo.addWaterData1(water.toDTO()); //setto
+   @Override
+    public WaterDAO addWaterData(WaterDAO water) {
+        WaterDTO dto = repo.addWaterData(water.toDTO()); //setto
         return new WaterDAO(dto); //
     }
 
     @Override
-    public WaterDAO addWaterData2(WaterDAO water) {
-        WaterDTO dto = repo.addWaterData2(water.toDTO2()); //setto
-        return new WaterDAO(dto); //
-    }
-    
-    @Override
-    public WaterDAO getWaterDataByUserName_month(String userName, String month) {
-        WaterDTO dto =repo.getWaterDataByUserName_month(userName, month);
-        WaterDAO water= new WaterDAO();
-        water.fromDTO(dto); //getto
+    public List<WaterDAO> getWaterDataByUserName(String userName) {
+        List<WaterDTO> dtos = repo.getWaterDataByUserName(userName);
+        List<WaterDAO> water = new ArrayList<WaterDAO>();
+
+        for (WaterDTO dto : dtos) {
+            water.add(new WaterDAO(dto));
+        }
 
         return water;
     }
 
+    @Override
+    public WaterDAO updateWaterData(WaterDAO water) {
+        WaterDTO dto = repo.updateWaterData(water.toDTO()); //setto
+        return new WaterDAO(dto);
+    }
+
+    @Override
+    public boolean deleteWaterData(String month) {
+        boolean success=repo.deleteWaterData(month);
+        return success;
+
+    }
+    
 }

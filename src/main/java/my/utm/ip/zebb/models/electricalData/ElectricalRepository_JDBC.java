@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
 public class ElectricalRepository_JDBC implements ElectricalRepository {
 
     @Autowired
@@ -17,57 +16,99 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
 
         String sql = "SELECT * FROM electricaldata";
 
-        final List<ElectricalDTO> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<ElectricalDTO>(ElectricalDTO.class));
+        final List<ElectricalDTO> list = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<ElectricalDTO>(ElectricalDTO.class));
 
         return list;
-    } 
-
-    @Override
-    public ElectricalDTO addElectricalData1(ElectricalDTO electrical) {
-        String sql = "INSERT INTO electricaldata (userName, electricityusage, days, month, proportion_factor, amount, current_charge, image_name, image_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        Object[] arg = { 
-            electrical.getUserName(),
-            electrical.getElectricityusage(),
-            electrical.getDays(),
-            electrical.getMonth(),
-            electrical.getProportion_factor(),
-            electrical.getAmount(),
-            electrical.getCurrent_charge(),
-            electrical.getImageName(),
-            electrical.getImageData(),
-        };
-
-        jdbcTemplate.update(sql, arg);
-
-        return electrical;
     }
 
     @Override
-    public ElectricalDTO addElectricalData2(ElectricalDTO electrical) {
-        String sql = "INSERT INTO electricaldata (electricityusage, days, month, proportion_factor, amount, current_charge, image_name, image_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        Object[] arg = { 
-            electrical.getElectricityusage(),
-            electrical.getDays(),
-            electrical.getMonth(),
-            electrical.getProportion_factor(),
-            electrical.getAmount(),
-            electrical.getCurrent_charge(),
-            electrical.getImageName(),
-            electrical.getImageData(),
-        };
+    public ElectricalDTO addElectricalData(ElectricalDTO electrical) {
+        String checkIfExistsSql = "SELECT COUNT(*) FROM electricaldata WHERE month = ? ";
 
-        jdbcTemplate.update(sql, arg);
+        int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, electrical.getMonth());
+
+        if (existingCount > 0) {
+            // data already exists
+            String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=? WHERE month=?";
+            Object[] arg = {
+                    electrical.getUserName(),
+                    electrical.getElectricityusage(),
+                    electrical.getDays(),
+                    electrical.getMonth(),
+                    electrical.getProportion_factor(),
+                    electrical.getAmount(),
+                    electrical.getCurrent_charge(),
+                    electrical.getImageName(),
+                    electrical.getImageData(),
+                    electrical.getMonth(),
+
+            };
+            jdbcTemplate.update(sql, arg);
+
+        } else {
+            // Car does not exist, add a new entry
+            String sql = "INSERT INTO electricaldata (userName, electricityusage, days, month, proportion_factor, amount, current_charge, image_name, image_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            Object[] arg = {
+                    electrical.getUserName(),
+                    electrical.getElectricityusage(),
+                    electrical.getDays(),
+                    electrical.getMonth(),
+                    electrical.getProportion_factor(),
+                    electrical.getAmount(),
+                    electrical.getCurrent_charge(),
+                    electrical.getImageName(),
+                    electrical.getImageData(),
+            };
+            jdbcTemplate.update(sql, arg);
+        }
 
         return electrical;
+
     }
 
     @Override
-    public ElectricalDTO getElectricalDataByUserName_month(String userName, String month) {
-        String sql = "SELECT * FROM electricaldata WHERE userName=? AND month=?";
-        ElectricalDTO electrical = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<ElectricalDTO>(ElectricalDTO.class),
-                userName, month);
-        return electrical;
+    public List<ElectricalDTO> getElectricalDataByUserName(String userName) {
+        String sql = "SELECT * FROM electricaldata WHERE userName=?";
+
+        List<ElectricalDTO> electricalList = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<ElectricalDTO>(ElectricalDTO.class), userName);
+
+        return electricalList;
+    }
+
+    @Override
+    public ElectricalDTO updateElectricalData(final ElectricalDTO electrical) {
+        String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=? WHERE month=?";
+        Object[] arg = {
+                electrical.getUserName(),
+                electrical.getElectricityusage(),
+                electrical.getDays(),
+                electrical.getMonth(),
+                electrical.getProportion_factor(),
+                electrical.getAmount(),
+                electrical.getCurrent_charge(),
+                electrical.getImageName(),
+                electrical.getImageData(),
+                electrical.getMonth(),
+        };
+
+        int count = jdbcTemplate.update(sql, arg);
+
+        if (count > 0)
+            return electrical;
+
+        return null;
+
+    }
+
+    @Override
+    public boolean deleteElectricalData(String month) {
+        String sql = "DELETE FROM electricaldata WHERE month=?";
+        int count = jdbcTemplate.update(sql, month);
+
+        return count > 0;
+
     }
 
 }
-
