@@ -15,7 +15,7 @@ public class WinnerRepository_JDBC implements WinnerRepository {
     public List<WinnerDTO> getWinnersByUserAndMonth() {
         String sql = "SELECT " +
                     "recycledata.userName, recycledata.weight, recycledata.month, recycledata.image_name as recycle_image, recycledata.recycling_carbon_factor, " +
-                    "electricaldata.electricityusage, electricaldata.image_name as electrical_image, electricaldata.electric_carbon_factor, " +
+                    "electricaldata.electricityusage, electricaldata.image_name as electrical_image, electricaldata.electrical_carbon_factor, " +
                     "waterdata.waterusage, waterdata.image_name as water_image, waterdata.water_carbon_factor " +
                     "FROM recycledata " +
                     "JOIN electricaldata ON recycledata.userName = electricaldata.userName AND recycledata.month = electricaldata.month " +
@@ -53,7 +53,7 @@ public class WinnerRepository_JDBC implements WinnerRepository {
         String sql = "SELECT users.Username, users.Winner, recycledata.weight, " +
               "electricaldata.electricityusage, waterdata.waterusage, " +
               "recycledata.recycling_carbon_factor, " +
-              "electricaldata.electric_carbon_factor, waterdata.water_carbon_factor " +
+              "electricaldata.electrical_carbon_factor, waterdata.water_carbon_factor " +
               "FROM users " +
               "JOIN recycledata ON users.Username = recycledata.userName AND users.Winner = recycledata.month " +
               "JOIN electricaldata ON users.Username = electricaldata.userName AND users.Winner = electricaldata.month " +
