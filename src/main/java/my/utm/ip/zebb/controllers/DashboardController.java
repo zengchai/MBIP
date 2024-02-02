@@ -1,7 +1,5 @@
 package my.utm.ip.zebb.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
-import my.utm.ip.zebb.models.waterData.WaterDAO;
 import my.utm.ip.zebb.services.electricalData.ElectricalService;
 import my.utm.ip.zebb.services.recycleData.RecyclingService;
 import my.utm.ip.zebb.services.user.UserService;
@@ -31,7 +27,6 @@ public class DashboardController {
     @Autowired
     private UserService userService;
         
-    @RequestMapping("/dashboard")
     public String dashbaord(HttpSession session,Model model){
         
         int usernum = userService.getAllUserNum();

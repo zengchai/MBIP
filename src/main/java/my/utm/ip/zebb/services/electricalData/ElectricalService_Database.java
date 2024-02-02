@@ -56,5 +56,16 @@ public class ElectricalService_Database implements ElectricalService {
         return success;
 
     }
+
+    @Override
+    public double getAllConsumption(){
+        List<ElectricalDAO> elecList = this.getAllElectricalData();
+        Double consumption = 0.0;
+        for (int i = 0;i<elecList.size();i++){
+            consumption += elecList.get(i).getAmount();
+        }
+        consumption = consumption/elecList.size();
+        return consumption;
+    }
     
 }

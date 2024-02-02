@@ -12,5 +12,7 @@ public interface WaterService{
     List<WaterDAO> getWaterDataByUserName(String userName);
     WaterDAO updateWaterData(final WaterDAO recycle);
     public boolean deleteWaterData(String month);
+    double getAllConsumption();
+
 
 }
