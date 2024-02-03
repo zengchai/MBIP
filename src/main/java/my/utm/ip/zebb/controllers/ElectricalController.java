@@ -142,7 +142,7 @@ public class ElectricalController {
                 electrical.setCurrent_charge(Ecurrent_charge);
                 electrical.setImageName(file.getOriginalFilename());
                 electrical.setImageData(file.getBytes());
-                
+
                 double electrical_carbon_factor = electrical.getElectricityusage() * 0.584;
                 electrical.setElectrical_carbon_factor(electrical_carbon_factor);
                 electricalService.addElectricalData(electrical);

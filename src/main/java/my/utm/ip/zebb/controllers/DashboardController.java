@@ -16,7 +16,7 @@ public class DashboardController {
 
     @Autowired
     private ElectricalService electricalService;
-    
+
     @Autowired
     private RecyclingService recyclingService;
 
@@ -25,14 +25,14 @@ public class DashboardController {
 
     @Autowired
     private UserService userService;
-        
-    public String dashbaord(HttpSession session,Model model){
-        
+
+    public String dashbaord(HttpSession session, Model model) {
+
         int usernum = userService.getAllUserNum();
         double elecnum = electricalService.getAllConsumption();
         double recyclingnum = recyclingService.getAllConsumption();
         double waternum = waterService.getAllConsumption();
-        double carbonreduction = (elecnum+recyclingnum+waternum)/3;
+        double carbonreduction = (elecnum + recyclingnum + waternum) / 3;
         String formattedElecNum = String.format("%.2f", elecnum);
         String formattedRecyclingNum = String.format("%.2f", recyclingnum);
         String formattedWaterNum = String.format("%.2f", waternum);

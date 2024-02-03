@@ -43,11 +43,11 @@ public class HomeController {
     }
     @RequestMapping("/pertandinganadmin")
     public String pertandinganadmin(){
-        return "pertandinganadmin";
+        return "winner/pertandinganadmin";
     }
     @RequestMapping("/pertandinganadmin2")
     public String pertandinganadmiin2(){
-        return "pertandinganadmin2";
+        return "winner/pertandinganadmin2";
     }
         @RequestMapping("/reportcalculation")
     public String reportcalculation(){
@@ -68,7 +68,7 @@ public class HomeController {
 
     @RequestMapping("/competitionUser") //not used
     public String competitionuser(){
-        return "competitionUser";
+        return "winner/competitionUser";
     }
 
     @RequestMapping("/certificate")
