@@ -84,12 +84,11 @@ h3{
     height: 36px; /* Set the desired height */
 }
         /* Add your CSS styles here */
-        .modal {
+        .modal1 {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 87%; /* Set the same width as the right container */
-            height: 100%; /* Set the same height as the right container */
+            top: 11rem;
+            left: 23rem;
+            width: 60%; /* Set the same width as the right container */
             background-color: rgba(255, 255, 255, 0.95); /* Adjust background color and opacity */
             padding: 20px;
             overflow: auto;
@@ -101,17 +100,9 @@ h3{
             margin-right: auto; /* Center the modal horizontally */
         }
         
-        @media (min-width: 768px) {
-            .modal {
-                width: 60%; /* Adjust width for larger screens if needed */
-            }
-        }
 
-    /* .form-title ,.form-desc .form-link,.form-date {
-        margin-bottom: 10px;
-    }
-
-    .form-title label,.form-title input,.form-desc label,.form-desc textarea,.form-link label,.form-link input,.form-date label,.form-date input{
-        display: block;
-        width: 100%;
-    } */
+.buttonrow {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
