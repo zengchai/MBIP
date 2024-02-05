@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import my.utm.ip.zebb.models.winner.WinnerDAO;
+import my.utm.ip.zebb.models.winner.Winner;
 import my.utm.ip.zebb.services.winner.WinnerService;
 
 @Controller
@@ -22,7 +22,7 @@ public class WinnerController {
     @RequestMapping("/selectFromWinnerList")   //model must have same name with sql database attribute
     public String selectFromWinnerList(Model model) {
 
-        List<WinnerDAO> winners = winnerService.getWinnersByUserAndMonth();
+        List<Winner> winners = winnerService.getWinnersByUserAndMonth();
         model.addAttribute("winners", winners);
 
         return "winner/pertandinganadmin2"; //need change
@@ -53,7 +53,7 @@ public class WinnerController {
                 }
 
     
-                WinnerDAO winner = new WinnerDAO();
+                Winner winner = new Winner();
                 winner.setUserName(username);
                 winner.setMonth(month);
                 winnerService.updateWinner(winner);
@@ -74,7 +74,7 @@ public class WinnerController {
     @RequestMapping("/finalWinners")   //model must have same name with sql database attribute
     public String showWinner(Model model) {
 
-        List<WinnerDAO> finalWinners = winnerService.getWinners();
+        List<Winner> finalWinners = winnerService.getWinners();
         model.addAttribute("finalWinners", finalWinners);
 
         return "winner/pertandinganadmin"; //need change
@@ -83,7 +83,7 @@ public class WinnerController {
     @RequestMapping("/finalWinnersUser")   //model must have same name with sql database attribute
     public String showWinnerUser(Model model) {
 
-        List<WinnerDAO> finalWinners = winnerService.getWinners();
+        List<Winner> finalWinners = winnerService.getWinners();
         model.addAttribute("finalWinners", finalWinners);
 
         return "winner/pertandinganUser"; //need change

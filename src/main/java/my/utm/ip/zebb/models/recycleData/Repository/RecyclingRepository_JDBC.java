@@ -1,4 +1,4 @@
-package my.utm.ip.zebb.models.recycleData;
+package my.utm.ip.zebb.models.recycleData.Repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import my.utm.ip.zebb.models.recycleData.Repository.RecyclingDTO;
+import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
 
 
 public class RecyclingRepository_JDBC implements RecyclingRepository {
@@ -15,17 +15,17 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<RecyclingDTO> getAllRecycleData() {
+    public List<RecyclingDAO> getAllRecycleData() {
 
         String sql = "SELECT * FROM recycledata";
 
-        final List<RecyclingDTO> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecyclingDTO>(RecyclingDTO.class));
+        final List<RecyclingDAO> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecyclingDAO>(RecyclingDAO.class));
 
         return list;
     } 
 
     @Override
-    public RecyclingDTO addRecycleData(RecyclingDTO recycle) {
+    public RecyclingDAO addRecycleData(RecyclingDAO recycle) {
         String checkIfExistsSql = "SELECT COUNT(*) FROM recycledata WHERE month = ? AND userName = ?";
 
         int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, recycle.getMonth(), recycle.getUserName());
@@ -63,16 +63,16 @@ public class RecyclingRepository_JDBC implements RecyclingRepository {
     }
 
     @Override
-    public List<RecyclingDTO> getRecycleDataByUserName(String userName) {
+    public List<RecyclingDAO> getRecycleDataByUserName(String userName) {
         String sql = "SELECT * FROM recycledata WHERE userName=?";
         
-        List<RecyclingDTO> recycleList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecyclingDTO>(RecyclingDTO.class), userName);
+        List<RecyclingDAO> recycleList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecyclingDAO>(RecyclingDAO.class), userName);
 
         return recycleList;
     }
 
     @Override
-    public RecyclingDTO updateRecycleData(final RecyclingDTO recycle) {
+    public RecyclingDAO updateRecycleData(final RecyclingDAO recycle) {
         String sql = "UPDATE recycledata SET userName=?, weight=?, month=?, image_name=?, image_data=?, recycling_carbon_factor=? WHERE month=?";
         Object[] arg = { 
                 recycle.getUserName(),

@@ -1,4 +1,4 @@
-package my.utm.ip.zebb.models.waterData;
+package my.utm.ip.zebb.models.waterData.Repository;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import my.utm.ip.zebb.models.waterData.Repository.WaterDAO;
-import my.utm.ip.zebb.models.waterData.Repository.WaterDTO;
+import my.utm.ip.zebb.models.waterData.Water;
+import my.utm.ip.zebb.models.waterData.WaterDAO;
 
 
 public class WaterRepository_JDBC implements WaterRepository {
@@ -15,17 +15,17 @@ public class WaterRepository_JDBC implements WaterRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 @Override
-    public List<WaterDTO> getAllWaterData() {
+    public List<WaterDAO> getAllWaterData() {
 
         String sql = "SELECT * FROM waterdata";
 
-        final List<WaterDTO> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterDTO>(WaterDTO.class));
+        final List<WaterDAO> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterDAO>(WaterDAO.class));
 
         return list;
     } 
 
     @Override
-    public WaterDTO addWaterData(WaterDTO water) {
+    public WaterDAO addWaterData(WaterDAO water) {
         String checkIfExistsSql = "SELECT COUNT(*) FROM waterdata WHERE month = ? ";
 
         int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, water.getMonth());
@@ -69,16 +69,16 @@ public class WaterRepository_JDBC implements WaterRepository {
     }
 
     @Override
-    public List<WaterDTO> getWaterDataByUserName(String userName) {
+    public List<WaterDAO> getWaterDataByUserName(String userName) {
         String sql = "SELECT * FROM waterdata WHERE userName=?";
         
-        List<WaterDTO> waterList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterDTO>(WaterDTO.class), userName);
+        List<WaterDAO> waterList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterDAO>(WaterDAO.class), userName);
 
         return waterList;
     }
 
     @Override
-    public WaterDTO updateWaterData(final WaterDTO water) {
+    public WaterDAO updateWaterData(final WaterDAO water) {
         String sql = "UPDATE waterdata SET userName=?, waterusage=?, days=?, month=?, proportion_factor=?, amount=?, image_name=?, image_data=? ,water_carbon_factor=? WHERE month=?";
         Object[] arg = { 
             water.getUserName(),
@@ -112,10 +112,10 @@ public class WaterRepository_JDBC implements WaterRepository {
     }
 
     @Override
-    public List<WaterDAO> getWaterDataByMonth(String month){
+    public List<Water> getWaterDataByMonth(String month){
         String sql = "SELECT * FROM waterdata WHERE month=?";
         
-        List<WaterDAO> waterList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterDAO>(WaterDAO.class), month);
+        List<Water> waterList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Water>(Water.class), month);
 
         return waterList;
     }
