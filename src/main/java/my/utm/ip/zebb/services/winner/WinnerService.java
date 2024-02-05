@@ -8,6 +8,7 @@ public interface WinnerService{
     List<Winner> getWinnersByUserAndMonth();
     Winner updateWinner(final Winner winner);
     int getWinnerCountForMonth(String month);
+    boolean deleteWinnerByUsername(String userName);
     List<Winner> getWinners();
 
 }

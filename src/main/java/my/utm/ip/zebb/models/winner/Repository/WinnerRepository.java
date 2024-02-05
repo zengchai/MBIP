@@ -13,6 +13,7 @@ public interface WinnerRepository {
     WinnerDAO updateWinner(final WinnerDAO recycle);
     int getWinnerCountForMonth(String month);
     List<WinnerDAO> getWinners();
+    boolean deleteWinnerByUsername(String userName);
 
 }    
 

@@ -95,8 +95,10 @@
                                                                 <td class="recyclingamount">${winner.weight}</td>
                                                                 <td class="carbon_reduction_rate">${winner.carbon_reduction_rate}</td>
                                                                 <td>
-                                                                    <a href="#" target="_blank">Water</a>
-                                                                    <a href="#" target="_blank">Electricity</a>
+                                                                    <a href="/water/displayFile?username=${winner.userName}&month=${winner.month}&image_name=${winner.water_image}" target="_blank">
+                                                                        Water</a>
+                                                                    <a href="/electrical/displayFile?username=${winner.userName}&month=${winner.month}&image_name=${winner.electrical_image}" target="_blank">
+                                                                        Electricity</a>
                                                                     <a href="/recycling/displayFile?username=${winner.userName}&month=${winner.month}&image_name=${winner.recycle_image}" target="_blank">
                                                                         Recycling
                                                                     </a>

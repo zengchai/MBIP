@@ -72,5 +72,12 @@ public class WinnerService_Database implements WinnerService {
         return winners;
     }
 
+    @Override
+    public boolean deleteWinnerByUsername(String userName) {
+        boolean success = repo.deleteWinnerByUsername(userName);
+
+        return success;
+    }
+
     
 }

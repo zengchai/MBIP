@@ -89,6 +89,22 @@ public class WinnerController {
         return "winner/pertandinganUser"; //need change
     }
 
+    @RequestMapping("/deleteWinner")
+
+    public String deleteWinnerByUsername(@RequestParam String Username, Model model) {
+
+        boolean success = winnerService.deleteWinnerByUsername(Username);
+
+        if (success) {
+
+            return "redirect:/winner/finalWinners"; //need change
+        }
+
+        model.addAttribute("errorMessage", "Deletion Failed!. The product doesn't exist");
+        return "/error"; //need change or delete
+
+    }
+
 
     
 }
