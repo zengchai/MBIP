@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Recycling Bill Page</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
+    <link rel="stylesheet" type="text/css" href="/static/recycling/css/recycling.css">
 
 </head>
 <body>
@@ -27,7 +27,7 @@
                                             <h1>Recycling bill</h1>
                                             <p>Please enter your recycling bill as proof</p>
                                             <div class="example">
-                                                <img src="/static/asset/recyclingbill.jpg" alt="Example Picture">
+                                                <img src="/static/recycling/asset/recyclingbill.jpg" alt="Example Picture">
                                                 <p></p>
                                                 <p></p>
                                             </div>

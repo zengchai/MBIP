@@ -10,7 +10,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Electrical Page</title>
             <link rel="stylesheet" href="/static/common/css/materialize.min.css">
-            <link rel="stylesheet" type="text/css" href="/static/css/electricity.css">
+            <link rel="stylesheet" type="text/css" href="/static/electrical/css/electricity.css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         </head>
 

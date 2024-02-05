@@ -30,7 +30,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </style>
   </head>
   <body>
-    <%@ include file="/WEB-INF/views/common/include-first.jsp" %> <%@ include
+    <%@ include file="/WEB-INF/views/common/include-first.jsp" %><%@ include
     file="/WEB-INF/views/common/header.jsp" %>
 
     <div

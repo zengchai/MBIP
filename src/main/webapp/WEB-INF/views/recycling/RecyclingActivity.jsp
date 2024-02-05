@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Page</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/recycling.css">
+    <link rel="stylesheet" type="text/css" href="/static/recycling/css/recycling.css">
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 

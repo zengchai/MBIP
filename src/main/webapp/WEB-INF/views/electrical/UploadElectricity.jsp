@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Electrical Bill Page</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/electricity.css">
+    <link rel="stylesheet" type="text/css" href="/static/electrical/css/electricity.css">
    
 </head>
 <body>
@@ -27,7 +27,7 @@
                                             <h1>Electrical bill</h1>
                                             <p>Please enter your electrical bill as proof</p>
                                             <div class="example">
-                                                <img src="/static/asset/electricitybill.png" alt="Example Picture">
+                                                <img src="/static/electrical/asset/electricitybill.png" alt="Example Picture">
                                                 <p></p>
                                                 <p></p>
                                             </div>

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electrical Page</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/electricity.css">
+    <link rel="stylesheet" type="text/css" href="/static/electrical/css/electricity.css">
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/include-first.jsp" %> 
