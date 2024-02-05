@@ -1,20 +1,20 @@
-package my.utm.ip.zebb.models.electricalData.Repository;
+package my.utm.ip.zebb.models.electricalData;
 
 import java.util.Arrays;
 
-public class ElectricalDAO {
-    String userName;
-    double electricityusage;
-    int days;
-    String month;
-    double proportion_factor;
-    double amount;
-    double current_charge;
-    String imageName;
-    byte[] imageData;
-    double electrical_carbon_factor;
+public class Electrical {
+    private String userName;
+    private double electricityusage;
+    private int days;
+    private String month;
+    private double proportion_factor;
+    private double amount;
+    private double current_charge;
+    private String imageName;
+    private byte[] imageData;
+    private double electrical_carbon_factor;
 
-    public ElectricalDAO() {
+    public Electrical() {
         this.userName = "";
         this.electricityusage = 0.0;
         this.days = 0;
@@ -28,7 +28,7 @@ public class ElectricalDAO {
     }
 
     
-    public ElectricalDAO(String userName, double electricityusage, int days, String month, double proportion_factor, double amount,
+    public Electrical(String userName, double electricityusage, int days, String month, double proportion_factor, double amount,
             double current_charge, String imageName, byte[] imageData,double electrical_carbon_factor) {
         this.userName = userName;
         this.electricityusage = electricityusage;
@@ -42,7 +42,7 @@ public class ElectricalDAO {
         this.electrical_carbon_factor = electrical_carbon_factor;
     }
 
-    public void assign(ElectricalDAO electrical) {
+    public void assign(Electrical electrical) {
         this.userName = electrical.userName;
         this.electricityusage = electrical.electricityusage;
         this.days = electrical.days;
@@ -155,38 +155,38 @@ public class ElectricalDAO {
     }
 
     // methods to faciliate DTO
-    public void fromDTO(final ElectricalDTO dto) {
-        this.userName = dto.getUserName();
-        this.electricityusage = dto.getElectricityusage();
-        this.days = dto.getDays();
-        this.month = dto.getMonth();
-        this.proportion_factor = dto.getProportion_factor();
-        this.amount = dto.getAmount();
-        this.current_charge = dto.getCurrent_charge();
-        this.imageName = dto.getImageName();
-        this.imageData = dto.getImageData();
-        this.electrical_carbon_factor = dto.getElectrical_carbon_factor();
+    public void fromDAO(final ElectricalDAO dao) {
+        this.userName = dao.getUserName();
+        this.electricityusage = dao.getElectricityusage();
+        this.days = dao.getDays();
+        this.month = dao.getMonth();
+        this.proportion_factor = dao.getProportion_factor();
+        this.amount = dao.getAmount();
+        this.current_charge = dao.getCurrent_charge();
+        this.imageName = dao.getImageName();
+        this.imageData = dao.getImageData();
+        this.electrical_carbon_factor = dao.getElectrical_carbon_factor();
 
     }
 
-    public ElectricalDTO toDTO() {
-        ElectricalDTO dto = new ElectricalDTO();
-        dto.setUserName(this.userName);
-        dto.setElectricityusage(this.electricityusage);
-        dto.setDays(this.days);
-        dto.setMonth(this.month);
-        dto.setProportion_factor(this.proportion_factor);
-        dto.setAmount(this.amount);
-        dto.setCurrent_charge(this.current_charge);
-        dto.setImageName(this.imageName);
-        dto.setImageData(this.imageData);
-        dto.setElectrical_carbon_factor(this.electrical_carbon_factor);
+    public ElectricalDAO toDAO() {
+        ElectricalDAO dao = new ElectricalDAO();
+        dao.setUserName(this.userName);
+        dao.setElectricityusage(this.electricityusage);
+        dao.setDays(this.days);
+        dao.setMonth(this.month);
+        dao.setProportion_factor(this.proportion_factor);
+        dao.setAmount(this.amount);
+        dao.setCurrent_charge(this.current_charge);
+        dao.setImageName(this.imageName);
+        dao.setImageData(this.imageData);
+        dao.setElectrical_carbon_factor(this.electrical_carbon_factor);
 
-        return dto;
+        return dao;
     }
 
-    public ElectricalDAO(final ElectricalDTO dto){
-        this.fromDTO(dto);
+    public Electrical(final ElectricalDAO dao){
+        this.fromDAO(dao);
     }
 
 

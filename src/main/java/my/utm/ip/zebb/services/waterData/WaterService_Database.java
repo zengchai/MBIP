@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import my.utm.ip.zebb.models.waterData.WaterRepository;
-import my.utm.ip.zebb.models.waterData.Repository.WaterDAO;
-import my.utm.ip.zebb.models.waterData.Repository.WaterDTO;
+import my.utm.ip.zebb.models.waterData.Water;
+import my.utm.ip.zebb.models.waterData.WaterDAO;
+import my.utm.ip.zebb.models.waterData.Repository.WaterRepository;
 
 public class WaterService_Database implements WaterService {
 
@@ -15,37 +15,37 @@ public class WaterService_Database implements WaterService {
     WaterRepository repo;
 
     @Override
-    public List<WaterDAO> getAllWaterData() {
-        List<WaterDTO> dtos = repo.getAllWaterData();
-        List<WaterDAO> water = new ArrayList<WaterDAO>();
-        for (WaterDTO dto : dtos) {
-            water.add(new WaterDAO(dto));
+    public List<Water> getAllWaterData() {
+        List<WaterDAO> daos = repo.getAllWaterData();
+        List<Water> water = new ArrayList<Water>();
+        for (WaterDAO dao : daos) {
+            water.add(new Water(dao));
         }
         return water;
     }
 
     @Override
-    public WaterDAO addWaterData(WaterDAO water) {
-        WaterDTO dto = repo.addWaterData(water.toDTO()); // setto
-        return new WaterDAO(dto); //
+    public Water addWaterData(Water water) {
+        WaterDAO dao = repo.addWaterData(water.toDAO()); // setto
+        return new Water(dao); //
     }
 
     @Override
-    public List<WaterDAO> getWaterDataByUserName(String userName) {
-        List<WaterDTO> dtos = repo.getWaterDataByUserName(userName);
-        List<WaterDAO> water = new ArrayList<WaterDAO>();
+    public List<Water> getWaterDataByUserName(String userName) {
+        List<WaterDAO> daos = repo.getWaterDataByUserName(userName);
+        List<Water> water = new ArrayList<Water>();
 
-        for (WaterDTO dto : dtos) {
-            water.add(new WaterDAO(dto));
+        for (WaterDAO dao : daos) {
+            water.add(new Water(dao));
         }
 
         return water;
     }
 
     @Override
-    public WaterDAO updateWaterData(WaterDAO water) {
-        WaterDTO dto = repo.updateWaterData(water.toDTO()); // setto
-        return new WaterDAO(dto);
+    public Water updateWaterData(Water water) {
+        WaterDAO dao = repo.updateWaterData(water.toDAO()); // setto
+        return new Water(dao);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class WaterService_Database implements WaterService {
     }
 
     public double getAllConsumption() {
-        List<WaterDAO> waterList = this.getAllWaterData();
+        List<Water> waterList = this.getAllWaterData();
         Double consumption = 0.0;
         for (int i = 0; i < waterList.size(); i++) {
             consumption += waterList.get(i).getAmount();

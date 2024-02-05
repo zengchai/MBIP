@@ -1,4 +1,4 @@
-package my.utm.ip.zebb.models.electricalData;
+package my.utm.ip.zebb.models.electricalData.Repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDTO;
+import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
 
 public class ElectricalRepository_JDBC implements ElectricalRepository {
 
@@ -14,18 +14,18 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<ElectricalDTO> getAllElectricalData() {
+    public List<ElectricalDAO> getAllElectricalData() {
 
         String sql = "SELECT * FROM electricaldata";
 
-        final List<ElectricalDTO> list = jdbcTemplate.query(sql,
-                new BeanPropertyRowMapper<ElectricalDTO>(ElectricalDTO.class));
+        final List<ElectricalDAO> list = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<ElectricalDAO>(ElectricalDAO.class));
 
         return list;
     }
 
     @Override
-    public ElectricalDTO addElectricalData(ElectricalDTO electrical) {
+    public ElectricalDAO addElectricalData(ElectricalDAO electrical) {
         String checkIfExistsSql = "SELECT COUNT(*) FROM electricaldata WHERE month = ? ";
 
         int existingCount = jdbcTemplate.queryForObject(checkIfExistsSql, Integer.class, electrical.getMonth());
@@ -71,17 +71,17 @@ public class ElectricalRepository_JDBC implements ElectricalRepository {
     }
 
     @Override
-    public List<ElectricalDTO> getElectricalDataByUserName(String userName) {
+    public List<ElectricalDAO> getElectricalDataByUserName(String userName) {
         String sql = "SELECT * FROM electricaldata WHERE userName=?";
 
-        List<ElectricalDTO> electricalList = jdbcTemplate.query(sql,
-                new BeanPropertyRowMapper<ElectricalDTO>(ElectricalDTO.class), userName);
+        List<ElectricalDAO> electricalList = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<ElectricalDAO>(ElectricalDAO.class), userName);
 
         return electricalList;
     }
 
     @Override
-    public ElectricalDTO updateElectricalData(final ElectricalDTO electrical) {
+    public ElectricalDAO updateElectricalData(final ElectricalDAO electrical) {
         String sql = "UPDATE electricaldata SET username=?, electricityusage=?, days=?, month=?, proportion_factor=?,amount=?,current_charge=?,image_name=?, image_data=?,electrical_carbon_factor=? WHERE month=?";
         Object[] arg = {
                 electrical.getUserName(),

@@ -1,20 +1,20 @@
-package my.utm.ip.zebb.models.electricalData.Repository;
+package my.utm.ip.zebb.models.electricalData;
 
 import java.util.Arrays;
 
-public class ElectricalDTO {
-    String userName;
-    double electricityusage;
-    int days;
-    String month;
-    double proportion_factor;
-    double amount;
-    double current_charge;
-    String imageName;
-    byte[] imageData;
-    double electrical_carbon_factor;
+public class ElectricalDAO {
+    private String userName;
+    private double electricityusage;
+    private int days;
+    private String month;
+    private double proportion_factor;
+    private double amount;
+    private double current_charge;
+    private String imageName;
+    private byte[] imageData;
+    private double electrical_carbon_factor;
 
-    public ElectricalDTO() {
+    public ElectricalDAO() {
         this.userName = "";
         this.electricityusage = 0.0;
         this.days = 0;
@@ -27,7 +27,7 @@ public class ElectricalDTO {
         this.electrical_carbon_factor = 0.0;
     }
 
-    public ElectricalDTO(String userName, double electricityusage, int days, String month, double proportion_factor,
+    public ElectricalDAO(String userName, double electricityusage, int days, String month, double proportion_factor,
             double amount,
             double current_charge, String imageName, byte[] imageData, double electrical_carbon_factor) {
         this.userName = userName;
