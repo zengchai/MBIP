@@ -52,7 +52,7 @@
                                                 <h4>Overview</h4>
                                                 <ul>
                                                     <li>Pertandingan ini bertujuan bagi memberikan galakan dan juga motivasi kepada penduduk Majlis Bandaraya Iskandar Puteri, MBIP untuk membudayakan gaya hidup rendah karbon. Melalui pertandingan pengurangan penggunaan air (m3), elektrik (kWh) dan juga jumlah kitar semula (kg), ianya dapat membantu dunia, khususnya MBIP dalam usaha mengurangkan penghasilan karbon.</li>
-                                                    <li>Tempoh daftar maklumat di bit.ly/mbiprendahkarbon bermula :Sekarang sehingga 31 Ogos 2022</li>
+                                                    <li>Tempoh daftar maklumat di bit.ly/mbiprendahkarbon</li>
                                                 </ul>
                                             </div>
 
