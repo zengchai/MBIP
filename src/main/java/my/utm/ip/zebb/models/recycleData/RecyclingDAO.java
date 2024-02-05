@@ -1,6 +1,6 @@
-package my.utm.ip.zebb.models.recycleData.Repository;
+package my.utm.ip.zebb.models.recycleData;
 
-public class RecyclingDTO {
+public class RecyclingDAO {
     private String userName;
     private double weight;
     private String month;
@@ -8,7 +8,7 @@ public class RecyclingDTO {
     private byte[] imageData;
     private double recycling_carbon_factor;
 
-    public RecyclingDTO(String userName, double weight, String month, String imageName, byte[] imageData, double recycling_carbon_factor ) {
+    public RecyclingDAO(String userName, double weight, String month, String imageName, byte[] imageData, double recycling_carbon_factor ) {
         this.userName = userName;
         this.weight = weight;
         this.month = month;
@@ -17,7 +17,7 @@ public class RecyclingDTO {
         this.recycling_carbon_factor = recycling_carbon_factor;
     }
 
-    public RecyclingDTO() {
+    public RecyclingDAO() {
         this.userName = "";
         this.weight = 0.0;
         this.month = "";

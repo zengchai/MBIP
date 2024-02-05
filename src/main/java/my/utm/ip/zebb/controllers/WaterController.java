@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import my.utm.ip.zebb.models.user.User;
-import my.utm.ip.zebb.models.waterData.Repository.WaterDAO;
+import my.utm.ip.zebb.models.waterData.Water;
 import my.utm.ip.zebb.services.waterData.WaterService;
 
 @Controller
@@ -36,7 +36,7 @@ public class WaterController {
     @RequestMapping("/listAllWaterData") // for admin
     public String home(Model model) {
 
-        List<WaterDAO> water = waterService.getAllWaterData();
+        List<Water> water = waterService.getAllWaterData();
         model.addAttribute("allwater", water);
 
         return "water/WaterConsumption"; // need change
@@ -46,7 +46,7 @@ public class WaterController {
     @RequestMapping("/listWaterDataByUsername_Month/{userName}")
     public String userhome(@PathVariable("userName") String userName, Model model) {
 
-        List<WaterDAO> water = waterService.getWaterDataByUserName(userName);
+        List<Water> water = waterService.getWaterDataByUserName(userName);
         model.addAttribute("userwater", water);
 
         return "water/WaterHome"; // need change
@@ -58,7 +58,7 @@ public class WaterController {
     public String addWaterDataForm(HttpSession session) {
 
         session.setAttribute("mode", "add");
-        session.setAttribute("water", new WaterDAO());
+        session.setAttribute("water", new Water());
 
         return "water/WaterConsumption"; // need change
 
@@ -126,7 +126,7 @@ public class WaterController {
                 System.out.println("File Name: " + file.getOriginalFilename());
                 System.out.println("File Size: " + file.getSize());
 
-                WaterDAO water = new WaterDAO();
+                Water water = new Water();
                 water.setUserName(userName);
                 water.setWaterusage(Wwaterusage);
                 water.setDays(Wdays);
@@ -266,7 +266,7 @@ public class WaterController {
                 System.out.println("File Name: " + file.getOriginalFilename());
                 System.out.println("File Size: " + file.getSize());
 
-                WaterDAO water = new WaterDAO();
+                Water water = new Water();
                 water.setUserName(userName);
                 water.setWaterusage(Wwaterusage);
                 water.setDays(Wdays);

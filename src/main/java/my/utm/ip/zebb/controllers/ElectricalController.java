@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDAO;
+import my.utm.ip.zebb.models.electricalData.Electrical;
 import my.utm.ip.zebb.models.user.User;
 import my.utm.ip.zebb.services.electricalData.ElectricalService;
 
@@ -36,7 +36,7 @@ public class ElectricalController {
     @RequestMapping("/listAllElectricalData") // for admin
     public String home(Model model) {
 
-        List<ElectricalDAO> electrical = electricalService.getAllElectricalData();
+        List<Electrical> electrical = electricalService.getAllElectricalData();
         model.addAttribute("allelectrical", electrical);
 
         return "electrical/ElectricityConsumption"; // need change
@@ -46,7 +46,7 @@ public class ElectricalController {
     @RequestMapping("/listElectricalDataByUsername_Month/{userName}")
     public String userhome(@PathVariable("userName") String userName, Model model) {
 
-        List<ElectricalDAO> electrical = electricalService.getElectricalDataByUserName(userName);
+        List<Electrical> electrical = electricalService.getElectricalDataByUserName(userName);
         model.addAttribute("userelectrical", electrical);
 
         return "electrical/ElectricalHome"; // need change
@@ -58,7 +58,7 @@ public class ElectricalController {
     public String addElectricalDataForm(HttpSession session) {
 
         session.setAttribute("mode", "add");
-        session.setAttribute("electrical", new ElectricalDAO());
+        session.setAttribute("electrical", new Electrical());
 
         return "electrical/ElectricityConsumption"; // need change
 
@@ -132,7 +132,7 @@ public class ElectricalController {
                 System.out.println("File Name: " + file.getOriginalFilename());
                 System.out.println("File Size: " + file.getSize());
 
-                ElectricalDAO electrical = new ElectricalDAO();
+                Electrical electrical = new Electrical();
                 electrical.setUserName(userName);
                 electrical.setElectricityusage(Eelectricityusage);
                 electrical.setDays(Edays);
@@ -283,7 +283,7 @@ public class ElectricalController {
                 System.out.println("File Name: " + file.getOriginalFilename());
                 System.out.println("File Size: " + file.getSize());
 
-                ElectricalDAO electrical = new ElectricalDAO();
+                Electrical electrical = new Electrical();
                 electrical.setUserName(userName);
                 electrical.setElectricityusage(Eelectricityusage);
                 electrical.setDays(Edays);

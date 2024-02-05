@@ -5,16 +5,17 @@ import org.springframework.context.annotation.Configuration;
 
 import my.utm.ip.zebb.models.user.repository.UserRepository;
 import my.utm.ip.zebb.models.user.repository.UserRepository_JDBC;
-import my.utm.ip.zebb.models.waterData.WaterRepository;
-import my.utm.ip.zebb.models.waterData.WaterRepository_JDBC;
+import my.utm.ip.zebb.models.waterData.Repository.WaterRepository;
+import my.utm.ip.zebb.models.waterData.Repository.WaterRepository_JDBC;
+import my.utm.ip.zebb.models.winner.Repository.WinnerRepository;
+import my.utm.ip.zebb.models.winner.Repository.WinnerRepository_JDBC;
 import my.utm.ip.zebb.services.user.UserService_JDBC;
 import my.utm.ip.zebb.services.waterData.WaterService;
 import my.utm.ip.zebb.services.waterData.WaterService_Database;
-import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
-import my.utm.ip.zebb.models.electricalData.ElectricalRepository_JDBC;
-
-import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
-import my.utm.ip.zebb.models.recycleData.RecyclingRepository_JDBC;
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalRepository;
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalRepository_JDBC;
+import my.utm.ip.zebb.models.recycleData.Repository.RecyclingRepository;
+import my.utm.ip.zebb.models.recycleData.Repository.RecyclingRepository_JDBC;
 import my.utm.ip.zebb.models.timeline.TimelineRepository;
 import my.utm.ip.zebb.models.timeline.TimelineRepository_JDBC;
 import my.utm.ip.zebb.services.electricalData.ElectricalService;
@@ -28,8 +29,6 @@ import my.utm.ip.zebb.services.timeline.TimelineService_JDBC;
 import my.utm.ip.zebb.models.timeline.TimelineRepository;
 import my.utm.ip.zebb.models.timeline.TimelineRepository_JDBC;
 import my.utm.ip.zebb.services.winner.WinnerService;
-import my.utm.ip.zebb.models.winner.WinnerRepository;
-import my.utm.ip.zebb.models.winner.WinnerRepository_JDBC;
 import my.utm.ip.zebb.services.winner.WinnerService_Database;
 
 
