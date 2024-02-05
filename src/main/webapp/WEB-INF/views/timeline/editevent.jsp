@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recycling Page</title>
 <link rel="stylesheet" href="/static/common/css/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="/static/css/timeline.css">
+<link rel="stylesheet" type="text/css" href="/static/timeline/css/timeline.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
