@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+    <%@ include file="/WEB-INF/views/common/auth.jsp" %>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -9,8 +10,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Water Page</title>
             <link rel="stylesheet" href="/static/common/css/materialize.min.css">
-            <link rel="stylesheet" type="text/css" href="/static/css/water.css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="/static/water/css/water.css">
         </head>
 
         <body>

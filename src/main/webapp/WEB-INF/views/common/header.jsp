@@ -48,11 +48,7 @@
       <div style="grid-column: 2/3; grid-row: 1/2;" class="dropdown">
         <img class="user-image" src="/static/asset/headerIMG/userIcon.png" alt="User Icon" onclick="toggleDropdown()">
         <div id="dropdown-menu" class="dropdown-content">
-          <a href="/updateprofile?fullname=${sessionScope.user.getFullname()}
-          &nickname=${sessionScope.user.getNickname()}&email=${sessionScope.user.getEmail()}
-          &phonenum=${sessionScope.user.getPhoneNum()}&language=${sessionScope.user.getPreferredLanguage()}
-          &category=${sessionScope.user.getCategory()}&poscode=${sessionScope.user.getPoscode()}
-          &address=${sessionScope.user.getAddress()}">Profile</a>
+          <a href="/editprofile">Profile</a>
           <a href="/logout">Logout</a>
         </div>
       </div>

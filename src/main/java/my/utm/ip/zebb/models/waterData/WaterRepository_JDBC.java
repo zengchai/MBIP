@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import my.utm.ip.zebb.models.waterData.Repository.WaterDAO;
 import my.utm.ip.zebb.models.waterData.Repository.WaterDTO;
 
 
@@ -108,6 +109,15 @@ public class WaterRepository_JDBC implements WaterRepository {
 
         return count > 0;
 
+    }
+
+    @Override
+    public List<WaterDAO> getWaterDataByMonth(String month){
+        String sql = "SELECT * FROM waterdata WHERE month=?";
+        
+        List<WaterDAO> waterList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterDAO>(WaterDAO.class), month);
+
+        return waterList;
     }
 
 }

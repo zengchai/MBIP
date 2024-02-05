@@ -64,4 +64,5 @@ public class WaterService_Database implements WaterService {
         consumption = consumption / waterList.size();
         return consumption;
     }
+    
 }
