@@ -24,7 +24,7 @@ public class TimeLineController {
     @RequestMapping("/viewTimeLine")
     public ModelAndView View(){
         List<Timeline> timelines= timelineservice.getAlltimeline();
-         ModelAndView modelAndView = new ModelAndView("timeline");
+         ModelAndView modelAndView = new ModelAndView("timeline/timeline");
         modelAndView.addObject("timeline", timelines);
         return modelAndView;
     }
@@ -32,7 +32,7 @@ public class TimeLineController {
     @RequestMapping("/viewTimeLineAdmin")
     public ModelAndView AdminView(){
         List<Timeline> timelines= timelineservice.getAlltimeline();
-         ModelAndView modelAndView = new ModelAndView("timelineAdmin");
+         ModelAndView modelAndView = new ModelAndView("timeline/timelineAdmin");
         modelAndView.addObject("timeline", timelines);
         return modelAndView;
     }
@@ -67,7 +67,7 @@ public class TimeLineController {
 
         session.setAttribute("id", id);
 
-        return "editevent";
+        return "timeline/editevent";
     }
 
     @RequestMapping("/updateEvent")
