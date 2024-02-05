@@ -2,7 +2,7 @@ package my.utm.ip.zebb.services.waterData;
 
 import java.util.*;
 
-import my.utm.ip.zebb.models.waterData.WaterDAO;
+import my.utm.ip.zebb.models.waterData.Repository.WaterDAO;
 
 public interface WaterService {
 

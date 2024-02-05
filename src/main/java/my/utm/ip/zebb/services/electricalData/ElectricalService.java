@@ -2,7 +2,7 @@ package my.utm.ip.zebb.services.electricalData;
 
 import java.util.*;
 
-import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDAO;
 
 public interface ElectricalService {
 

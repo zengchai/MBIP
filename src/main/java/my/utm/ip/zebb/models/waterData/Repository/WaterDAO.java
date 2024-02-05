@@ -1,4 +1,4 @@
-package my.utm.ip.zebb.models.waterData;
+package my.utm.ip.zebb.models.waterData.Repository;
 
 import java.util.Arrays;
 

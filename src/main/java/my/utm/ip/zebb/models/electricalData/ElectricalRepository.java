@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDTO;
+
 @Repository
 public interface ElectricalRepository {
    

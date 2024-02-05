@@ -1,4 +1,4 @@
-package my.utm.ip.zebb.models.recycleData;
+package my.utm.ip.zebb.models.recycleData.Repository;
 
 public class RecyclingDTO {
     private String userName;

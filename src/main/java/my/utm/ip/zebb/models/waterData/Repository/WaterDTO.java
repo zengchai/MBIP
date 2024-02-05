@@ -1,45 +1,41 @@
-package my.utm.ip.zebb.models.electricalData;
+package my.utm.ip.zebb.models.waterData.Repository;
 
 import java.util.Arrays;
 
-public class ElectricalDTO {
+public class WaterDTO {
     String userName;
-    double electricityusage;
+    double waterusage;
     int days;
     String month;
     double proportion_factor;
     double amount;
-    double current_charge;
     String imageName;
     byte[] imageData;
-    double electrical_carbon_factor;
+    double water_carbon_factor;
 
-    public ElectricalDTO() {
+    public WaterDTO() {
         this.userName = "";
-        this.electricityusage = 0.0;
+        this.waterusage = 0.0;
         this.days = 0;
         this.month = "";
         this.proportion_factor = 0.0;
         this.amount = 0.0;
-        this.current_charge = 0.0;
         this.imageName = "";
         this.imageData = new byte[0];
-        this.electrical_carbon_factor = 0.0;
+        this.water_carbon_factor = 0.0;
     }
 
-    public ElectricalDTO(String userName, double electricityusage, int days, String month, double proportion_factor,
-            double amount,
-            double current_charge, String imageName, byte[] imageData, double electrical_carbon_factor) {
+    public WaterDTO(String userName, double waterusage, int days, String month, double proportion_factor, double amount,
+            String imageName, byte[] imageData, double water_carbon_factor) {
         this.userName = userName;
-        this.electricityusage = electricityusage;
+        this.waterusage = waterusage;
         this.days = days;
         this.month = month;
         this.proportion_factor = proportion_factor;
         this.amount = amount;
-        this.current_charge = current_charge;
         this.imageName = imageName;
         this.imageData = imageData;
-        this.electrical_carbon_factor = electrical_carbon_factor;
+        this.water_carbon_factor = water_carbon_factor;
     }
 
     public String getUserName() {
@@ -50,12 +46,12 @@ public class ElectricalDTO {
         this.userName = userName;
     }
 
-    public double getElectricityusage() {
-        return electricityusage;
+    public double getWaterusage() {
+        return waterusage;
     }
 
-    public void setElectricityusage(double electricityusage) {
-        this.electricityusage = electricityusage;
+    public void setWaterusage(double waterusage) {
+        this.waterusage = waterusage;
     }
 
     public int getDays() {
@@ -90,14 +86,6 @@ public class ElectricalDTO {
         this.amount = amount;
     }
 
-    public double getCurrent_charge() {
-        return current_charge;
-    }
-
-    public void setCurrent_charge(double current_charge) {
-        this.current_charge = current_charge;
-    }
-
     public String getImageName() {
         return imageName;
     }
@@ -113,21 +101,20 @@ public class ElectricalDTO {
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
-    
-    public double getElectrical_carbon_factor() {
-        return electrical_carbon_factor;
+
+    public double getWater_carbon_factor() {
+        return water_carbon_factor;
     }
 
-    public void setElectrical_carbon_factor(double electrical_carbon_factor) {
-        this.electrical_carbon_factor = electrical_carbon_factor;
+    public void setWater_carbon_factor(double water_carbon_factor) {
+        this.water_carbon_factor = water_carbon_factor;
     }
 
     @Override
     public String toString() {
-        return "ElectricalDTO [userName=" + userName + ", electricityusage=" + electricityusage + ", days=" + days
-                + ", month=" + month + ", proportion_factor=" + proportion_factor + ", amount=" + amount
-                + ", current_charge=" + current_charge + ", imageName=" + imageName + ", imageData="
-                + Arrays.toString(imageData) + ", electrical_carbon_factor=" + electrical_carbon_factor + "]";
+        return "WaterDTO [userName=" + userName + ", waterusage=" + waterusage + ", days=" + days + ", month=" + month
+                + ", proportion_factor=" + proportion_factor + ", amount=" + amount + ", imageName=" + imageName
+                + ", imageData=" + Arrays.toString(imageData) + ", water_carbon_factor=" + water_carbon_factor + "]";
     }
 
 }

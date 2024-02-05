@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import my.utm.ip.zebb.models.electricalData.ElectricalDAO;
-import my.utm.ip.zebb.models.electricalData.ElectricalDTO;
 import my.utm.ip.zebb.models.electricalData.ElectricalRepository;
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDAO;
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDTO;
 
 public class ElectricalService_Database implements ElectricalService {
     
