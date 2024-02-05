@@ -51,7 +51,7 @@ public class UserController {
             }
         }
 
-        return "main/index";  //need change
+        return "redirect:/ViewTimeLine";  //need change
 
     }
 

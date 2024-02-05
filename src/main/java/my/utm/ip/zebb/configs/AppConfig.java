@@ -16,6 +16,8 @@ import my.utm.ip.zebb.models.product.ProductRepository;
 import my.utm.ip.zebb.models.product.ProductRepository_JDBC;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository;
 import my.utm.ip.zebb.models.recycleData.RecyclingRepository_JDBC;
+import my.utm.ip.zebb.models.timeline.TimelineRepository;
+import my.utm.ip.zebb.models.timeline.TimelineRepository_JDBC;
 import my.utm.ip.zebb.services.electricalData.ElectricalService;
 import my.utm.ip.zebb.services.electricalData.ElectricalService_Database;
 import my.utm.ip.zebb.services.product.ProductService;
@@ -23,10 +25,15 @@ import my.utm.ip.zebb.services.product.ProductService_Database;
 import my.utm.ip.zebb.services.user.UserService;
 import my.utm.ip.zebb.services.recycleData.RecyclingService;
 import my.utm.ip.zebb.services.recycleData.RecyclingService_Database;
+import my.utm.ip.zebb.services.timeline.TimelineService;
+import my.utm.ip.zebb.services.timeline.TimelineService_JDBC;
+import my.utm.ip.zebb.models.timeline.TimelineRepository;
+import my.utm.ip.zebb.models.timeline.TimelineRepository_JDBC;
 import my.utm.ip.zebb.services.winner.WinnerService;
 import my.utm.ip.zebb.models.winner.WinnerRepository;
 import my.utm.ip.zebb.models.winner.WinnerRepository_JDBC;
 import my.utm.ip.zebb.services.winner.WinnerService_Database;
+
 
 @Configuration
 public class AppConfig {
@@ -53,6 +60,16 @@ public class AppConfig {
     @Bean
     UserRepository userRepository() {
         return new UserRepository_JDBC();
+
+    }
+    @Bean 
+    TimelineService timelineService() {
+        return new TimelineService_JDBC();
+    }
+
+    @Bean
+    TimelineRepository timelineRepository() {
+        return new TimelineRepository_JDBC();
 
     }
 

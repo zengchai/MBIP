@@ -35,3 +35,9 @@ CREATE TABLE winners (
     carbon_reduction_rate DOUBLE
     
 );
+
+CREATE TABLE timeline(
+    month VARCHAR(50),
+    title VARCHAR(20),
+    description VARCHAR(50)
+);

@@ -14,7 +14,7 @@ public class DatabaseConfig {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/zebb_yam");
         dataSource.setUsername("root");
-        dataSource.setPassword("admin");
+        dataSource.setPassword("021118");
         return dataSource;
     }
 
