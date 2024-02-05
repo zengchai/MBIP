@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/static/css/competitionUser.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Pertandingan Admin Page</title>
 
         <style>
@@ -96,7 +97,7 @@
                                             </div>
                             
                                             <div class="winner-details-container">
-                                                <table class="winner-details-table">
+                                                <table class="winner-details-table" id = "winnersTable">
                                                     <thead>
                                                         <tr>
                                                             <th>Residents</th>
@@ -105,6 +106,7 @@
                                                             <th>Electricity consumption(kWh)</th>
                                                             <th>Amount recycling(KG)</th>
                                                             <th>Carbon Reduction Rate(kgCo2)</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <!-- Add dynamic table rows and data here -->
@@ -117,6 +119,12 @@
                                                                 <td class="electricityusage">${finalWinners.electricityusage} kWh</td>
                                                                 <td class="recyclingamount">${finalWinners.weight} KG</td>
                                                                 <td class="carbon_reduction_rate">${finalWinners.carbon_reduction_rate} kgCo2</td>
+                                                                <td>
+                                                                    <a class="btn-floating waves-effect waves-light btn-small"
+                                                                        href="/winner/deleteWinner?Username=${finalWinners.userName}">
+                                                                        <i class="material-icons">delete</i>
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>
@@ -134,6 +142,34 @@
                     </main>
                 </div>
                 <script>
+                    // Function to sort the table based on carbon reduction rate
+                    function sortTable() {
+                        var table = document.getElementById("winnersTable");
+                        var rows = table.getElementsByTagName("tr");
+
+                        // Convert rows to an array for sorting
+                        var rowsArray = Array.from(rows);
+
+                        // Sort rows based on the carbon reduction rate (assuming it's in the 5th column)
+                        rowsArray.sort(function (rowA, rowB) {
+                            var rateA = parseFloat(rowA.cells[5].innerText);
+                            var rateB = parseFloat(rowB.cells[5].innerText);
+                            return rateB - rateA; // Descending order, change to rateA - rateB for ascending
+                        });
+
+                        // Remove existing rows from the table
+                        while (table.firstChild) {
+                            table.removeChild(table.firstChild);
+                        }
+
+                        // Append sorted rows back to the table
+                        for (var i = 0; i < rowsArray.length; i++) {
+                            table.appendChild(rowsArray[i]);
+                        }
+                    }
+
+                    // Call the sortTable function initially or whenever needed
+                    sortTable();
 
                     // Function to filter the table based on the selected month
                     function filterTable() {

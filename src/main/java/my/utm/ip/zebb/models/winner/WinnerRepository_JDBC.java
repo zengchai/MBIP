@@ -62,4 +62,12 @@ public class WinnerRepository_JDBC implements WinnerRepository {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(WinnerDTO.class));
     }
 
+    @Override
+    public boolean deleteWinnerByUsername(String userName) {
+        String sql = "UPDATE users SET Winner = NULL WHERE Username = ?";
+        int count = jdbcTemplate.update(sql, userName);
+
+        return count > 0;
+    }
+
 }

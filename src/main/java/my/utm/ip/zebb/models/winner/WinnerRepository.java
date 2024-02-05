@@ -11,7 +11,7 @@ public interface WinnerRepository {
     WinnerDTO updateWinner(final WinnerDTO recycle);
     int getWinnerCountForMonth(String month);
     List<WinnerDTO> getWinners();
-
+    boolean deleteWinnerByUsername(String userName);
 }    
 
 

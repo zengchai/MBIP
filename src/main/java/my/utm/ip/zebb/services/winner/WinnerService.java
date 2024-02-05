@@ -9,5 +9,6 @@ public interface WinnerService{
     WinnerDAO updateWinner(final WinnerDAO winner);
     int getWinnerCountForMonth(String month);
     List<WinnerDAO> getWinners();
+    boolean deleteWinnerByUsername(String userName);
 
 }
