@@ -10,74 +10,10 @@ public class HomeController {
     public String home() {
         return "main/index";
     }
-    
-    @RequestMapping("/electricity")
-    public String electricity() {
-        return "ElectricityConsumption";
-    }
-
-    @RequestMapping("/recycling") //no used
-    public String recycling() {
-        return "RecyclingActivity";
-    }
-
-    @RequestMapping("/water")
-    public String water() {
-        return "WaterConsumption";
-    }
-
-    @RequestMapping("/electricitybill")
-    public String electricitybill() {
-        return "UploadElectricity";
-    }
-
-    @RequestMapping("/recyclingbill") // got user in RecyclingController
-    public String recyclingbill() {
-        return "UploadRecycling";
-    }
-
-    @RequestMapping("/waterbill")
-    public String waterbill() {
-        return "UploadWater";
-    }
-    @RequestMapping("/pertandinganadmin")
-    public String pertandinganadmin(){
-        return "winner/pertandinganadmin";
-    }
-    @RequestMapping("/pertandinganadmin2")
-    public String pertandinganadmiin2(){
-        return "winner/pertandinganadmin2";
-    }
-        @RequestMapping("/reportcalculation")
-    public String reportcalculation(){
-        return "reportcalculation";
-    }
-        @RequestMapping("/reportviewanalysis")
-    public String reportviewanalysis(){
-        return "reportviewanalysis";
-    }
-        @RequestMapping("/timeline")
-    public String timeline(){
-        return "timeline";
-    }
-        @RequestMapping("/timelineAdmin")
-    public String timelineAdmin(){
-        return "timelineAdmin";
-    }
-
-    @RequestMapping("/competitionUser") //not used
-    public String competitionuser(){
-        return "winner/competitionUser";
-    }
-
-    @RequestMapping("/certificate")
-    public String certificate(){
-        return "certificate";
-    }
 
     @RequestMapping("/BillPage")
     public String bill(){
-        return "BillPage";
+        return "main/BillPage";
     }
 
 }
