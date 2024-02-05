@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import my.utm.ip.zebb.models.user.User;
 import my.utm.ip.zebb.services.user.UserService;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 @RequestMapping("/")
@@ -77,7 +79,7 @@ public class UserController {
         }
         if (register) {
 
-            User newUser = new User(username, email, password);
+            User newUser = new User(username, email, password, 1);
             userService.setUser(newUser);
             session.setAttribute("user", newUser);
         } else {
@@ -89,8 +91,11 @@ public class UserController {
 
     }
 
+
+
     @RequestMapping("/updateprofile")
     public String updateProfile(
+            @RequestParam("message") String message,
             @RequestParam("fullname") String fullname,
             @RequestParam("nickname") String nickname,
             @RequestParam("email") String email,
@@ -101,7 +106,6 @@ public class UserController {
             @RequestParam("address") String address,
             HttpSession session, Model model) {
 
-        int usernum = userService.getAllUserNum();
         User curuser = (User) session.getAttribute("user");
         curuser.setFullname(fullname);
         curuser.setNickname(nickname);
@@ -112,12 +116,11 @@ public class UserController {
         curuser.setPoscode(poscode);
         curuser.setAddress(address);
         userService.updateProfile(curuser);
-        model.addAttribute("usernum", usernum);
+        System.out.println(message);
+        model.addAttribute("message", message);
         session.removeAttribute("user");
-
-        System.out.println(usernum);
         session.setAttribute("user", curuser);
-        return "redirect:editprofile";
+        return "user/editprofile";
     }
 
     @RequestMapping("/logout")

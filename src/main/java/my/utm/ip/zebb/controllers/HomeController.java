@@ -10,7 +10,6 @@ public class HomeController {
     public String home() {
         return "main/index";
     }
-
     
     @RequestMapping("/electricity")
     public String electricity() {
