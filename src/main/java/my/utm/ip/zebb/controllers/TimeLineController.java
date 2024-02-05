@@ -55,7 +55,7 @@ public class TimeLineController {
         System.out.println("Attempting to save new event: " + newEvent);
 
         // Redirect to viewTimeLine
-        return "redirect:/viewTimeLine";
+        return "redirect:/viewTimeLineAdmin";
     }
 
     @RequestMapping("/viewUpdataEventForm")
@@ -83,7 +83,7 @@ public class TimeLineController {
         timelineservice.updateEvent(event);
 
             session.setAttribute("timeline", event);
-            return "redirect:/viewTimeLine";
+            return "redirect:/viewTimeLineAdmin";
     }
 
     @RequestMapping("/deleteEventById")
@@ -93,7 +93,7 @@ public class TimeLineController {
 
         if (success) {
 
-            return "redirect:/viewTimeLine";
+            return "redirect:/viewTimeLineAdmin";
         }
 
         model.addAttribute("errorMessage", "Deletion Failed!. The product doesn't exist");
