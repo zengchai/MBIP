@@ -13,6 +13,7 @@ CREATE TABLE recycleData (
 
 CREATE TABLE electricaldata (
     id INT PRIMARY KEY AUTO_INCREMENT,
+<<<<<<< HEAD
     userName VARCHAR(255),
     electricityusage DECIMAL(5, 2) NOT NULL,
     days INT NOT NULL,
@@ -37,3 +38,19 @@ CREATE TABLE waterdata (
     image_data LONGBLOB,
     water_carbon_factor DOUBLE
 );
+=======
+    userName VARCHAR(30) NOT NULL,
+    location VARCHAR(50),
+    water_consumption DOUBLE,
+    electricity_consumption DOUBLE,
+    recycling_amount DOUBLE,
+    carbon_reduction_rate DOUBLE
+    
+);
+
+CREATE TABLE timeline(
+    month VARCHAR(50),
+    title VARCHAR(20),
+    description VARCHAR(50)
+);
+>>>>>>> ks

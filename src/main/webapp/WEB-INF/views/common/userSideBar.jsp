@@ -22,7 +22,7 @@
             </div>
             <a href="/BillPage" class="menu-button"><i class="fas fa-file-invoice" style="font-size: 2rem;"></i>&nbsp;&nbsp;Bills</a>
             <a href="/winner/finalWinnersUser" class="menu-button"><i class="fas fa-trophy" style="font-size: 2rem;"></i>&nbsp;&nbsp;Competition</a>
-            <a href="/timeline" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
+            <a href="/viewTimeLine" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
         </div>
     </div>
 
