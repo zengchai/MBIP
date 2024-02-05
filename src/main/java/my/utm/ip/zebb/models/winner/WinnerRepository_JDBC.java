@@ -12,92 +12,54 @@ public class WinnerRepository_JDBC implements WinnerRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<WinnerDTO> getAllWinners() {
+    public List<WinnerDTO> getWinnersByUserAndMonth() {
+        String sql = "SELECT " +
+                    "recycledata.userName, recycledata.weight, recycledata.month, recycledata.image_name as recycle_image, recycledata.recycling_carbon_factor, " +
+                    "electricaldata.electricityusage, electricaldata.image_name as electrical_image, electricaldata.electrical_carbon_factor, " +
+                    "waterdata.waterusage, waterdata.image_name as water_image, waterdata.water_carbon_factor " +
+                    "FROM recycledata " +
+                    "JOIN electricaldata ON recycledata.userName = electricaldata.userName AND recycledata.month = electricaldata.month " +
+                    "JOIN waterdata ON recycledata.userName = waterdata.userName AND recycledata.month = waterdata.month ";
 
-        String sql = "SELECT * FROM winners";
-
-        final List<WinnerDTO> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WinnerDTO>(WinnerDTO.class));
-
-        return list;
-    } 
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(WinnerDTO.class));
+    }
 
     @Override
-    public WinnerDTO addWinner(WinnerDTO winner) {
-        String sql = "INSERT INTO winners (userName, location, water_consumption, electricity_consumption, recycling_amount, carbon_reduction_rate) VALUES (?, ?, ?, ?, ?, ?)";
-        Object[] arg = { 
-                winner.getUserName(),
-                winner.getLocation(),
-                winner.getWater_consumption(),
-                winner.getElectricity_consumption(),
-                winner.getRecycling_amount(),
-                winner.getCarbon_reduction_rate()
+    public WinnerDTO updateWinner(WinnerDTO winner) {
+         // Validate the length of the Username before proceeding
+         if (winner.getUserName().length() > 50) {
+            throw new IllegalArgumentException("Username exceeds maximum allowed length");
+        }
+
+        String sql = "UPDATE users SET Winner = ? WHERE Username = ?";
+        Object[] args = { 
+                winner.getMonth(),
+                winner.getUserName() // Assuming you have a getUsername() method in WinnerDTO
         };
 
-        jdbcTemplate.update(sql, arg);
+        jdbcTemplate.update(sql, args);
 
         return winner;
     }
 
     @Override
-    public WinnerDTO getWinnerByUserName(String userName) {
-        String sql = "SELECT * FROM winners WHERE userName=?";
-        WinnerDTO winner = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<WinnerDTO>(WinnerDTO.class),
-                userName);
-        return winner;
+    public int getWinnerCountForMonth(String month) {
+        String sql = "SELECT COUNT(*) FROM users WHERE Winner = ?";
+        return jdbcTemplate.queryForObject(sql, Integer.class, month);
     }
 
     @Override
-    public WinnerDTO updateWinner(final WinnerDTO winner) {
+    public List<WinnerDTO> getWinners() {
+        String sql = "SELECT users.Username, users.Winner, recycledata.weight, " +
+              "electricaldata.electricityusage, waterdata.waterusage, " +
+              "recycledata.recycling_carbon_factor, " +
+              "electricaldata.electrical_carbon_factor, waterdata.water_carbon_factor " +
+              "FROM users " +
+              "JOIN recycledata ON users.Username = recycledata.userName AND users.Winner = recycledata.month " +
+              "JOIN electricaldata ON users.Username = electricaldata.userName AND users.Winner = electricaldata.month " +
+              "JOIN waterdata ON users.Username = waterdata.userName AND users.Winner = waterdata.month";
 
-        StringBuilder sql = new StringBuilder("UPDATE winners SET ");
-        
-        if (winner.getUserName()!= null){
-            sql.append("userName'").append(winner.getUserName()).append("', ");
-        }
-
-        if (winner.getLocation()!= null){
-            sql.append("location'").append(winner.getLocation()).append("', ");
-        }
-
-        Double water_consumption = winner.getWater_consumption();
-        if (water_consumption!= null){
-            sql.append("water_consumption=").append(winner.getWater_consumption()).append(", ");
-        }
-
-        Double electricity_consumption = winner.getElectricity_consumption();
-        if (electricity_consumption!= null){
-            sql.append("electricity_consumption=").append(winner.getElectricity_consumption()).append(", ");
-        }
-
-        Double recycling_amount = winner.getRecycling_amount();
-        if (recycling_amount!= null){
-            sql.append("recycling_amount=").append(winner.getRecycling_amount()).append(", ");
-        }
-
-        Double carbon_reduction_rate = winner.getCarbon_reduction_rate();
-        if (carbon_reduction_rate!= null){
-            sql.append("carbon_reduction_rate=").append(winner.getCarbon_reduction_rate()).append(", ");
-        }
-
-        sql.append("WHERE userName=?");
-        
-
-        int count = jdbcTemplate.update(sql.toString(), winner.getUserName());
-
-        if (count>0)
-            return winner;
-
-        return null;
-
-    }
-
-    @Override
-    public boolean deleteWinner(String userName) {
-        String sql = "DELETE FROM winners WHERE userName=?";
-        int count = jdbcTemplate.update(sql, userName);
-
-        return count > 0;
-
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(WinnerDTO.class));
     }
 
 }

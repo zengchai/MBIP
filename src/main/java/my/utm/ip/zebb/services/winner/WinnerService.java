@@ -5,9 +5,9 @@ import my.utm.ip.zebb.models.winner.WinnerDAO;
 
 public interface WinnerService{
     
-    List<WinnerDAO> getAllWinners();
-    WinnerDAO addWinner(final WinnerDAO winner);
-    WinnerDAO getWinnerByUserName(String userName);
+    List<WinnerDAO> getWinnersByUserAndMonth();
     WinnerDAO updateWinner(final WinnerDAO winner);
-    public boolean deleteWinner(String winner);
+    int getWinnerCountForMonth(String month);
+    List<WinnerDAO> getWinners();
+
 }
