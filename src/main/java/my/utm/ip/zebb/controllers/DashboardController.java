@@ -49,4 +49,6 @@ public class DashboardController {
         model.addAttribute("carbonreduction", formattedcarbonreduction);
         return "staff/dashboard";
     }
+
+    
 }

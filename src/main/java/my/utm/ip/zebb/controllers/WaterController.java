@@ -189,9 +189,15 @@ public class WaterController {
     @RequestMapping("/viewEditWaterDataForm")
     public String editWaterDataForm(
             @RequestParam("month") String month,
+            @RequestParam("days") String days,
+            @RequestParam("proportion_factor") String proportion_factor,
+            @RequestParam("amount") String amount,
             HttpSession session) {
 
         session.setAttribute("month", month);
+        session.setAttribute("days", days);
+        session.setAttribute("proportion_factor", proportion_factor);
+        session.setAttribute("amount", amount);
         session.setAttribute("mode", "edit");
 
         return "water/WaterConsumption";

@@ -4,14 +4,21 @@ public class TimelineDao {
     private String month;
     private String title;
     private String description;
-
+    private int id;
     public TimelineDao(){
+        this.id=0;
         this.month=" ";
         this.title=" ";
         this.description="";
     }
 
     public TimelineDao(String month, String title, String description) {
+        this.month = month;
+        this.title = title;
+        this.description = description;
+    }
+    public TimelineDao(int id,String month, String title, String description) {
+        this.id=id;
         this.month = month;
         this.title = title;
         this.description = description;
@@ -34,6 +41,12 @@ public class TimelineDao {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    public int getId() {
+        return id;
+    }
+    public void setId(int id2) {
+        this.id = id2;
+    }
+    
     
 }

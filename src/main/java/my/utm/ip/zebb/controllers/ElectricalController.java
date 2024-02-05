@@ -196,9 +196,19 @@ public class ElectricalController {
     @RequestMapping("/viewEditElectricalDataForm")
     public String editElectricalDataForm(
             @RequestParam("month") String month,
+            @RequestParam("electricityusage") String electricityusage,
+            @RequestParam("days") String days,
+            @RequestParam("proportion_factor") String proportion_factor,
+            @RequestParam("amount") String amount,
+            @RequestParam("current_charge") String current_charge,
             HttpSession session) {
 
         session.setAttribute("month", month);
+        session.setAttribute("electricityusage", electricityusage);
+        session.setAttribute("days", days);
+        session.setAttribute("proportion_factor", proportion_factor);
+        session.setAttribute("amount", amount);
+        session.setAttribute("current_charge", current_charge);
         session.setAttribute("mode", "edit");
 
         return "electrical/ElectricityConsumption";

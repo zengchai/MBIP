@@ -22,7 +22,7 @@
             </div>
             <a href="/dashboard" class="menu-button"><i class="fas fa-clipboard-list"  style="font-size: 2rem;"></i>&nbsp;&nbsp;Report</a>
             <a href="/winner/finalWinners" class="menu-button"><i class="fas fa-trophy" style="font-size: 2rem;"></i>&nbsp;&nbsp;Competition</a>
-            <a href="/timelineAdmin" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
+            <a href="/viewTimeLineAdmin" class="menu-button"><i class="fas fa-calendar-alt" style="font-size: 2rem;"></i>&nbsp;&nbsp;Timeline</a>
         </div>
     </div>
 

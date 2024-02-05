@@ -60,7 +60,7 @@
                                                             </td>
                                                             <td>
                                                                 <a class="btn-floating waves-effect waves-light btn-small"
-                                                                    href="/electrical/viewEditElectricalDataForm?userName=${electrical.getUserName()}&electricityusage=${electrical.getElectricityusage()}&month=${electrical.getMonth()}">
+                                                                    href="/electrical/viewEditElectricalDataForm?userName=${electrical.getUserName()}&electricityusage=${electrical.getElectricityusage()} &days=${electrical.getDays()}&proportion_factor=${electrical.getProportion_factor()}&amount=${electrical.getAmount()}&current_charge=${electrical.getCurrent_charge()}&month=${electrical.getMonth()}">
                                                                     <i class="material-icons">create</i>
                                                                 </a>
                                                                 <a class="btn-floating waves-effect waves-light btn-small"

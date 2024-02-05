@@ -1,3 +1,19 @@
+.main-content {
+    display: flex;
+    flex: 1;
+    background-color: #fff;
+    justify-content: space-between;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.right-container {
+    height: 100%;
+    width: 87%;
+    /*border: 1px solid black;*/
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
 .main-container {
     display: flex;
     flex-direction: row;
@@ -68,28 +84,34 @@ h3{
     height: 36px; /* Set the desired height */
 }
         /* Add your CSS styles here */
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    width: 60%; /* Adjust the width as needed */
-    max-width: 600px; /* Set a maximum width if needed */
-    height: 70%; /* Adjust the height as needed */
-    max-height: 400px; /* Set a maximum height if needed */
-    overflow: auto; /* Enable scrolling if the content overflows */
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 87%; /* Set the same width as the right container */
+            height: 100%; /* Set the same height as the right container */
+            background-color: rgba(255, 255, 255, 0.95); /* Adjust background color and opacity */
+            padding: 20px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide the modal by default */
+            z-index: 1; /* Ensure the modal is on top of other elements */
+            margin-left: auto; /* Center the modal horizontally */
+            margin-right: auto; /* Center the modal horizontally */
+        }
+        
+        @media (min-width: 768px) {
+            .modal {
+                width: 60%; /* Adjust width for larger screens if needed */
+            }
+        }
 
-    .form-title ,.form-desc .form-link,.form-date {
+    /* .form-title ,.form-desc .form-link,.form-date {
         margin-bottom: 10px;
     }
 
     .form-title label,.form-title input,.form-desc label,.form-desc textarea,.form-link label,.form-link input,.form-date label,.form-date input{
         display: block;
         width: 100%;
-    }
+    } */
