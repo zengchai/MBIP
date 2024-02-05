@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Electrical Bill Page</title>
     <link rel="stylesheet" type="text/css" href="/static/electrical/css/electricity.css">
+    <script src="/static/electrical/js/electrical.js"></script>
+
    
 </head>
 <body>
@@ -51,27 +53,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <script>
-    function validateUpload() {
-        var fileInput = document.getElementById("file");
-        var allowedExtensions = /(\.pdf)$/i;
-
-        if (!allowedExtensions.exec(fileInput.value)) {
-            alert("Please upload a valid PDF file.");
-            return false; // Prevent form submission
-        }
-
-        var fileSize = fileInput.files[0].size;
-        var maxSize = 2 * 1024 * 1024; // 2MB
-
-        if (fileSize > maxSize) {
-            alert("File size should not exceed 2 MB.");
-            return false; // Prevent form submission
-        }
-
-        return true; // Allow form submission
-    }
-</script>
                                 </div>
                             </div>
                         </div>
@@ -79,25 +60,3 @@
                 </div>
 </body>
 </html>
-
-<script>
-    function validateUpload() {
-        var fileInput = document.getElementById("file");
-        var allowedExtensions = /(\.pdf)$/i;
-
-        if (!allowedExtensions.exec(fileInput.value)) {
-            alert("Please upload a valid PDF file.");
-            return false; // Prevent form submission
-        }
-
-        var fileSize = fileInput.files[0].size;
-        var maxSize = 2 * 1024 * 1024; // 2MB
-
-        if (fileSize > maxSize) {
-            alert("File size should not exceed 2 MB.");
-            return false; // Prevent form submission
-        }
-
-        return true; // Allow form submission
-    }
-</script>
