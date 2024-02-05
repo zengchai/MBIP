@@ -54,3 +54,14 @@ CREATE TABLE timeline(
     description VARCHAR(50)
 );
 >>>>>>> ks
+USE zebb_yam;
+Drop table timeline;
+CREATE TABLE timeline(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+    month VARCHAR(50),
+    title VARCHAR(100),
+    description VARCHAR(255)
+);
+insert into timeline (month,title,description) Values
+ ("2024-02-02","Go Green 2.0","Let's go green together"),
+ ("2024-02-02","Gotong-Royong Taman Bunga", "Lets Clean together")
