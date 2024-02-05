@@ -35,22 +35,7 @@
                     </form>
                   </div>
             </div>
-    
-            <!-- Href links -->
-            <ul>
-                <li><a href="/electricitybill">Electricity Bill</a></li>
-                <li><a href="/recyclingbill">Recycling Bill</a></li>
-                <li><a href="/waterbill">Water Bill</a></li>
-                <li><a href="/electricity">Electricity form</a></li>
-                <li><a href="/recycling">Recycling form</a></li>
-                <li><a href="/water">Water form</a></li>
-                <li><a href="/pertandinganadmin">Adminview pertandingan</a></li>
-                <li><a href="/timeline">Timeline</a></li>
-                <li><a href="/reportviewanalysis">Adminview report analysis</a></li>
-                <li><a href="/reportcalculation">Adminview report calculation</a></li>
-                <li><a href="/competitionUser">userview pertandingan</a></li>
-                <li><a href="/certificate">certificate</a></li>
-            </ul>
+
     </body>
 
 </html>

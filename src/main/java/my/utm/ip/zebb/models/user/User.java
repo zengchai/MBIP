@@ -14,16 +14,18 @@ private String poscode;
 private String address;
 private int level;
 private String winner;
+private int carbonReduction;
 private boolean authenticated;
 
 public User(){
  this.authenticated = false;   
 }
 
-public User(String username,String email,String password){
+public User(String username,String email,String password, int level){
     this.username = username;
     this.email = email;
     this.password = password;
+    this.level = level;
     this.authenticated = true;  
    }
 
@@ -42,7 +44,7 @@ public User(String username,String email,String password){
 
 
 public User(int id, String username, String fullname, String nickname, String password, String email, String phoneNum,
-        String preferredLanguage, String category, String poscode, String address, int level, String winner) {
+        String preferredLanguage, String category, String poscode, String address, int level, String winner, int carbonReduction) {
     this.id = id;
     this.username = username;
     this.fullname = fullname;
@@ -56,6 +58,7 @@ public User(int id, String username, String fullname, String nickname, String pa
     this.address = address;
     this.level = level;
     this.winner = winner;
+    this.carbonReduction = carbonReduction;
 }
 
 public int getId() {
@@ -145,6 +148,8 @@ public void setWinner(String winner) {
     this.winner = winner;
 }
 
+
+
 public void fromDAO(final UserDAO dao) {
 
     this.id = dao.getId();
@@ -181,5 +186,13 @@ public void fromDAO(final UserDAO dao) {
 
     public User(final UserDAO dao){
         this.fromDAO(dao);
+    }
+
+    public int getCarbonReduction() {
+        return carbonReduction;
+    }
+
+    public void setCarbonReduction(int carbonReduction) {
+        this.carbonReduction = carbonReduction;
     }
 }

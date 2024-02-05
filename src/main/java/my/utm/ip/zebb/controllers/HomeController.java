@@ -10,7 +10,6 @@ public class HomeController {
     public String home() {
         return "main/index";
     }
-
     
     @RequestMapping("/electricity")
     public String electricity() {
@@ -81,9 +80,4 @@ public class HomeController {
         return "BillPage";
     }
 
-    
-    @RequestMapping("/dashboard")
-    public String dashbaord(){
-        return "staff/dashboard";
-    }
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="/WEB-INF/views/common/auth.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,17 +154,17 @@ label {
                                             <div class="bill-container">
                                                 <a href="/water/listWaterDataByUsername_Month/${sessionScope.user.getUsername()}"class="bill-card" id="water-activity"> <!-- the href link need change ltr-->
                                                     <!-- Icon for Water Bill -->
-                                                    <img src="/static/asset/Water bill background.png" alt="Water Bill">
+                                                    <img src="/static/water/asset/Water bill background.png" alt="Water Bill">
                                                     <p>Water bill</p>
                                                 </a>
                                                 <a href="/electrical/listElectricalDataByUsername_Month/${sessionScope.user.getUsername()}"class="bill-card" id="electrical-activity">
                                                     <!-- Icon for Electricity Bill -->
-                                                    <img src="/static/asset/Electricity bill background.png" alt="Electricity Bill">
+                                                    <img src="/static/electrical/asset/Electricity bill background.png" alt="Electricity Bill">
                                                     <p>Electricity bill</p>
                                                 </a>
                                                 <a href="/recycling/listRecyclingDataByUsername_Month/${sessionScope.user.getUsername()}" class="bill-card" id="recycling-activity">
                                                     <!-- Icon for Recycling Activity -->
-                                                    <img src="/static/asset/Recycling bill background.png" alt="Recycling Activity">
+                                                    <img src="/static/recycling/asset/Recycling bill background.png" alt="Recycling Activity">
                                                     <p>Recycling activity</p>
                                                 </a>
                                             </div>

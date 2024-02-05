@@ -65,4 +65,5 @@ public class ElectricalService_Database implements ElectricalService {
         return consumption;
     }
     
+    
 }

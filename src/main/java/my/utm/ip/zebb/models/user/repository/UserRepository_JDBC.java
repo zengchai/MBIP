@@ -21,7 +21,7 @@ public class UserRepository_JDBC implements UserRepository{
         Object[] arg = { user.getEmail(),
             user.getPassword(),
             user.getUsername(),
-            "1"};
+            user.getLevel()};
         
         jdbcTemplate.update(sql, arg);
 
