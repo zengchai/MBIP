@@ -1,3 +1,5 @@
+my\utm\ip\zebb\models\recycleData\Repository\RecyclingDTO.class
+my\utm\ip\zebb\models\electricalData\Repository\ElectricalDAO.class
 my\utm\ip\zebb\controllers\WaterController.class
 my\utm\ip\zebb\models\electricalData\ElectricalRepository_JDBC.class
 my\utm\ip\zebb\services\user\UserService.class
@@ -5,6 +7,7 @@ my\utm\ip\zebb\configs\AppConfig.class
 my\utm\ip\zebb\models\electricalData\ElectricalRepository.class
 my\utm\ip\zebb\services\user\UserService_JDBC.class
 my\utm\ip\zebb\controllers\DashboardController.class
+my\utm\ip\zebb\models\waterData\Repository\WaterDAO.class
 my\utm\ip\zebb\models\user\User.class
 my\utm\ip\zebb\models\winner\WinnerDTO.class
 my\utm\ip\zebb\models\user\repository\UserRepository.class
@@ -17,6 +20,7 @@ my\utm\ip\zebb\models\waterData\Repository\WaterDTO.class
 my\utm\ip\zebb\services\electricalData\ElectricalService.class
 my\utm\ip\zebb\controllers\RecyclingController.class
 my\utm\ip\zebb\services\waterData\WaterService_Database.class
+my\utm\ip\zebb\models\recycleData\Repository\RecyclingDAO.class
 my\utm\ip\zebb\models\winner\WinnerRepository_JDBC.class
 my\utm\ip\zebb\services\winner\WinnerService_Database.class
 my\utm\ip\zebb\controllers\ElectricalController.class
@@ -29,6 +33,7 @@ my\utm\ip\zebb\models\recycleData\RecyclingRepository.class
 my\utm\ip\zebb\controllers\WinnerController.class
 my\utm\ip\zebb\services\electricalData\ElectricalService_Database.class
 my\utm\ip\zebb\controllers\UserController.class
+my\utm\ip\zebb\models\electricalData\Repository\ElectricalDTO.class
 my\utm\ip\zebb\controllers\HomeController.class
 my\utm\ip\zebb\models\timeline\Timeline.class
 my\utm\ip\zebb\models\user\UserDAO.class

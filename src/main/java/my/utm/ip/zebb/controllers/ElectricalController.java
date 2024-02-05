@@ -142,7 +142,7 @@ public class ElectricalController {
                 electrical.setCurrent_charge(Ecurrent_charge);
                 electrical.setImageName(file.getOriginalFilename());
                 electrical.setImageData(file.getBytes());
-                
+
                 double electrical_carbon_factor = electrical.getElectricityusage() * 0.584;
                 electrical.setElectrical_carbon_factor(electrical_carbon_factor);
                 electricalService.addElectricalData(electrical);
@@ -196,9 +196,19 @@ public class ElectricalController {
     @RequestMapping("/viewEditElectricalDataForm")
     public String editElectricalDataForm(
             @RequestParam("month") String month,
+            @RequestParam("electricityusage") String electricityusage,
+            @RequestParam("days") String days,
+            @RequestParam("proportion_factor") String proportion_factor,
+            @RequestParam("amount") String amount,
+            @RequestParam("current_charge") String current_charge,
             HttpSession session) {
 
         session.setAttribute("month", month);
+        session.setAttribute("electricityusage", electricityusage);
+        session.setAttribute("days", days);
+        session.setAttribute("proportion_factor", proportion_factor);
+        session.setAttribute("amount", amount);
+        session.setAttribute("current_charge", current_charge);
         session.setAttribute("mode", "edit");
 
         return "electrical/ElectricityConsumption";

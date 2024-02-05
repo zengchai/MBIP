@@ -59,7 +59,7 @@
                                                             </td>
                                                             <td>
                                                                 <a class="btn-floating waves-effect waves-light btn-small"
-                                                                    href="/water/viewEditWaterDataForm?userName=${water.getUserName()}&waterusage=${water.getWaterusage()}&month=${water.getMonth()}">
+                                                                    href="/water/viewEditWaterDataForm?userName=${water.getUserName()}&waterusage=${water.getWaterusage()} &days=${water.getDays()}&proportion_factor=${water.getProportion_factor()}&amount=${water.getAmount()} &month=${water.getMonth()}">
                                                                     <i class="material-icons">create</i>
                                                                 </a>
                                                                 <a class="btn-floating waves-effect waves-light btn-small"
