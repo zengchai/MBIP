@@ -28,9 +28,9 @@
                     <c:when test="${mode eq 'add'}">
                         <c:set var="action" value="/recycling/addRecyclingData" />
                         <div class="form">
-                            <form action="${action}" method="post">
+                            <form action="${action}" method="post" onsubmit="return validateForm()">
                                 <label for="weight">Weight of recycling material (kg):</label>
-                                <input type="text" id="weight" name="weight" required>
+                                <input type="text" id="weight" name="weight" required >
                         
                                 <label for="month">Month:</label>
                                 <select id="month" name="month" required>
@@ -57,7 +57,7 @@
                     <c:otherwise>
                         <c:set var="action" value="/recycling/editRecyclingData" />
                         <div class="form">
-                            <form action="${action}" method="post">
+                            <form action="${action}" method="post" onsubmit="return validateForm()">
                                 <label for="weight">Weight of recycling material (kg):</label>
                                 <input type="text" id="weight" name="weight" value="${param.weight}" required>
                                 <input type="hidden" id="month" name="month" value="${recycling.getMonth()}" required>
@@ -72,3 +72,16 @@
                       
 </body>
 </html>
+
+<script>
+    function validateForm() {
+        var weightInput = document.getElementById("weight").value;
+
+        if (isNaN(weightInput) || parseFloat(weightInput) < 0) {
+            alert("Please enter a valid number for the Recycling Material Weight.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+</script>

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import my.utm.ip.zebb.models.recycleData.Repository.RecyclingDTO;
+
 
 public class RecyclingRepository_JDBC implements RecyclingRepository {
 

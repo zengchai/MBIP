@@ -1,4 +1,4 @@
-package my.utm.ip.zebb.models.electricalData;
+package my.utm.ip.zebb.models.electricalData.Repository;
 
 import java.util.Arrays;
 

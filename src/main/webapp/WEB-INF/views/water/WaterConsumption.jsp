@@ -28,7 +28,7 @@
                     <c:when test="${mode eq 'add'}">
                         <c:set var="action" value="/water/addWaterData" />
                         <div class="form">
-                            <form action="${action}" method="post">
+                            <form action="${action}" method="post" onsubmit="return validateForm()">
                                 <label for="usage">Usage (m³):</label>
                                 <input type="text" id="waterusage" name="waterusage" required>
                                 
@@ -66,7 +66,7 @@
                     <c:otherwise>
                         <c:set var="action" value="/water/editWaterData" />
                         <div class="form">
-                            <form action="${action}" method="post">
+                            <form action="${action}" method="post" onsubmit="return validateForm()">
                                 <label for="usage">Usage (m³):</label>
                                 <input type="text" id="waterusage" name="waterusage" value="${param.waterusage}" required>
 
@@ -93,3 +93,39 @@
 
 </body>
 </html>
+
+<script>
+    function validateForm() {
+        var waterUsage = document.getElementById("waterusage").value;
+        var days = document.getElementById("days").value;
+        var proportionFactor = document.getElementById("proportion_factor").value;
+        var amount = document.getElementById("amount").value;
+
+        if (!isValidNonNegativeNumber(waterUsage)) {
+            alert("Please enter a valid number for Usage.");
+            return false; // Prevent form submission
+        }
+
+        if (!isValidNonNegativeNumber(days)) {
+            alert("Please enter a valid number for Days.");
+            return false; // Prevent form submission
+        }
+
+        if (!isValidNonNegativeNumber(proportionFactor)) {
+            alert("Please enter a valid number for Proportion Factor .");
+            return false; // Prevent form submission
+        }
+
+        if (!isValidNonNegativeNumber(amount)) {
+            alert("Please enter a valid number for Amount .");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+
+    function isValidNonNegativeNumber(value) {
+        return !isNaN(value) && parseFloat(value) >= 0;
+    }
+</script>
+

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
+import my.utm.ip.zebb.models.recycleData.Repository.RecyclingDAO;
 import my.utm.ip.zebb.models.user.User;
 import my.utm.ip.zebb.services.recycleData.RecyclingService;
 

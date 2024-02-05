@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import my.utm.ip.zebb.models.electricalData.Repository.ElectricalDTO;
+
 public class ElectricalRepository_JDBC implements ElectricalRepository {
 
     @Autowired

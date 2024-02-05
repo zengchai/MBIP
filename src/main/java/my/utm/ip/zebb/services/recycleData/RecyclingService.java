@@ -1,7 +1,8 @@
 package my.utm.ip.zebb.services.recycleData;
 
 import java.util.*;
-import my.utm.ip.zebb.models.recycleData.RecyclingDAO;
+
+import my.utm.ip.zebb.models.recycleData.Repository.RecyclingDAO;
 
 public interface RecyclingService {
 
